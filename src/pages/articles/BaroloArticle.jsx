@@ -1,0 +1,267 @@
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, Clock, Calendar, User, Tag, ArrowRight } from 'lucide-react';
+import WaitingListModal from '@/components/WaitingListModal';
+
+const BaroloArticle = () => {
+  const openWaitingList = () => {
+    window.dispatchEvent(new Event('open-waitlist-modal'));
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>Barolo: The King of Italian Wines | The Wine Trips</title>
+        <meta name="description" content="Explore the misty hills of Piedmont and discover why Barolo commands respect among wine collectors worldwide. A deep dive into Nebbiolo, Langhe terroir, the great producers, and how to visit Italy's most noble wine region." />
+        <meta name="keywords" content="barolo wine guide, king of italian wines, nebbiolo piedmont, langhe wine region, barolo vs barbaresco, visiting barolo italy, piemonte wine travel" />
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+        <link rel="canonical" href="https://thewinetrips.com/journal/barolo-king-italian-wines" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://thewinetrips.com/journal/barolo-king-italian-wines" />
+        <meta property="og:title" content="Barolo: The King of Italian Wines | The Wine Trips" />
+        <meta property="og:description" content="Explore the misty hills of Piedmont and discover why Barolo commands respect among wine collectors worldwide." />
+        <meta property="og:image" content="https://thewinetrips.com/wine-vineyard-hero.jpg" />
+        <meta property="og:site_name" content="THE WINE TRIPS" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://thewinetrips.com/journal/barolo-king-italian-wines" />
+        <meta property="twitter:title" content="Barolo: The King of Italian Wines | The Wine Trips" />
+        <meta property="twitter:description" content="Explore the misty hills of Piedmont and discover why Barolo commands respect among wine collectors worldwide." />
+        <meta property="twitter:image" content="https://thewinetrips.com/wine-vineyard-hero.jpg" />
+      </Helmet>
+
+      <div className="bg-[#f9f7f4] min-h-screen font-['Jost'] text-[#1a1f2e]">
+        
+        {/* Navigation Bar */}
+        <nav className="absolute top-0 left-0 w-full z-20 p-6">
+          <Link to="/journal" className="inline-flex items-center gap-2 text-white/80 hover:text-[#c9a96e] transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            <span className="uppercase tracking-widest text-xs font-bold">Back to Journal</span>
+          </Link>
+        </nav>
+
+        {/* Hero Section */}
+        <header className="relative h-[70vh] w-full overflow-hidden">
+          <div className="absolute inset-0">
+            <img 
+              src="https://images.unsplash.com/photo-1696636533515-c9f7fda368f2" 
+              alt="Misty hills of Barolo wine region" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#1a1f2e]/90"></div>
+          </div>
+          
+          <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl"
+            >
+              <span className="inline-block py-1 px-3 border border-[#c9a96e]/50 text-[#c9a96e] text-[10px] font-bold tracking-[0.2em] uppercase mb-6 bg-black/30 backdrop-blur-sm">
+                Wine Education
+              </span>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-['Cormorant_Garamond'] text-white leading-tight font-light mb-6">
+                Barolo:<br />The King of Italian Wines
+              </h1>
+            </motion.div>
+          </div>
+        </header>
+
+        {/* Article Content */}
+        <article className="max-w-[780px] mx-auto px-6 -mt-20 relative z-10">
+          
+          {/* Metadata Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="bg-white p-6 shadow-xl rounded-sm flex flex-wrap justify-between items-center gap-4 text-xs font-medium text-gray-500 uppercase tracking-wider border-t-4 border-[#c9a96e] mb-12"
+          >
+            <div className="flex items-center gap-2">
+              <Calendar className="w-4 h-4 text-[#c9a96e]" />
+              <span>September 28, 2023</span>
+            </div>
+            <div className="h-4 w-[1px] bg-gray-200 hidden sm:block"></div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-[#c9a96e]" />
+              <span>10 min read</span>
+            </div>
+            <div className="h-4 w-[1px] bg-gray-200 hidden sm:block"></div>
+            <div className="flex items-center gap-2">
+              <User className="w-4 h-4 text-[#c9a96e]" />
+              <span>The Wine Trips</span>
+            </div>
+          </motion.div>
+
+          {/* Body Text */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="prose prose-lg max-w-none font-light leading-relaxed text-[#1a1f2e]"
+          >
+            <p className="text-xl font-['Cormorant_Garamond'] italic text-gray-600 mb-8 border-l-2 border-[#c9a96e] pl-6 py-2">
+              "Il Re dei vini e il vino dei Re" — The King of Wines and the Wine of Kings.
+            </p>
+
+            <p className="mb-6">
+              In the rolling, mist-covered hills of Piedmont in northwest Italy lies a small appellation that has captured the imagination of wine lovers for centuries. Barolo is not just a wine; it is a study in patience, a reflection of a fierce terroir, and the ultimate expression of the Nebbiolo grape.
+            </p>
+
+            <p className="mb-6">
+              Like Burgundy, Barolo is a region of specific vineyards, crus, and distinct village characters. It demands attention and, historically, it demanded years of waiting. Today, while winemaking styles have evolved, the soul of Barolo remains unchanged: powerful, structured, and hauntingly aromatic.
+            </p>
+
+            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">The Noble Grape: Nebbiolo</h2>
+            <p className="mb-6">
+              The name <em>Nebbiolo</em> is thought to derive from <em>nebbia</em>, the Italian word for the thick fog that blankets the Langhe hills during the autumn harvest. It is a grape of paradoxes.
+            </p>
+            <p className="mb-6">
+              In the glass, it is deceptively pale, often resembling a light Pinot Noir or Grenache, turning a distinctive brick-orange hue as it ages. Yet on the palate, it delivers a massive structure of high acidity and formidable tannins.
+            </p>
+            <ul className="list-disc pl-5 space-y-2 mb-8 marker:text-[#c9a96e]">
+              <li><strong>Aromatics:</strong> Classic Barolo is famous for its scent of "tar and roses," accompanied by notes of sour cherry, dried herbs, truffle, and leather.</li>
+              <li><strong>Structure:</strong> The high tannins and acidity act as preservatives, allowing top examples to age for 30, 40, or even 50 years.</li>
+            </ul>
+
+            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">A Tale of Two Soils</h2>
+            <p className="mb-6">
+              The Barolo zone is roughly divided into two main soil types, which dramatically influence the style of the wine. Understanding this geography is key to understanding the bottle in front of you.
+            </p>
+
+            <h3 className="text-xl font-['Cormorant_Garamond'] text-[#c9a96e] uppercase tracking-widest mt-8 mb-4">Tortonian Soils (Blue Marl)</h3>
+            <p className="mb-4">
+              Found primarily in the communes of <strong>La Morra</strong> and <strong>Barolo</strong>. These soils are younger and more compact, producing wines that are generally more perfumed, elegant, and approachable in their youth.
+            </p>
+
+            <h3 className="text-xl font-['Cormorant_Garamond'] text-[#c9a96e] uppercase tracking-widest mt-8 mb-4">Helvetian Soils (Sandstone & Chalk)</h3>
+            <p className="mb-8">
+              Found in <strong>Serralunga d’Alba</strong>, <strong>Monforte d’Alba</strong>, and <strong>Castiglione Falletto</strong>. These ancient, poorer soils force the vines to struggle, yielding wines of immense power, structure, and longevity. These are the heavyweights of the region.
+            </p>
+
+            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">The War of the Roses</h2>
+            <p className="mb-6">
+              In the 1980s and 90s, the region was torn by the so-called "Barolo Wars." Traditionalists adhered to long macerations (leaving juice on skins for weeks) and aging in large, neutral Slavonian oak casks (<em>botti</em>). This produced wines that were tannic and austere, requiring decades to soften.
+            </p>
+            <p className="mb-6">
+              Modernists introduced shorter macerations, roto-fermenters, and small French oak barriques to soften the tannins and add vanilla spice, making the wines accessible much sooner.
+            </p>
+            <p className="mb-6">
+              Today, the war is largely over. Most producers have found a middle ground, using modern hygiene and vineyard management to produce clean, fault-free fruit, while returning to larger oak formats to respect the delicate floral aromatics of the Nebbiolo grape.
+            </p>
+
+            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">Visiting the Langhe</h2>
+            <p className="mb-6">
+              There is no landscape in the world quite like the Langhe. The fog weaves through medieval castles perched atop vine-covered ridges. The cuisine is as legendary as the wine: this is the home of the white truffle (<em>Tartufo Bianco d'Alba</em>), delicate <em>tajarin</em> pasta, and hazelnuts.
+            </p>
+            <p className="mb-8">
+              A visit here is less about hopping from tasting room to tasting room, and more about slow lunches that stretch into the afternoon, walking the steep crus of Cannubi or Brunate, and understanding why the locals save their best bottles not for special occasions, but for Sunday lunch with family.
+            </p>
+          </motion.div>
+
+          {/* CTA Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="my-16 border-2 border-[#c9a96e] p-8 md:p-12 text-center bg-white shadow-xl relative overflow-hidden"
+          >
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#c9a96e] to-transparent opacity-50"></div>
+            
+            <h3 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mb-4">Explore our Piemonte Experience</h3>
+            <p className="text-gray-600 mb-8 max-w-lg mx-auto leading-relaxed">
+              A seven-day immersion into the Langhe. Truffle hunting at dawn, private tastings with legendary producers in Barolo and Barbaresco, and accommodation in converted castles.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                to="/experiences"
+                className="px-8 py-3 bg-[#1a1f2e] text-white text-xs font-bold tracking-widest uppercase hover:bg-[#c9a96e] transition-colors duration-300"
+              >
+                View the Piemonte Itinerary
+              </Link>
+              <button 
+                onClick={openWaitingList}
+                className="px-8 py-3 border border-[#1a1f2e] text-[#1a1f2e] text-xs font-bold tracking-widest uppercase hover:bg-[#1a1f2e] hover:text-white transition-colors duration-300"
+              >
+                Join the Waiting List
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-3 mb-16 justify-center">
+            {['Barolo', 'Barbaresco', 'Nebbiolo', 'Piedmont', 'Langhe', 'Italian Wine', 'Wine Travel', 'Italy'].map((tag) => (
+              <span key={tag} className="flex items-center gap-1 px-3 py-1 bg-gray-100 text-[#c9a96e] text-[10px] font-bold tracking-widest uppercase hover:bg-[#c9a96e] hover:text-white transition-colors cursor-default">
+                <Tag className="w-3 h-3" />
+                {tag}
+              </span>
+            ))}
+          </div>
+
+        </article>
+
+        {/* Related Articles */}
+        <section className="bg-white py-20 px-6 border-t border-gray-100">
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-center text-2xl font-['Cormorant_Garamond'] text-[#1a1f2e] mb-12">
+              Related Articles
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Card 1 */}
+              <Link to="/journal/bordeaux-left-bank-masterclass-terroir" className="group bg-[#f9f7f4] rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                 <div className="aspect-[16/9] overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1657117735687-50cda95e80cc" 
+                      alt="Bordeaux vineyard landscape" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                 </div>
+                 <div className="p-8 flex-grow flex flex-col">
+                    <span className="text-[10px] text-[#c9a96e] font-bold tracking-widest uppercase mb-3">Region Guide</span>
+                    <h4 className="text-xl font-['Cormorant_Garamond'] text-[#1a1f2e] mb-3 leading-tight group-hover:text-[#c9a96e] transition-colors">
+                      Bordeaux's Left Bank: A Masterclass in Terroir
+                    </h4>
+                    <span className="mt-auto inline-flex items-center text-xs font-bold text-[#1a1f2e] uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                      Read More <ArrowRight className="w-3 h-3 ml-1" />
+                    </span>
+                 </div>
+              </Link>
+
+              {/* Card 2 */}
+              <Link to="/journal/mendoza-hidden-gems-beyond-malbec" className="group bg-[#f9f7f4] rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                 <div className="aspect-[16/9] overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1636318414118-0b8f285082fc" 
+                      alt="Mendoza vineyards" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                 </div>
+                 <div className="p-8 flex-grow flex flex-col">
+                    <span className="text-[10px] text-[#c9a96e] font-bold tracking-widest uppercase mb-3">Discovery</span>
+                    <h4 className="text-xl font-['Cormorant_Garamond'] text-[#1a1f2e] mb-3 leading-tight group-hover:text-[#c9a96e] transition-colors">
+                      Mendoza's Hidden Gems: Beyond the Malbec
+                    </h4>
+                    <span className="mt-auto inline-flex items-center text-xs font-bold text-[#1a1f2e] uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                      Read More <ArrowRight className="w-3 h-3 ml-1" />
+                    </span>
+                 </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <WaitingListModal />
+      </div>
+    </>
+  );
+};
+
+export default BaroloArticle;
