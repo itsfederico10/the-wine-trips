@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useToast } from '@/components/ui/use-toast';
 import { ShieldCheck, Users, Mail, Loader2 } from 'lucide-react';
 import { supabase } from '@/lib/customSupabaseClient';
 
 const ContactPage = () => {
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -141,13 +143,13 @@ const ContactPage = () => {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-16">
             <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-4 font-sans">
-              Limited Availability
+              {t('contact.eyebrow')}
             </span>
             <h1 className="text-3xl md:text-5xl font-serif text-white mb-6 leading-tight">
-              The Waiting List
+              {t('contact.title')}
             </h1>
             <p className="text-base md:text-lg font-light text-white/80 max-w-xl mx-auto leading-relaxed font-sans">
-              Our journeys are intimate by design. Join the list to secure priority access to upcoming allocations.
+              {t('contact.subtitle')}
             </p>
           </motion.div>
         </section>
@@ -158,23 +160,23 @@ const ContactPage = () => {
           {/* Left Column: Contact Form */}
           <div className="w-full lg:w-1/2 p-6 md:p-12 lg:p-20 border-b lg:border-b-0 lg:border-r border-gray-100 flex items-center justify-center bg-white">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="w-full max-w-xl">
-              <h2 className="text-2xl font-serif text-gray-900 mb-8 text-center lg:text-left">Request Access</h2>
-              
+              <h2 className="text-2xl font-serif text-gray-900 mb-8 text-center lg:text-left">{t('contact.requestAccess')}</h2>
+
               <form onSubmit={handleSubmit} className="space-y-8 font-sans">
                 {/* 1. Full Name */}
                 <div className="group">
                   <label htmlFor="fullName" className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 font-sans">
-                    Full Name
+                    {t('contact.fullName')}
                   </label>
-                  <input 
-                    type="text" 
-                    id="fullName" 
-                    name="fullName" 
-                    value={formData.fullName} 
-                    onChange={handleChange} 
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
                     disabled={isSubmitting}
-                    className="w-full px-0 py-2 bg-transparent border-b border-gray-200 focus:border-[#c9a96e] transition-colors text-gray-900 text-lg placeholder-gray-300 focus:outline-none font-sans disabled:opacity-50 disabled:bg-gray-50" 
-                    placeholder="Enter your full name" 
+                    className="w-full px-0 py-2 bg-transparent border-b border-gray-200 focus:border-[#c9a96e] transition-colors text-gray-900 text-lg placeholder-gray-300 focus:outline-none font-sans disabled:opacity-50 disabled:bg-gray-50"
+                    placeholder={t('contact.fullNamePlaceholder')}
                   />
                   {errors.fullName && <p className="mt-2 text-xs text-red-500">{errors.fullName}</p>}
                 </div>
@@ -182,17 +184,17 @@ const ContactPage = () => {
                 {/* 2. Email Address */}
                 <div>
                   <label htmlFor="email" className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 font-sans">
-                    Email Address
+                    {t('contact.email')}
                   </label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    value={formData.email} 
-                    onChange={handleChange} 
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     disabled={isSubmitting}
-                    className="w-full px-0 py-2 bg-transparent border-b border-gray-200 focus:border-[#c9a96e] transition-colors text-gray-900 text-lg placeholder-gray-300 focus:outline-none font-sans disabled:opacity-50 disabled:bg-gray-50" 
-                    placeholder="name@example.com" 
+                    className="w-full px-0 py-2 bg-transparent border-b border-gray-200 focus:border-[#c9a96e] transition-colors text-gray-900 text-lg placeholder-gray-300 focus:outline-none font-sans disabled:opacity-50 disabled:bg-gray-50"
+                    placeholder={t('contact.emailPlaceholder')}
                   />
                   {errors.email && <p className="mt-2 text-xs text-red-500">{errors.email}</p>}
                 </div>
@@ -200,17 +202,17 @@ const ContactPage = () => {
                 {/* 3. Country */}
                 <div className="group">
                   <label htmlFor="country" className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 font-sans">
-                    Country of Residence
+                    {t('contact.country')}
                   </label>
-                  <input 
-                    type="text" 
-                    id="country" 
-                    name="country" 
-                    value={formData.country} 
-                    onChange={handleChange} 
+                  <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    value={formData.country}
+                    onChange={handleChange}
                     disabled={isSubmitting}
-                    className="w-full px-0 py-2 bg-transparent border-b border-gray-200 focus:border-[#c9a96e] transition-colors text-gray-900 text-lg placeholder-gray-300 focus:outline-none font-sans disabled:opacity-50 disabled:bg-gray-50" 
-                    placeholder="Enter your country" 
+                    className="w-full px-0 py-2 bg-transparent border-b border-gray-200 focus:border-[#c9a96e] transition-colors text-gray-900 text-lg placeholder-gray-300 focus:outline-none font-sans disabled:opacity-50 disabled:bg-gray-50"
+                    placeholder={t('contact.countryPlaceholder')}
                   />
                   {errors.country && <p className="mt-2 text-xs text-red-500">{errors.country}</p>}
                 </div>
@@ -218,17 +220,17 @@ const ContactPage = () => {
                 {/* 4. Experience Interest */}
                 <div>
                   <label htmlFor="experience" className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 font-sans">
-                    Experience Interest
+                    {t('contact.experience')}
                   </label>
-                  <select 
-                    id="experience" 
-                    name="experience" 
-                    value={formData.experience} 
-                    onChange={handleChange} 
+                  <select
+                    id="experience"
+                    name="experience"
+                    value={formData.experience}
+                    onChange={handleChange}
                     disabled={isSubmitting}
                     className="w-full px-0 py-2 bg-transparent border-b border-gray-200 focus:border-[#c9a96e] transition-colors text-gray-900 text-lg focus:outline-none cursor-pointer font-sans disabled:opacity-50 disabled:bg-gray-50"
                   >
-                    <option value="" className="text-gray-400">Select an experience</option>
+                    <option value="" className="text-gray-400">{t('contact.experiencePlaceholder')}</option>
                     {experienceOptions.map(exp => <option key={exp} value={exp}>
                         {exp}
                       </option>)}
@@ -239,17 +241,17 @@ const ContactPage = () => {
                 {/* 5. Instagram Handle (Optional) */}
                 <div>
                   <label htmlFor="instagram" className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 font-sans">
-                    Instagram (Optional)
+                    {t('contact.instagram')}
                   </label>
-                  <input 
-                    type="text" 
-                    id="instagram" 
-                    name="instagram" 
-                    value={formData.instagram} 
-                    onChange={handleChange} 
+                  <input
+                    type="text"
+                    id="instagram"
+                    name="instagram"
+                    value={formData.instagram}
+                    onChange={handleChange}
                     disabled={isSubmitting}
-                    className="w-full px-0 py-2 bg-transparent border-b border-gray-200 focus:border-[#c9a96e] transition-colors text-gray-900 text-lg placeholder-gray-300 focus:outline-none font-sans disabled:opacity-50 disabled:bg-gray-50" 
-                    placeholder="@username" 
+                    className="w-full px-0 py-2 bg-transparent border-b border-gray-200 focus:border-[#c9a96e] transition-colors text-gray-900 text-lg placeholder-gray-300 focus:outline-none font-sans disabled:opacity-50 disabled:bg-gray-50"
+                    placeholder={t('contact.instagramPlaceholder')}
                   />
                 </div>
 
@@ -262,16 +264,16 @@ const ContactPage = () => {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      Sending Request...
+                      {t('contact.submitting')}
                     </>
                   ) : (
-                    'Join Waiting List'
+                    t('contact.submit')
                   )}
                 </button>
 
                 {/* Disclaimer Text */}
                 <p className="text-[10px] text-gray-400 text-center mt-4 leading-tight font-light max-w-md mx-auto">
-                  I agree to receive email updates from TheWineTrips and consent to the processing of my personal data in accordance with the privacy policy.
+                  {t('waitlist.consent')}
                 </p>
               </form>
 
@@ -279,15 +281,15 @@ const ContactPage = () => {
               <div className="mt-10 pt-8 border-t border-gray-100 flex flex-col sm:flex-row flex-wrap justify-center gap-6 font-sans">
                 <div className="flex items-center gap-2 text-xs text-gray-500 font-light">
                   <ShieldCheck className="w-4 h-4 text-[#c9a96e]" />
-                  <span>No spam, ever</span>
+                  <span>{t('contact.noSpam')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-gray-500 font-light">
                   <Users className="w-4 h-4 text-[#c9a96e]" />
-                  <span>Max 8 guests</span>
+                  <span>{t('contact.maxGuests')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-gray-500 font-light">
                   <Mail className="w-4 h-4 text-[#c9a96e]" />
-                  <span>Priority access</span>
+                  <span>{t('contact.priority')}</span>
                 </div>
               </div>
             </motion.div>
@@ -298,11 +300,11 @@ const ContactPage = () => {
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="w-full max-w-xl h-full flex flex-col">
               <div className="text-center mb-10">
                 <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-4 font-sans">
-                  Direct Contact
+                  {t('contact.directContact')}
                 </span>
-                <h2 className="text-3xl font-serif text-gray-900 mb-4">Meet Our Experts</h2>
+                <h2 className="text-3xl font-serif text-gray-900 mb-4">{t('contact.meetExperts')}</h2>
                 <p className="text-gray-500 font-light text-sm max-w-md mx-auto">
-                  Prefer to speak with someone? Schedule a complimentary consultation to discuss your specific requirements.
+                  {t('contact.meetExpertsSub')}
                 </p>
               </div>
               

@@ -80,7 +80,7 @@ const JournalPage = () => {
       date: "Jan 15, 2024",
       readTime: "10 min read",
       category: "Wine Education",
-      link: "/journal/rioja-vs-ribiera-del-duero-spanish-wine-rivalry"
+      link: "/journal/rioja-vs-ribera-del-duero-spanish-wine-rivalry"
     },
     {
       id: 6,

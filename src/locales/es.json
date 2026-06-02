@@ -1,0 +1,172 @@
+{
+  "nav": {
+    "experiences": "Experiencias",
+    "about": "Nosotros",
+    "journal": "Journal",
+    "contact": "Contacto"
+  },
+  "cta": {
+    "joinWaitlist": "Sumate a la lista",
+    "talkToExpert": "Hablá con un experto",
+    "ourExperiences": "Nuestras Experiencias",
+    "downloadItinerary": "Descargá el itinerario",
+    "requestConsultation": "Solicitar Consulta",
+    "priceOnRequest": "Precio a consultar",
+    "joinTheList": "Sumate a la lista",
+    "reserve": "Reservar",
+    "collaborate": "Colaborá con Nosotros",
+    "viewTrip": "Ver el viaje"
+  },
+  "consent": {
+    "text": "Usamos cookies para mejorar tu experiencia y medir nuestro tráfico. Podés aceptar o rechazar.",
+    "accept": "Aceptar",
+    "decline": "Rechazar"
+  },
+  "footer": {
+    "privacy": "Política de Privacidad",
+    "terms": "Términos del Servicio",
+    "contact": "Contacto",
+    "rights": "Todos los derechos reservados.",
+    "backing": "Los viajes son operados por Blisniuk & Amanov, agencia de viajes registrada en Argentina (Legajo EVyT N.º 20943)."
+  },
+  "whatsapp": {
+    "label": "WhatsApp",
+    "defaultMessage": "Hola! Me gustaría recibir información sobre los viajes de The Wine Trips.",
+    "experienceMessage": "Hola! Me interesa el viaje a {{region}}. ¿Me cuentan más?",
+    "tripMessage": "Hola! Me interesa el viaje a {{region}} ({{dates}}). ¿Me cuentan más?"
+  },
+  "waitlist": {
+    "title": "Sumate a la Lista de Espera",
+    "eyebrow": "Sé el primero en conocer experiencias de vino exclusivas",
+    "body": "Estamos curando cupos extremadamente limitados para nuestros viajes de vino más exclusivos. Sumate a la lista de espera para enterarte de los lanzamientos en tus regiones preferidas.",
+    "placeholder": "Ingresá tu dirección de email",
+    "submit": "Sumate a la lista",
+    "submitting": "Sumando...",
+    "consent": "Acepto recibir novedades por email de TheWineTrips y consiento el tratamiento de mis datos personales de acuerdo con la política de privacidad. Puedo darme de baja en cualquier momento.",
+    "successTitle": "Bienvenido al Círculo Íntimo",
+    "successBody": "Te sumamos a nuestra lista prioritaria.",
+    "invalidTitle": "Email inválido",
+    "invalidBody": "Por favor ingresá una dirección de email válida.",
+    "errorTitle": "Error",
+    "errorBody": "Algo salió mal. Escribinos a info@thewinetrips.com"
+  },
+  "itinerary": {
+    "title": "Descargá el itinerario",
+    "subtitle": "Verificá tu email y te enviamos el itinerario completo día por día.",
+    "name": "Nombre completo",
+    "namePlaceholder": "Ingresá tu nombre completo",
+    "email": "Dirección de email",
+    "emailPlaceholder": "nombre@ejemplo.com",
+    "consent": "Acepto recibir novedades por email de TheWineTrips y consiento el tratamiento de mis datos personales de acuerdo con la política de privacidad.",
+    "sendCode": "Enviarme el código",
+    "sending": "Enviando...",
+    "verifyTitle": "Ingresá el código",
+    "verifySubtitle": "Enviamos un código de 6 dígitos a {{email}}. Ingresalo abajo para desbloquear tu itinerario.",
+    "verify": "Verificar y descargar",
+    "verifying": "Verificando...",
+    "resend": "¿No te llegó? Usar otro email",
+    "downloadFallback": "Descargar itinerario",
+    "successTitle": "Email verificado",
+    "successBody": "Tu itinerario se está descargando.",
+    "fallbackTitle": "Revisá tu bandeja de entrada",
+    "fallbackBody": "Te enviamos un email. Mientras tanto, acá tenés tu itinerario.",
+    "invalidEmail": "Por favor ingresá un nombre y un email válidos.",
+    "invalidCode": "Por favor ingresá el código de 6 dígitos que te enviamos.",
+    "errorTitle": "Algo salió mal",
+    "errorBody": "Probá de nuevo o escribinos a info@thewinetrips.com"
+  },
+  "home": {
+    "tagline": "El sabor de lo inolvidable",
+    "whatSetsApart": "Lo Que Nos Distingue",
+    "diff": {
+      "access": {
+        "title": "Acceso Privilegiado",
+        "description": "Acceso directo a través de nuestros socios locales y un operador de viajes registrado, abriendo puertas difíciles de alcanzar por cuenta propia."
+      },
+      "groups": {
+        "title": "Grupos Reducidos",
+        "description": "Limitados a 4-8 huéspedes para garantizar una inmersión genuina, catas íntimas y nada de multitudes."
+      },
+      "curation": {
+        "title": "Curaduría Cuidada",
+        "description": "Itinerarios equilibrados con maestría, con denominaciones legendarias junto a joyas locales escondidas."
+      },
+      "execution": {
+        "title": "Ejecución Impecable",
+        "description": "Desde hoteles boutique de lujo hasta mesas con estrella Michelin, cada detalle se maneja con precisión."
+      },
+      "culture": {
+        "title": "Integración Cultural",
+        "description": "El gran vino merece contexto. Viví el arte, la historia y la gastronomía de la región de forma holística."
+      },
+      "guidance": {
+        "title": "Liderado por sus Fundadores",
+        "description": "Liderado por sus fundadores junto a sommeliers locales de confianza y conocedores de las bodegas que comparten su saber y su pasión por el terroir."
+      }
+    },
+    "process": "Nuestro Proceso",
+    "processSub": "De la consulta a la partida",
+    "beginJourney": "Comenzá tu Viaje",
+    "forTravelers": "Para Viajeros",
+    "forPartners": "Para Socios",
+    "backingEyebrow": "Respaldo y Seguridad",
+    "backingTitle": "Una operación en la que podés confiar",
+    "backingBody": "Los viajes de The Wine Trips son operados por Blisniuk & Amanov, agencia de viajes registrada en Argentina (Legajo EVyT N.º 20943). Grupos reducidos, contacto humano directo y un operador licenciado detrás de cada reserva."
+  },
+  "experiences": {
+    "title": "Colecciones Curadas",
+    "subtitle": "Descubrí viajes meticulosamente curados a las regiones vitivinícolas más célebres del mundo. Cada experiencia ofrece acceso exclusivo, guía experta y momentos inolvidables.",
+    "downloadItinerary": "Descargá el itinerario",
+    "upcoming": "Próximo viaje",
+    "elsewhereTitle": "¿Querés Viajar a Otro Lugar?",
+    "elsewhereSub": "Estamos disponibles para conversar requerimientos a medida para grupos privados y retiros corporativos."
+  },
+  "contact": {
+    "eyebrow": "Disponibilidad Limitada",
+    "title": "La Lista de Espera",
+    "subtitle": "Nuestros viajes son íntimos por diseño. Sumate a la lista para asegurar acceso prioritario a los próximos cupos.",
+    "requestAccess": "Solicitar Acceso",
+    "fullName": "Nombre Completo",
+    "fullNamePlaceholder": "Ingresá tu nombre completo",
+    "email": "Dirección de Email",
+    "emailPlaceholder": "nombre@ejemplo.com",
+    "country": "País de Residencia",
+    "countryPlaceholder": "Ingresá tu país",
+    "experience": "Experiencia de Interés",
+    "experiencePlaceholder": "Elegí una experiencia",
+    "instagram": "Instagram (Opcional)",
+    "instagramPlaceholder": "@usuario",
+    "submit": "Sumate a la lista",
+    "submitting": "Enviando Solicitud...",
+    "noSpam": "Nada de spam, nunca",
+    "maxGuests": "Máx. 8 huéspedes",
+    "priority": "Acceso prioritario",
+    "directContact": "Contacto Directo",
+    "meetExperts": "Conocé a Nuestros Expertos",
+    "meetExpertsSub": "¿Preferís hablar con alguien? Agendá una consulta sin cargo para conversar tus requerimientos específicos."
+  },
+  "trip": {
+    "breadcrumbHome": "Experiencias",
+    "intro": "El viaje",
+    "pillars": "Por qué este viaje",
+    "itinerary": "Día por día",
+    "lodging": "Dónde te alojás",
+    "includesTitle": "Lo que incluye",
+    "excludesTitle": "Lo que no incluye",
+    "alsoLike": "También podría interesarte",
+    "day": "Día",
+    "meals": "Comidas",
+    "lodgingLabel": "Alojamiento",
+    "ctaTitle": "¿Listo para vivirlo?",
+    "ctaBody": "Contanos un poco sobre tu grupo y te guiamos por cada detalle.",
+    "stats": {
+      "duration": "DURACIÓN",
+      "tripType": "TIPO DE VIAJE",
+      "departure": "SALIDA",
+      "investment": "INVERSIÓN",
+      "onRequest": "A consultar"
+    },
+    "comingSoonTitle": "Este viaje está por llegar",
+    "comingSoonBody": "Estamos terminando de definir los detalles de este viaje. Sumate a la lista y vas a ser el primero en enterarte cuando abra."
+  }
+}

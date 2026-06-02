@@ -1,0 +1,172 @@
+{
+  "nav": {
+    "experiences": "Experiences",
+    "about": "About Us",
+    "journal": "Journal",
+    "contact": "Contact"
+  },
+  "cta": {
+    "joinWaitlist": "Join Waiting List",
+    "talkToExpert": "Chat with an expert",
+    "ourExperiences": "Our Experiences",
+    "downloadItinerary": "Download itinerary",
+    "requestConsultation": "Request Consultation",
+    "priceOnRequest": "Price on request",
+    "joinTheList": "Join the list",
+    "reserve": "Reserve",
+    "collaborate": "Collaborate with Us",
+    "viewTrip": "View the trip"
+  },
+  "consent": {
+    "text": "We use cookies to improve your experience and measure our traffic. You can accept or decline.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "backing": "Trips are operated by Blisniuk & Amanov, a registered travel agency in Argentina (EVyT File No. 20943)."
+  },
+  "whatsapp": {
+    "label": "WhatsApp",
+    "defaultMessage": "Hi! I'd love to receive information about The Wine Trips journeys.",
+    "experienceMessage": "Hi! I'm interested in the {{region}} trip. Could you tell me more?",
+    "tripMessage": "Hi! I'm interested in the {{region}} trip ({{dates}}). Could you tell me more?"
+  },
+  "waitlist": {
+    "title": "Join Our Waiting List",
+    "eyebrow": "Be first to know about exclusive wine experiences",
+    "body": "We're curating extremely limited vacancies for our most exclusive wine journeys. Join our waiting list to be notified of launches in your preferred regions.",
+    "placeholder": "Enter your email address",
+    "submit": "Join Waiting List",
+    "submitting": "Joining...",
+    "consent": "I agree to receive email updates from TheWineTrips and consent to the processing of my personal data in accordance with the privacy policy. I can unsubscribe at any time.",
+    "successTitle": "Welcome to the Inner Circle",
+    "successBody": "We've added you to our priority list.",
+    "invalidTitle": "Invalid Email",
+    "invalidBody": "Please enter a valid email address.",
+    "errorTitle": "Error",
+    "errorBody": "Something went wrong. Please email us at info@thewinetrips.com"
+  },
+  "itinerary": {
+    "title": "Download the itinerary",
+    "subtitle": "Verify your email and we'll send you the full day-by-day itinerary.",
+    "name": "Full name",
+    "namePlaceholder": "Enter your full name",
+    "email": "Email address",
+    "emailPlaceholder": "name@example.com",
+    "consent": "I agree to receive email updates from TheWineTrips and consent to the processing of my personal data in accordance with the privacy policy.",
+    "sendCode": "Send me the code",
+    "sending": "Sending...",
+    "verifyTitle": "Enter the code",
+    "verifySubtitle": "We sent a 6-digit code to {{email}}. Enter it below to unlock your itinerary.",
+    "verify": "Verify & download",
+    "verifying": "Verifying...",
+    "resend": "Didn't get it? Use a different email",
+    "downloadFallback": "Download itinerary",
+    "successTitle": "Email verified",
+    "successBody": "Your itinerary is downloading now.",
+    "fallbackTitle": "Check your inbox",
+    "fallbackBody": "We've emailed you. Here is your itinerary in the meantime.",
+    "invalidEmail": "Please enter a valid name and email address.",
+    "invalidCode": "Please enter the 6-digit code we emailed you.",
+    "errorTitle": "Something went wrong",
+    "errorBody": "Please try again or email us at info@thewinetrips.com"
+  },
+  "home": {
+    "tagline": "The taste of the unforgettable",
+    "whatSetsApart": "What Sets Us Apart",
+    "diff": {
+      "access": {
+        "title": "Insider Access",
+        "description": "Direct access through our local partners and a registered travel operator, opening doors that are hard to reach on your own."
+      },
+      "groups": {
+        "title": "Small Groups",
+        "description": "Limited to 4-8 guests to ensure genuine immersion, intimate tastings, and no crowds."
+      },
+      "curation": {
+        "title": "Thoughtful Curation",
+        "description": "Expertly balanced itineraries featuring legendary appellations alongside hidden local gems."
+      },
+      "execution": {
+        "title": "Seamless Execution",
+        "description": "From boutique luxury hotels to Michelin-starred dining, every detail is handled with precision."
+      },
+      "culture": {
+        "title": "Cultural Integration",
+        "description": "Great wine deserves context. Experience the region's art, history, and gastronomy holistically."
+      },
+      "guidance": {
+        "title": "Founder-Led",
+        "description": "Led by founders alongside trusted local sommeliers and estate insiders who share their knowledge and passion for the terroir."
+      }
+    },
+    "process": "Our Signature Process",
+    "processSub": "From inquiry to departure",
+    "beginJourney": "Begin Your Journey",
+    "forTravelers": "For Travelers",
+    "forPartners": "For Partners",
+    "backingEyebrow": "Trust & Security",
+    "backingTitle": "An operation you can trust",
+    "backingBody": "The Wine Trips journeys are operated by Blisniuk & Amanov, a travel agency registered in Argentina (EVyT File No. 20943). Small groups, direct human contact, and a licensed operator behind every booking."
+  },
+  "experiences": {
+    "title": "Curated Collections",
+    "subtitle": "Discover meticulously curated journeys to the world's most celebrated wine regions. Each experience offers exclusive access, expert guidance, and unforgettable moments.",
+    "downloadItinerary": "Download itinerary",
+    "upcoming": "Upcoming trip",
+    "elsewhereTitle": "Want to Travel Elsewhere?",
+    "elsewhereSub": "We are available to discuss custom requirements for private groups and corporate retreats."
+  },
+  "contact": {
+    "eyebrow": "Limited Availability",
+    "title": "The Waiting List",
+    "subtitle": "Our journeys are intimate by design. Join the list to secure priority access to upcoming allocations.",
+    "requestAccess": "Request Access",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "email": "Email Address",
+    "emailPlaceholder": "name@example.com",
+    "country": "Country of Residence",
+    "countryPlaceholder": "Enter your country",
+    "experience": "Experience Interest",
+    "experiencePlaceholder": "Select an experience",
+    "instagram": "Instagram (Optional)",
+    "instagramPlaceholder": "@username",
+    "submit": "Join Waiting List",
+    "submitting": "Sending Request...",
+    "noSpam": "No spam, ever",
+    "maxGuests": "Max 8 guests",
+    "priority": "Priority access",
+    "directContact": "Direct Contact",
+    "meetExperts": "Meet Our Experts",
+    "meetExpertsSub": "Prefer to speak with someone? Schedule a complimentary consultation to discuss your specific requirements."
+  },
+  "trip": {
+    "breadcrumbHome": "Experiences",
+    "intro": "The journey",
+    "pillars": "Why this trip",
+    "itinerary": "Day by day",
+    "lodging": "Where you'll stay",
+    "includesTitle": "What's included",
+    "excludesTitle": "What's not included",
+    "alsoLike": "You might also like",
+    "day": "Day",
+    "meals": "Meals",
+    "lodgingLabel": "Lodging",
+    "ctaTitle": "Ready to taste it?",
+    "ctaBody": "Tell us a little about your group and we'll walk you through every detail.",
+    "stats": {
+      "duration": "DURATION",
+      "tripType": "TRIP TYPE",
+      "departure": "DEPARTURE",
+      "investment": "INVESTMENT",
+      "onRequest": "On request"
+    },
+    "comingSoonTitle": "This trip is coming soon",
+    "comingSoonBody": "We're finalising the details of this journey. Join the list and you'll be the first to know when it opens."
+  }
+}

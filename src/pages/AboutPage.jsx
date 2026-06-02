@@ -5,10 +5,12 @@ import { Instagram, Loader2 } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/lib/customSupabaseClient';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { toast } = useToast();
+  const { t } = useTranslation();
   const location = useLocation();
   
   // Partner Form State
@@ -207,8 +209,11 @@ const AboutPage = () => {
           <div className="max-w-4xl mx-auto px-6 text-center">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <h2 className="text-2xl md:text-3xl font-serif text-gray-900 mb-8 leading-relaxed italic">"The Wine Trips was created to serve a specific purpose: bring people closer to wine through enriching experiences while supporting wine producers."</h2>
-              <p className="text-gray-600 font-light leading-relaxed mb-12 max-w-2xl mx-auto font-sans">
-                We are not a travel agency. We are curators of rare moments. Our journeys are crafted for those who seek to go beyond the tasting room and into the heart of the terroir.
+              <p className="text-gray-600 font-light leading-relaxed mb-8 max-w-2xl mx-auto font-sans">
+                We are curators of rare moments. Our journeys are crafted for those who seek to go beyond the tasting room and into the heart of the terroir. Founded by Federico and run in partnership with Brian, every trip is delivered with a licensed operator behind it.
+              </p>
+              <p className="text-[11px] text-gray-500 font-light tracking-wide max-w-xl mx-auto mb-12 font-sans">
+                {t('footer.backing')}
               </p>
               <div className="w-16 h-[1px] bg-[#c9a96e] mx-auto" />
             </motion.div>

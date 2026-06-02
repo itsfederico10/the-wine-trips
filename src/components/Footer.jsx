@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Twitter } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-24">
@@ -18,19 +20,19 @@ const Footer = () => {
               to="/privacy-policy"
               className="text-xs font-light text-gray-500 hover:text-gray-900 transition-colors tracking-wide"
             >
-              Privacy Policy
+              {t('footer.privacy')}
             </Link>
             <Link
               to="/terms-of-service"
               className="text-xs font-light text-gray-500 hover:text-gray-900 transition-colors tracking-wide"
             >
-              Terms of Service
+              {t('footer.terms')}
             </Link>
             <Link
               to="/contact"
               className="text-xs font-light text-gray-500 hover:text-gray-900 transition-colors tracking-wide"
             >
-              Contact
+              {t('footer.contact')}
             </Link>
           </div>
 
@@ -66,10 +68,13 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-16 pt-8 border-t border-gray-50 text-center md:text-left">
+        {/* Trust backing + Copyright */}
+        <div className="mt-16 pt-8 border-t border-gray-50 text-center md:text-left space-y-3">
+          <p className="text-[11px] text-gray-500 font-light tracking-wide max-w-2xl">
+            {t('footer.backing')}
+          </p>
           <p className="text-[10px] text-gray-400 font-light tracking-wide">
-            © {new Date().getFullYear()} The Wine Trips. All rights reserved.
+            © {new Date().getFullYear()} The Wine Trips. {t('footer.rights')}
           </p>
         </div>
       </div>

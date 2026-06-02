@@ -14,7 +14,7 @@ const BestTimeToVisitArticle = () => {
     <>
       <Helmet>
         <title>The Best Time to Visit Europe's Wine Regions | The Wine Trips</title>
-        <meta name="description" content="Discover the best times to visit Bordeaux, Tuscany, Piedmont, Ribiera del Duero, and other great European wine regions — by season, harvest, and what each time of year reveals that the others cannot." />
+        <meta name="description" content="Discover the best times to visit Bordeaux, Tuscany, Piedmont, Ribera del Duero, and other great European wine regions — by season, harvest, and what each time of year reveals that the others cannot." />
         <meta name="keywords" content="best time to visit bordeaux, when to visit tuscany, wine harvest europe, best season for wine travel, visiting wine regions europe, wine tourism seasons, europe wine trip planning" />
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
       </Helmet>
@@ -149,7 +149,7 @@ const BestTimeToVisitArticle = () => {
               If you love food, there is no better time to be in Europe than Piedmont in late October or November. The Nebbiolo harvest for Barolo often extends into late October. The famous Alba White Truffle Fair is in full swing. The fog (<em>nebbia</em>) rolls into the valleys, creating the mystic atmosphere that gives the Nebbiolo grape its name.
             </p>
 
-            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">Ribiera del Duero: When to Visit and Why</h2>
+            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">Ribera del Duero: When to Visit and Why</h2>
             <p className="mb-6">
               Ribera del Duero sits on a high plateau in Spain. It has a continental climate of extremes: freezing winters and roasting summers.
             </p>
@@ -217,7 +217,7 @@ const BestTimeToVisitArticle = () => {
 
           {/* Tags */}
           <div className="flex flex-wrap gap-3 mb-16 justify-center">
-            {['Wine Travel Planning', 'Harvest Season', 'Bordeaux', 'Tuscany', 'Piedmont', 'Ribiera del Duero', 'Europe', 'When to Visit'].map((tag) => (
+            {['Wine Travel Planning', 'Harvest Season', 'Bordeaux', 'Tuscany', 'Piedmont', 'Ribera del Duero', 'Europe', 'When to Visit'].map((tag) => (
               <span key={tag} className="flex items-center gap-1 px-3 py-1 bg-gray-100 text-[#c9a96e] text-[10px] font-bold tracking-widest uppercase hover:bg-[#c9a96e] hover:text-white transition-colors cursor-default">
                 <Tag className="w-3 h-3" />
                 {tag}

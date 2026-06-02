@@ -8,31 +8,36 @@ const slides = [
     id: 'bordeaux',
     title: 'Where Legends Are Bottled',
     subtitle: 'Bordeaux, France',
-    image: '/images/6e7ac65143eb04d13fa541251cefc917.webp'
+    image: '/images/6e7ac65143eb04d13fa541251cefc917.webp',
+    to: '/experiences/bordeaux'
   },
   {
     id: 'toscana',
     title: 'Between Cypress Trees & Ancient Cellars',
     subtitle: 'Toscana, Italy',
-    image: '/images/7b385dec483db559f6ede32c163e47e7.webp'
+    image: '/images/7b385dec483db559f6ede32c163e47e7.webp',
+    to: '/experiences/toscana'
   },
   {
     id: 'mendoza',
     title: 'Malbec at the Foot of the Andes',
     subtitle: 'Mendoza, Argentina',
-    image: '/images/7dbbafdc335bd67dfbd883f761481c69.webp'
+    image: '/images/7dbbafdc335bd67dfbd883f761481c69.webp',
+    to: '/experiences/mendoza'
   },
   {
     id: 'ribera',
     title: 'The Hidden Soul of Spanish Wine',
     subtitle: 'Ribera del Duero, Spain',
-    image: 'https://images.unsplash.com/photo-1539199971029-03b7f12e68fe'
+    image: '/images/53490d75f77d93ebfd62b50cb3e9ea40.webp',
+    to: '/experiences/ribera-del-duero'
   },
   {
     id: 'piemonte',
     title: 'The Burgundy of Italy',
     subtitle: 'Piemonte, Italy',
-    image: 'https://images.unsplash.com/photo-1605453288370-075af5856953'
+    image: '/images/707a534ce9f8c1d70d5274195c58ee36.webp',
+    to: '/experiences/piedmont'
   }
 ];
 
@@ -95,7 +100,7 @@ const DestinationSlider = () => {
                 transition={{ delay: 0.7, duration: 0.8 }}
               >
                 <Link
-                  to="/experiences"
+                  to={slides[current].to}
                   className="inline-flex items-center gap-2 px-8 py-3 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300"
                 >
                   Explore <ArrowRight className="w-4 h-4" />

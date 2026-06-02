@@ -13,25 +13,25 @@ const RiberaRiojaArticle = () => {
   return (
     <>
       <Helmet>
-        <title>Ribiera del Duero vs Rioja: Which Wine Region Should You Visit? | The Wine Trips</title>
-        <meta name="description" content="Torn between Ribiera del Duero and Rioja? We compare Spain's two greatest red wine regions across terroir, grape varieties, winemaking style, and visitor experience to help you decide which belongs on your itinerary." />
+        <title>Ribera del Duero vs Rioja: Which Wine Region Should You Visit? | The Wine Trips</title>
+        <meta name="description" content="Torn between Ribera del Duero and Rioja? We compare Spain's two greatest red wine regions across terroir, grape varieties, winemaking style, and visitor experience to help you decide which belongs on your itinerary." />
         <meta name="keywords" content="ribiera del duero vs rioja, spain wine regions comparison, tempranillo wine guide, visiting ribiera del duero, visiting rioja, spanish wine travel, best wine regions spain" />
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-        <link rel="canonical" href="https://thewinetrips.com/journal/rioja-vs-ribiera-del-duero-spanish-wine-rivalry" />
+        <link rel="canonical" href="https://thewinetrips.com/journal/rioja-vs-ribera-del-duero-spanish-wine-rivalry" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://thewinetrips.com/journal/rioja-vs-ribiera-del-duero-spanish-wine-rivalry" />
-        <meta property="og:title" content="Ribiera del Duero vs Rioja: Which Wine Region Should You Visit? | The Wine Trips" />
-        <meta property="og:description" content="Torn between Ribiera del Duero and Rioja? We compare Spain's two greatest red wine regions." />
+        <meta property="og:url" content="https://thewinetrips.com/journal/rioja-vs-ribera-del-duero-spanish-wine-rivalry" />
+        <meta property="og:title" content="Ribera del Duero vs Rioja: Which Wine Region Should You Visit? | The Wine Trips" />
+        <meta property="og:description" content="Torn between Ribera del Duero and Rioja? We compare Spain's two greatest red wine regions." />
         <meta property="og:image" content="https://thewinetrips.com/wine-vineyard-hero.jpg" />
         <meta property="og:site_name" content="THE WINE TRIPS" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://thewinetrips.com/journal/rioja-vs-ribiera-del-duero-spanish-wine-rivalry" />
-        <meta property="twitter:title" content="Ribiera del Duero vs Rioja: Which Wine Region Should You Visit? | The Wine Trips" />
-        <meta property="twitter:description" content="Torn between Ribiera del Duero and Rioja? We compare Spain's two greatest red wine regions." />
+        <meta property="twitter:url" content="https://thewinetrips.com/journal/rioja-vs-ribera-del-duero-spanish-wine-rivalry" />
+        <meta property="twitter:title" content="Ribera del Duero vs Rioja: Which Wine Region Should You Visit? | The Wine Trips" />
+        <meta property="twitter:description" content="Torn between Ribera del Duero and Rioja? We compare Spain's two greatest red wine regions." />
         <meta property="twitter:image" content="https://thewinetrips.com/wine-vineyard-hero.jpg" />
       </Helmet>
 

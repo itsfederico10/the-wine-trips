@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Loader2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/lib/customSupabaseClient';
 
@@ -9,16 +10,18 @@ const WaitingListModal = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Check if modal has been seen before
     const hasSeenModal = localStorage.getItem('waitingListModalSeen');
-    
-    // Show modal after a short delay if not seen
+
+    // Show modal after a short delay if not seen (eased from 3s to 5s so the
+    // visitor sees value first and the WhatsApp flow isn't interrupted).
     if (!hasSeenModal) {
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 3000); // 3 seconds delay for better UX
+      }, 5000);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -39,8 +42,8 @@ const WaitingListModal = () => {
     e.preventDefault();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address.",
+        title: t('waitlist.invalidTitle'),
+        description: t('waitlist.invalidBody'),
         variant: "destructive"
       });
       return;
@@ -71,17 +74,17 @@ const WaitingListModal = () => {
       localStorage.setItem('generalWaitingList', JSON.stringify(existingList));
 
       toast({
-        title: "Welcome to the Inner Circle",
-        description: "We've added you to our priority list.",
+        title: t('waitlist.successTitle'),
+        description: t('waitlist.successBody'),
       });
-      
+
       setEmail('');
       handleClose();
     } catch (error) {
       console.error('Submission error:', error);
       toast({
-        title: "Error",
-        description: "Something went wrong. Please email us at info@thewinetrips.com",
+        title: t('waitlist.errorTitle'),
+        description: t('waitlist.errorBody'),
         variant: "destructive"
       });
     } finally {
@@ -122,13 +125,13 @@ const WaitingListModal = () => {
 
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-serif text-gray-900 mb-3">
-                  Join Our Waiting List
+                  {t('waitlist.title')}
                 </h2>
                 <p className="text-[#c9a96e] font-sans text-xs font-bold tracking-[0.15em] uppercase mb-4">
-                  Be first to know about exclusive wine experiences
+                  {t('waitlist.eyebrow')}
                 </p>
                 <p className="text-gray-600 font-light text-sm leading-relaxed">
-                  We're curating extremely limited vacancies for our most exclusive wine journeys. Join our waiting list to be notified of launches in your preferred regions.
+                  {t('waitlist.body')}
                 </p>
               </div>
 
@@ -138,7 +141,7 @@ const WaitingListModal = () => {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
+                    placeholder={t('waitlist.placeholder')}
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 focus:border-[#c9a96e] focus:bg-white focus:outline-none transition-all text-gray-900 text-sm font-sans disabled:opacity-50 disabled:bg-gray-100"
                     disabled={isSubmitting}
                   />
@@ -152,17 +155,17 @@ const WaitingListModal = () => {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-3 h-3 animate-spin" />
-                      Joining...
+                      {t('waitlist.submitting')}
                     </>
                   ) : (
-                    'Join Waiting List'
+                    t('waitlist.submit')
                   )}
                 </button>
               </form>
-              
+
               <div className="mt-6 text-center">
                 <p className="text-[10px] text-gray-400 leading-tight font-light font-sans max-w-xs mx-auto">
-                  I agree to receive email updates from TheWineTrips and consent to the processing of my personal data in accordance with the privacy policy. I can unsubscribe at any time.
+                  {t('waitlist.consent')}
                 </p>
               </div>
             </div>

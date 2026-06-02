@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t, i18n } = useTranslation();
+  const lang = (i18n.resolvedLanguage || i18n.language || 'en').slice(0, 2);
+  const toggleLang = () => i18n.changeLanguage(lang === 'es' ? 'en' : 'es');
   
   // These pages have full-height hero images or dark backgrounds and should start transparent
   const isTransparentHeroPage = ['/', '/about', '/contact', '/journal'].includes(location.pathname);
@@ -21,11 +25,23 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Experiences', path: '/experiences' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Journal', path: '/journal' },
-    { name: 'Contact', path: '/contact' }
+    { name: t('nav.experiences'), path: '/experiences' },
+    { name: t('nav.about'), path: '/about' },
+    { name: t('nav.journal'), path: '/journal' },
+    { name: t('nav.contact'), path: '/contact' }
   ];
+
+  const LangToggle = ({ className = '' }) => (
+    <button
+      onClick={toggleLang}
+      aria-label="Change language"
+      className={`text-[12px] font-sans font-light tracking-wide transition-colors duration-300 hover:opacity-70 ${className}`}
+    >
+      <span className={lang === 'es' ? 'font-semibold' : 'opacity-60'}>ES</span>
+      <span className="opacity-40 mx-1">/</span>
+      <span className={lang === 'en' ? 'font-semibold' : 'opacity-60'}>EN</span>
+    </button>
+  );
 
   // Logic for header background
   const shouldBeTransparent = isTransparentHeroPage && !isScrolled;
@@ -80,13 +96,14 @@ const Header = () => {
             The Wine Trips
           </Link>
 
-          {/* CTA Button (Right Aligned) */}
-          <div className="hidden md:flex justify-end">
+          {/* CTA Button + Language Toggle (Right Aligned) */}
+          <div className="hidden md:flex justify-end items-center gap-5">
+            <LangToggle className={textColor} />
             <Link
               to="/contact"
               className={`px-5 py-2 rounded-full text-[12px] font-sans font-light tracking-wide transition-all duration-300 ${buttonBg}`}
             >
-              Join Waiting List
+              {t('cta.joinWaitlist')}
             </Link>
           </div>
 
@@ -118,8 +135,9 @@ const Header = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-8 py-3 rounded-full text-xs font-sans font-light bg-gray-900 text-white hover:bg-gray-800 transition-colors"
               >
-                Join Waiting List
+                {t('cta.joinWaitlist')}
               </Link>
+              <LangToggle className="text-gray-900" />
             </nav>
           </motion.div>
         )}

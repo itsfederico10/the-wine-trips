@@ -41,10 +41,10 @@ const ExperienceCard = ({ experience, index }) => {
         </p>
         
         <Link
-          to="/contact"
+          to={`/experiences/${experience.id}`}
           className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-wider text-gray-900 hover:opacity-60 transition-all duration-300"
         >
-          <span>Reserve</span>
+          <span>View the trip</span>
           <ArrowRight className="w-3 h-3" />
         </Link>
       </div>
