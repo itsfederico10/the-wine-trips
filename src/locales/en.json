@@ -11,7 +11,7 @@
     "ourExperiences": "Our Experiences",
     "downloadItinerary": "Download itinerary",
     "requestConsultation": "Request Consultation",
-    "priceOnRequest": "Price on request",
+    "priceOnRequest": "Price on Request",
     "joinTheList": "Join the list",
     "reserve": "Reserve",
     "collaborate": "Collaborate with Us",
@@ -129,12 +129,28 @@
     "testimonial": "Whether you're a collector seeking unique experiences, a sommelier exploring new regions, or simply someone who enjoys the beauty of a glass of wine, we craft experiences worthy of your palate and curiosity. This isn't wine tourism. It's wine immersion.",
     "trips": {
       "eyebrow": "Our Departures",
-      "title": "Where we're heading",
+      "title": "Where Are We Going?",
       "tabUpcoming": "Next Adventure",
       "tabComingSoon": "Coming Soon",
       "daysGuests": "{{days}} days · up to {{guests}} travellers",
       "itineraryLabel": "Itinerary",
-      "comingSoonNote": "Join the list and be the first to know when it opens."
+      "andMore": "and more",
+      "featuredTitle": "Piedmont: Nebbiolo, Truffle & Michelin Star",
+      "featuredDesc": "Seven days among vineyards, white truffle, Michelin-starred tables and a private villa overlooking UNESCO World Heritage hills.",
+      "comingSoonNote": "Join the list and be the first to know when it opens.",
+      "notify": {
+        "text": "Is the destination you want not on sale yet? Leave us your details and The Wine Trips will let you know before launch.",
+        "emailPlaceholder": "Your email",
+        "phonePlaceholder": "Your phone",
+        "submit": "Notify me",
+        "submitting": "Sending...",
+        "successTitle": "Done!",
+        "successBody": "We'll let you know before launch.",
+        "invalidTitle": "Incomplete details",
+        "invalidBody": "Enter a valid email so we can reach you.",
+        "errorTitle": "Error",
+        "errorBody": "Something went wrong. Please email us at info@thewinetrips.com"
+      }
     },
     "slider": {
       "explore": "Explore",
@@ -142,7 +158,14 @@
       "toscana": "Between Cypress Trees & Ancient Cellars",
       "mendoza": "Malbec at the Foot of the Andes",
       "ribera": "The Hidden Soul of Spanish Wine",
-      "piemonte": "The Burgundy of Italy"
+      "piemonte": "The Burgundy of Italy",
+      "place": {
+        "bordeaux": "Bordeaux, France",
+        "toscana": "Tuscany, Italy",
+        "mendoza": "Mendoza, Argentina",
+        "ribera": "Ribera del Duero, Spain",
+        "piemonte": "Piedmont, Italy"
+      }
     },
     "beginJourney": "Begin Your Journey",
     "forTravelers": "For Travelers",
@@ -155,7 +178,7 @@
     "title": "Curated Collections",
     "subtitle": "Discover meticulously curated journeys to the world's most celebrated wine regions. Each experience offers exclusive access, expert guidance, and unforgettable moments.",
     "downloadItinerary": "Download itinerary",
-    "upcoming": "Upcoming trip",
+    "upcoming": "COMING SOON",
     "elsewhereTitle": "Want to Travel Elsewhere?",
     "elsewhereSub": "We are available to discuss custom requirements for private groups and corporate retreats."
   },

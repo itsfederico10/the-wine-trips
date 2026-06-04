@@ -132,12 +132,12 @@ const TripPage = () => {
   const PrimaryCTA = ({ className = '' }) =>
     isLive ? (
       <a href={waLink(tripMsg)} target="_blank" rel="noopener noreferrer" onClick={trackWhatsApp}
-        className={`inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-lg ${className}`}>
+        className={`inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest rounded-[6px] hover:bg-white transition-colors duration-300 shadow-lg ${className}`}>
         <MessageCircle className="w-4 h-4" />{t('cta.priceOnRequest')}
       </a>
     ) : (
       <button onClick={openWaitlist}
-        className={`inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-lg ${className}`}>
+        className={`inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest rounded-[6px] hover:bg-white transition-colors duration-300 shadow-lg ${className}`}>
         {t('cta.joinTheList')}
       </button>
     );
@@ -159,7 +159,7 @@ const TripPage = () => {
       <div className="bg-white text-[#1a1a1a]">
         {/* ===================== HERO (cinematic band) ===================== */}
         <section className="relative w-full">
-          <div className="relative w-full aspect-[1.4/1] sm:aspect-[2/1] lg:aspect-[2.6/1] min-h-[460px] max-h-[90vh] overflow-hidden">
+          <div className="relative w-full aspect-[1.5/1] sm:aspect-[2/1] lg:aspect-[2.63/1] min-h-[460px] max-h-[90vh] overflow-hidden">
             <img src={hero.image || exp.image} alt={regionName} className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/85" />
             <div className="absolute inset-x-0 bottom-0">
@@ -182,7 +182,7 @@ const TripPage = () => {
                 <h1 className="text-[40px] sm:text-6xl lg:text-[76px] font-serif text-white mb-4 md:mb-6 leading-[1.04]">
                   {regionName}
                 </h1>
-                <p className="text-base md:text-xl font-light text-white/85 max-w-2xl leading-relaxed font-sans mb-8">
+                <p className="font-serif italic text-xl md:text-[28px] text-white/90 max-w-2xl leading-relaxed mb-8">
                   {hero.subtitle || exp.description}
                 </p>
                 <PrimaryCTA className="w-full sm:w-auto" />
@@ -255,7 +255,7 @@ const TripPage = () => {
                 {/* Villa card */}
                 {lodging.name && (
                   <div className="border border-gray-300 p-6 md:p-8 bg-white">
-                    <p className="text-[11px] tracking-[0.2em] uppercase text-[#c9a96e] mb-3 font-sans">★ {t('trip.villaCardTitle')}</p>
+                    <p className="text-[11px] tracking-[0.2em] uppercase text-[#c9a96e] mb-3 font-sans">★★★★★ {t('trip.villaCardTitle')}</p>
                     <h3 className="text-2xl font-serif mb-1">{lodging.name}</h3>
                     {lodging.location && <p className="text-xs text-gray-500 mb-5 font-sans">{lodging.location}</p>}
                     {specs.length > 0 ? (
@@ -411,12 +411,12 @@ const TripPage = () => {
           <p className="text-gray-400 font-light max-w-xl mx-auto mb-10 font-sans">{t('trip.ctaBody')}</p>
           {isLive ? (
             <a href={waLink(tripMsg)} target="_blank" rel="noopener noreferrer" onClick={trackWhatsApp}
-              className="inline-flex items-center gap-3 px-9 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300">
+              className="inline-flex items-center gap-3 px-9 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest rounded-[6px] hover:bg-white transition-colors duration-300">
               <MessageCircle className="w-4 h-4" />{t('cta.talkToExpert')}
             </a>
           ) : (
             <button onClick={openWaitlist}
-              className="inline-flex items-center gap-3 px-9 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300">
+              className="inline-flex items-center gap-3 px-9 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest rounded-[6px] hover:bg-white transition-colors duration-300">
               {t('cta.joinTheList')}
             </button>
           )}

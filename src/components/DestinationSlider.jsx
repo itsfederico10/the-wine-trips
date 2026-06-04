@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const slides = [
-  { id: 'bordeaux', subtitle: 'Bordeaux, France', image: '/images/6e7ac65143eb04d13fa541251cefc917.webp', to: '/experiences/bordeaux' },
-  { id: 'toscana', subtitle: 'Toscana, Italy', image: '/images/7b385dec483db559f6ede32c163e47e7.webp', to: '/experiences/toscana' },
-  { id: 'mendoza', subtitle: 'Mendoza, Argentina', image: '/images/7dbbafdc335bd67dfbd883f761481c69.webp', to: '/experiences/mendoza' },
-  { id: 'ribera', subtitle: 'Ribera del Duero, Spain', image: '/images/53490d75f77d93ebfd62b50cb3e9ea40.webp', to: '/experiences/ribera-del-duero' },
-  { id: 'piemonte', subtitle: 'Piemonte, Italy', image: '/images/707a534ce9f8c1d70d5274195c58ee36.webp', to: '/experiences/piedmont' }
+  { id: 'bordeaux', image: '/images/6e7ac65143eb04d13fa541251cefc917.webp', to: '/experiences/bordeaux' },
+  { id: 'toscana', image: '/images/7b385dec483db559f6ede32c163e47e7.webp', to: '/experiences/toscana' },
+  { id: 'mendoza', image: '/images/7dbbafdc335bd67dfbd883f761481c69.webp', to: '/experiences/mendoza' },
+  { id: 'ribera', image: '/images/53490d75f77d93ebfd62b50cb3e9ea40.webp', to: '/experiences/ribera-del-duero' },
+  { id: 'piemonte', image: '/images/707a534ce9f8c1d70d5274195c58ee36.webp', to: '/experiences/piedmont' }
 ];
 
 const DestinationSlider = () => {
@@ -41,31 +41,31 @@ const DestinationSlider = () => {
           <div className="absolute inset-0">
             <img
               src={slides[current].image}
-              alt={t(`home.slider.${slides[current].id}`)}
+              alt={t(`home.slider.place.${slides[current].id}`)}
               className="w-full h-full object-cover opacity-80"
             />
             <div className="absolute inset-0 bg-black/40" />
           </div>
 
-          {/* Content */}
+          {/* Content — place as title, poetic line as italic subtitle */}
           <div className="absolute inset-0 flex items-center justify-center text-center px-6">
             <div className="max-w-4xl">
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-white/90 text-xl md:text-2xl font-light italic mb-4 font-sans tracking-wide"
-              >
-                {slides[current].subtitle}
-              </motion.p>
               <motion.h2
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="text-white text-4xl md:text-6xl lg:text-7xl font-serif mb-4 leading-tight"
+              >
+                {t(`home.slider.place.${slides[current].id}`)}
+              </motion.h2>
+              <motion.p
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="text-white text-4xl md:text-6xl lg:text-7xl font-serif mb-12 leading-tight"
+                className="text-white/90 text-xl md:text-2xl font-light italic mb-12 font-sans tracking-wide"
               >
                 {t(`home.slider.${slides[current].id}`)}
-              </motion.h2>
+              </motion.p>
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}

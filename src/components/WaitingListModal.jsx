@@ -150,7 +150,7 @@ const WaitingListModal = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 bg-[#c9a96e] text-white font-sans text-xs font-bold tracking-[0.2em] uppercase hover:bg-[#b89a60] disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors shadow-lg flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-[#c9a96e] text-white font-sans text-xs font-bold tracking-[0.2em] uppercase rounded-[6px] hover:bg-[#b89a60] disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors shadow-lg flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <>

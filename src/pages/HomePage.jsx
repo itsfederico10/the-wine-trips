@@ -58,7 +58,7 @@ const HomePage = () => {
           </div>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }} className="relative z-10 text-center px-6 max-w-4xl">
-            <p className="text-[16px] md:text-[18px] text-white/90 mb-6 font-light tracking-wide font-sans">
+            <p className="text-[16px] md:text-[18px] text-white/90 mb-6 font-light italic tracking-wide font-sans">
               {t('home.tagline')}
             </p>
             <h1 className="text-[32px] md:text-[48px] font-serif text-white mb-12 tracking-tight leading-tight">

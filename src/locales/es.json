@@ -11,7 +11,7 @@
     "ourExperiences": "Nuestras Experiencias",
     "downloadItinerary": "Descargá el itinerario",
     "requestConsultation": "Solicitar Consulta",
-    "priceOnRequest": "Precio a consultar",
+    "priceOnRequest": "Consultar Precio",
     "joinTheList": "Sumate a la lista",
     "reserve": "Reservar",
     "collaborate": "Colaborá con Nosotros",
@@ -129,12 +129,28 @@
     "testimonial": "Ya seas un coleccionista en busca de experiencias únicas, un sommelier explorando nuevas regiones, o simplemente alguien que disfruta la belleza de una copa de vino, creamos experiencias a la altura de tu paladar y tu curiosidad. Esto no es turismo del vino. Es inmersión en el vino.",
     "trips": {
       "eyebrow": "Nuestras Salidas",
-      "title": "Hacia dónde vamos",
+      "title": "¿A Dónde Vamos?",
       "tabUpcoming": "Próxima Aventura",
       "tabComingSoon": "Coming Soon",
       "daysGuests": "{{days}} días · hasta {{guests}} viajeros",
       "itineraryLabel": "Itinerario",
-      "comingSoonNote": "Sumate a la lista y sé el primero en enterarte cuando abra."
+      "andMore": "y más",
+      "featuredTitle": "Piemonte: Nebbiolo, Tartufo y Estrella Michelín",
+      "featuredDesc": "Siete días entre viñedos, trufa blanca, mesas con estrella Michelín y una villa privada con vista Patrimonio UNESCO.",
+      "comingSoonNote": "Sumate a la lista y sé el primero en enterarte cuando abra.",
+      "notify": {
+        "text": "¿Todavía no está a la venta el destino que querés? Dejanos tus datos y The Wine Trips te avisa antes del lanzamiento.",
+        "emailPlaceholder": "Tu email",
+        "phonePlaceholder": "Tu teléfono",
+        "submit": "Avisame",
+        "submitting": "Enviando...",
+        "successTitle": "¡Listo!",
+        "successBody": "Te avisamos antes del lanzamiento.",
+        "invalidTitle": "Datos incompletos",
+        "invalidBody": "Ingresá un email válido para que podamos avisarte.",
+        "errorTitle": "Error",
+        "errorBody": "Algo salió mal. Escribinos a info@thewinetrips.com"
+      }
     },
     "slider": {
       "explore": "Explorar",
@@ -142,7 +158,14 @@
       "toscana": "Entre Cipreses y Bodegas Centenarias",
       "mendoza": "Malbec al Pie de los Andes",
       "ribera": "El Alma Oculta del Vino Español",
-      "piemonte": "La Borgoña de Italia"
+      "piemonte": "La Borgoña de Italia",
+      "place": {
+        "bordeaux": "Bordeaux, Francia",
+        "toscana": "Toscana, Italia",
+        "mendoza": "Mendoza, Argentina",
+        "ribera": "Ribera del Duero, España",
+        "piemonte": "Piemonte, Italia"
+      }
     },
     "beginJourney": "Comenzá tu Viaje",
     "forTravelers": "Para Viajeros",
@@ -155,7 +178,7 @@
     "title": "Colecciones Curadas",
     "subtitle": "Descubrí viajes meticulosamente curados a las regiones vitivinícolas más célebres del mundo. Cada experiencia ofrece acceso exclusivo, guía experta y momentos inolvidables.",
     "downloadItinerary": "Descargá el itinerario",
-    "upcoming": "Próximo viaje",
+    "upcoming": "COMING SOON",
     "elsewhereTitle": "¿Querés Viajar a Otro Lugar?",
     "elsewhereSub": "Estamos disponibles para conversar requerimientos a medida para grupos privados y retiros corporativos."
   },

@@ -370,7 +370,7 @@ export const experiences = [
     region: 'Le Langhe',
     country: 'Italia',
     dates: '19–25 Octubre 2026',
-    summaryCities: 'Alba · Barbaresco · Barolo · Le Langhe',
+    summaryCities: 'Alba · Barbaresco · Barolo · Treiso · Le Langhe · La Morra · Roddi',
     durationLabel: '7 días · 6 noches',
     groupLabel: '8 huéspedes + 2 staff',
     priceLabel: 'A consultar',
@@ -481,7 +481,7 @@ export const experiences = [
         { label: 'CHEF', value: 'Jacopo Lanfranco, privado en cenas seleccionadas' },
         { label: 'PAX', value: '10 personas — 8 huéspedes + 2 staff' },
         { label: 'ENTORNO', value: 'Colinas UNESCO · viñedos privados al borde de Barolo y Barbaresco' },
-        { label: 'SERVICIOS', value: 'Housekeeping diario · Yoga y Pilates · cava de vinos local en consumo libre' },
+        { label: 'SERVICIOS', value: 'Housekeeping diario · Yoga y Pilates' },
       ],
       gallery: [
         { image: IMG.langhe, caption: 'La villa' },          // [PLACEHOLDER]

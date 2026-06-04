@@ -19,6 +19,11 @@ const ExperiencesPage = () => {
     return title;
   };
 
+  // Live trips first, then coming_soon (preserves original order within each group).
+  const orderedExperiences = [...experiences].sort(
+    (a, b) => (a.status === 'live' ? 0 : 1) - (b.status === 'live' ? 0 : 1)
+  );
+
   const openWaitlist = () => window.dispatchEvent(new Event('open-waitlist-modal'));
   const openItinerary = (exp) =>
     window.dispatchEvent(new CustomEvent('open-itinerary-modal', {
@@ -70,7 +75,7 @@ const ExperiencesPage = () => {
 
         {/* Full Width Experience Cards */}
         <section className="flex flex-col gap-0 items-center w-full">
-          {experiences.map((experience, index) => {
+          {orderedExperiences.map((experience, index) => {
             const isLive = experience.status === 'live';
             const region = experience.hero?.title || experience.title;
             return (
@@ -83,7 +88,7 @@ const ExperiencesPage = () => {
                   <img src={experience.image} alt={getExperienceAltText(experience.title)} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
                   {!isLive && (
-                    <span className="absolute top-6 left-6 px-3 py-1.5 bg-[#c9a96e] text-[#1a1a1a] text-[10px] font-bold tracking-[0.2em] uppercase">
+                    <span className="absolute top-6 left-6 px-3 py-1.5 bg-[#c9a96e] text-[#1a1a1a] text-[10px] font-bold tracking-[0.2em] uppercase rounded-[6px]">
                       {t('experiences.upcoming')}
                     </span>
                   )}
@@ -133,7 +138,7 @@ const ExperiencesPage = () => {
                           href={waLink(t('whatsapp.experienceMessage', { region }))}
                           target="_blank" rel="noopener noreferrer"
                           onClick={trackWhatsApp}
-                          className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-lg"
+                          className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest rounded-[6px] hover:bg-white transition-colors duration-300 shadow-lg"
                         >
                           <MessageCircle className="w-4 h-4" />
                           {t('cta.talkToExpert')}
@@ -141,7 +146,7 @@ const ExperiencesPage = () => {
                       ) : (
                         <button
                           onClick={openWaitlist}
-                          className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-lg"
+                          className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest rounded-[6px] hover:bg-white transition-colors duration-300 shadow-lg"
                         >
                           {t('cta.joinTheList')}
                         </button>

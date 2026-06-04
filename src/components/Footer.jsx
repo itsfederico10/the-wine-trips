@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Twitter } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
@@ -46,24 +46,6 @@ const Footer = () => {
               aria-label="Instagram"
             >
               <Instagram className="w-4 h-4" />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-gray-900 transition-colors"
-              aria-label="Facebook"
-            >
-              <Facebook className="w-4 h-4" />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-gray-900 transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-4 h-4" />
             </a>
           </div>
         </div>
