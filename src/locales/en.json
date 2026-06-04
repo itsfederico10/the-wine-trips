@@ -273,5 +273,66 @@
     },
     "comingSoonTitle": "This trip is coming soon",
     "comingSoonBody": "We're finalising the details of this journey. Join the list and you'll be the first to know when it opens."
+  },
+  "journal": {
+    "heroEyebrow": "The Journal",
+    "heroTitle": "Expert Guides to the World's Greatest Wine Regions",
+    "heroSubtitle": "Local knowledge for the discerning wine traveller. Deep dives into terroir, history, and the people behind the labels.",
+    "readMore": "Read More",
+    "minRead": "{{n}} min read",
+    "categories": {
+      "regionGuide": "Region Guide",
+      "wineEducation": "Wine Education",
+      "discovery": "Discovery",
+      "travelGuide": "Travel Guide"
+    },
+    "comingSoonTitle": "Coming Soon",
+    "comingSoonBody": "The full article \"{{title}}\" will be available shortly.",
+    "newsletter": {
+      "title": "Stay Informed",
+      "body": "Join our newsletter for the latest insights on wine travel, exclusive estate access, and vintage reports.",
+      "placeholder": "Your email address",
+      "subscribe": "Subscribe",
+      "subscribedTitle": "Subscribed",
+      "subscribedBody": "Thank you for subscribing to our journal."
+    },
+    "articles": {
+      "1": {
+        "title": "Bordeaux's Left Bank: A Masterclass in Terroir",
+        "excerpt": "Discover the legendary châteaux and distinctive wines that define Bordeaux's most prestigious region. Learn what makes Left Bank wines the gold standard for Cabernet Sauvignon globally."
+      },
+      "2": {
+        "title": "Barolo: The King of Italian Wines",
+        "excerpt": "Explore the misty hills of Piedmont and understand why Barolo commands respect among wine collectors worldwide. A deep dive into tradition, Nebbiolo, and excellence."
+      },
+      "3": {
+        "title": "Mendoza's Hidden Gems: Beyond the Malbec",
+        "excerpt": "While Malbec dominates, Mendoza produces exceptional Cabernet Sauvignon and Syrah. Discover the estates redefining Argentine wine excellence in the Uco Valley."
+      },
+      "4": {
+        "title": "Saint-Émilion: A UNESCO Village Built on Wine",
+        "excerpt": "Discover the medieval UNESCO village at the heart of Bordeaux's Right Bank. An expert guide to its limestone terroir, Merlot-dominant wines, and Grand Cru Classé estates."
+      },
+      "5": {
+        "title": "Rioja vs Ribera del Duero: Spain's Greatest Red Wine Rivalry",
+        "excerpt": "Explore Spain's most celebrated wine regions. Discover the elegant, age-worthy Riojas and the bold, structured Riberas that define Spanish wine excellence."
+      },
+      "6": {
+        "title": "How to Visit Bordeaux Châteaux: The Insider Guide",
+        "excerpt": "Navigate Bordeaux's most prestigious estates with confidence. Learn how to secure appointments, what to expect in the barrel room, and tasting etiquette."
+      },
+      "7": {
+        "title": "Tuscany Wine Regions: Chianti, Brunello & the Supertuscans",
+        "excerpt": "Tuscany is more than Chianti. Discover the austere elegance of Brunello di Montalcino, the structured power of Vino Nobile, and the emerging producers redefining Tuscan wine."
+      },
+      "8": {
+        "title": "The Best Time to Visit Wine Regions: A Seasonal Guide",
+        "excerpt": "Timing matters. Learn when to visit Bordeaux, Burgundy, Piedmont, and beyond for optimal weather, harvest atmosphere, and estate accessibility."
+      },
+      "9": {
+        "title": "Private vs. Group Wine Tours: Finding Your Perfect Journey",
+        "excerpt": "Should you travel solo, with a group, or with a specialist operator? Explore the advantages and trade-offs of each approach to choose the experience that matches your style."
+      }
+    }
   }
 }

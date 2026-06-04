@@ -50,22 +50,22 @@ const DestinationSlider = () => {
           {/* Content — place as title, poetic line as italic subtitle */}
           <div className="absolute inset-0 flex items-center justify-center text-center px-6">
             <div className="max-w-4xl">
-              <motion.h2
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-white text-4xl md:text-6xl lg:text-7xl font-serif mb-4 leading-tight"
-              >
-                {t(`home.slider.place.${slides[current].id}`)}
-              </motion.h2>
               <motion.p
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="text-white/90 text-xl md:text-2xl font-light italic mb-12 font-sans tracking-wide"
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="text-white/90 text-xl md:text-2xl font-light italic mb-4 font-sans tracking-wide"
               >
                 {t(`home.slider.${slides[current].id}`)}
               </motion.p>
+              <motion.h2
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="text-white text-4xl md:text-6xl lg:text-7xl font-serif mb-12 leading-tight"
+              >
+                {t(`home.slider.place.${slides[current].id}`)}
+              </motion.h2>
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}

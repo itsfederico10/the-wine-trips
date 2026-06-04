@@ -159,7 +159,7 @@ const TripPage = () => {
       <div className="bg-white text-[#1a1a1a]">
         {/* ===================== HERO (cinematic band) ===================== */}
         <section className="relative w-full">
-          <div className="relative w-full aspect-[1.5/1] sm:aspect-[2/1] lg:aspect-[2.63/1] min-h-[460px] max-h-[90vh] overflow-hidden">
+          <div className="relative w-full aspect-[1.4/1] sm:aspect-[1.8/1] lg:aspect-[2.1/1] min-h-[520px] lg:min-h-[660px] max-h-[92vh] overflow-hidden">
             <img src={hero.image || exp.image} alt={regionName} className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/85" />
             <div className="absolute inset-x-0 bottom-0">
@@ -208,7 +208,7 @@ const TripPage = () => {
 
         {/* ===================== INTRO (2 columns) ===================== */}
         {(intro.title || intro.body) && (
-          <section className="max-w-6xl mx-auto px-6 py-20 md:py-32 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <section className="max-w-6xl mx-auto px-6 pt-14 md:pt-20 pb-20 md:pb-32 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-6 font-sans">{exp.vol || t('trip.intro')}</span>
               <h2 className="text-[28px] md:text-[38px] font-serif leading-[1.2] mb-8 max-w-[880px]">{intro.title}</h2>

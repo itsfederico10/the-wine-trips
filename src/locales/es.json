@@ -273,5 +273,66 @@
     },
     "comingSoonTitle": "Este viaje está por llegar",
     "comingSoonBody": "Estamos terminando de definir los detalles de este viaje. Sumate a la lista y vas a ser el primero en enterarte cuando abra."
+  },
+  "journal": {
+    "heroEyebrow": "El Journal",
+    "heroTitle": "Guías expertas de las grandes regiones del vino del mundo",
+    "heroSubtitle": "Conocimiento local para el viajero de vino exigente. Inmersiones en el terroir, la historia y las personas detrás de las etiquetas.",
+    "readMore": "Leer más",
+    "minRead": "{{n}} min de lectura",
+    "categories": {
+      "regionGuide": "Guía de Región",
+      "wineEducation": "Cultura del Vino",
+      "discovery": "Descubrimiento",
+      "travelGuide": "Guía de Viaje"
+    },
+    "comingSoonTitle": "Próximamente",
+    "comingSoonBody": "El artículo completo \"{{title}}\" va a estar disponible muy pronto.",
+    "newsletter": {
+      "title": "Mantenete al día",
+      "body": "Sumate a nuestro newsletter para las últimas novedades sobre viajes de vino, accesos exclusivos a bodegas y reportes de añadas.",
+      "placeholder": "Tu dirección de email",
+      "subscribe": "Suscribirme",
+      "subscribedTitle": "¡Suscripto!",
+      "subscribedBody": "Gracias por suscribirte a nuestro journal."
+    },
+    "articles": {
+      "1": {
+        "title": "La Orilla Izquierda de Bordeaux: una clase magistral de terroir",
+        "excerpt": "Descubrí los châteaux legendarios y los vinos distintivos que definen la región más prestigiosa de Bordeaux. Entendé qué hace de los vinos de la orilla izquierda el estándar de oro del Cabernet Sauvignon en el mundo."
+      },
+      "2": {
+        "title": "Barolo: el rey de los vinos italianos",
+        "excerpt": "Recorré las colinas brumosas del Piemonte y entendé por qué el Barolo se gana el respeto de los coleccionistas de todo el mundo. Una inmersión en la tradición, el Nebbiolo y la excelencia."
+      },
+      "3": {
+        "title": "Los tesoros ocultos de Mendoza: más allá del Malbec",
+        "excerpt": "Aunque el Malbec domina, Mendoza produce Cabernet Sauvignon y Syrah excepcionales. Descubrí las bodegas que están redefiniendo la excelencia del vino argentino en el Valle de Uco."
+      },
+      "4": {
+        "title": "Saint-Émilion: un pueblo UNESCO construido sobre el vino",
+        "excerpt": "Descubrí el pueblo medieval Patrimonio de la Humanidad en el corazón de la orilla derecha de Bordeaux. Una guía experta de su terroir calcáreo, sus vinos de base Merlot y sus estates Grand Cru Classé."
+      },
+      "5": {
+        "title": "Rioja vs Ribera del Duero: la gran rivalidad del tinto español",
+        "excerpt": "Recorré las regiones de vino más célebres de España. Descubrí los Rioja elegantes y longevos y los Ribera potentes y estructurados que definen la excelencia del vino español."
+      },
+      "6": {
+        "title": "Cómo visitar los châteaux de Bordeaux: la guía del conocedor",
+        "excerpt": "Movete con confianza entre los estates más prestigiosos de Bordeaux. Aprendé cómo conseguir las visitas, qué esperar en la sala de barricas y la etiqueta de la cata."
+      },
+      "7": {
+        "title": "Las regiones de la Toscana: Chianti, Brunello y los Supertoscanos",
+        "excerpt": "La Toscana es mucho más que Chianti. Descubrí la elegancia austera del Brunello di Montalcino, la potencia estructurada del Vino Nobile y los productores emergentes que redefinen el vino toscano."
+      },
+      "8": {
+        "title": "La mejor época para visitar las regiones de vino: guía estacional",
+        "excerpt": "El momento importa. Aprendé cuándo visitar Bordeaux, Borgoña, Piemonte y más para el mejor clima, el ambiente de la cosecha y el acceso a las bodegas."
+      },
+      "9": {
+        "title": "Tours de vino privados vs. en grupo: encontrá tu viaje ideal",
+        "excerpt": "¿Conviene viajar solo, en grupo o con un operador especializado? Explorá las ventajas y desventajas de cada opción para elegir la experiencia que va con tu estilo."
+      }
+    }
   }
 }
