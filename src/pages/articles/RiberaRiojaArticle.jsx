@@ -2,10 +2,13 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Clock, Calendar, User, Tag, ArrowRight } from 'lucide-react';
 import WaitingListModal from '@/components/WaitingListModal';
 
 const RiberaRiojaArticle = () => {
+  const { i18n } = useTranslation();
+  const es = i18n.language === 'es';
   const openWaitingList = () => {
     window.dispatchEvent(new Event('open-waitlist-modal'));
   };
@@ -41,7 +44,7 @@ const RiberaRiojaArticle = () => {
         <nav className="absolute top-0 left-0 w-full z-20 p-6">
           <Link to="/journal" className="inline-flex items-center gap-2 text-white/80 hover:text-[#c9a96e] transition-colors">
             <ArrowLeft className="w-4 h-4" />
-            <span className="uppercase tracking-widest text-xs font-bold">Back to Journal</span>
+            <span className="uppercase tracking-widest text-xs font-bold">{es ? "Volver al Journal" : "Back to Journal"}</span>
           </Link>
         </nav>
 
@@ -64,10 +67,10 @@ const RiberaRiojaArticle = () => {
               className="max-w-4xl"
             >
               <span className="inline-block py-1 px-3 border border-[#c9a96e]/50 text-[#c9a96e] text-[10px] font-bold tracking-[0.2em] uppercase mb-6 bg-black/30 backdrop-blur-sm">
-                Discovery
+                {es ? "Descubrimiento" : "Discovery"}
               </span>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-['Cormorant_Garamond'] text-white leading-tight font-light mb-6">
-                Ribera del Duero vs Rioja:<br />The Great Spanish Rivalry
+                {es ? <>Rioja vs Ribera del Duero:<br />la gran rivalidad del tinto español</> : <>Ribera del Duero vs Rioja:<br />The Great Spanish Rivalry</>}
               </h1>
             </motion.div>
           </div>
@@ -85,12 +88,12 @@ const RiberaRiojaArticle = () => {
           >
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-[#c9a96e]" />
-              <span>January 15, 2024</span>
+              <span>{es ? "15 de enero de 2024" : "January 15, 2024"}</span>
             </div>
             <div className="h-4 w-[1px] bg-gray-200 hidden sm:block"></div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-[#c9a96e]" />
-              <span>10 min read</span>
+              <span>{es ? "10 min de lectura" : "10 min read"}</span>
             </div>
             <div className="h-4 w-[1px] bg-gray-200 hidden sm:block"></div>
             <div className="flex items-center gap-2">
@@ -107,62 +110,62 @@ const RiberaRiojaArticle = () => {
             className="prose prose-lg max-w-none font-light leading-relaxed text-[#1a1f2e]"
           >
             <p className="text-xl font-['Cormorant_Garamond'] italic text-gray-600 mb-8 border-l-2 border-[#c9a96e] pl-6 py-2">
-              "Two kings, one crown. While Rioja is the elegant aristocrat of Spanish wine, Ribera del Duero is the powerful warrior. Both are masters of Tempranillo, yet they express it in profoundly different ways."
+              {es ? '"Dos reyes, una corona. Mientras Rioja es el aristócrata elegante del vino español, Ribera del Duero es el guerrero poderoso. Ambos son maestros del Tempranillo, pero lo expresan de maneras profundamente distintas."' : '"Two kings, one crown. While Rioja is the elegant aristocrat of Spanish wine, Ribera del Duero is the powerful warrior. Both are masters of Tempranillo, yet they express it in profoundly different ways."'}
             </p>
 
             <p className="mb-6">
-              For decades, if you ordered a "fine red wine" in Spain, you were brought a bottle of Rioja. It was the undisputed benchmark. But in the last 40 years, a challenger has risen from the high plains of Castilla y León to challenge the throne. Today, the rivalry between Rioja and Ribera del Duero drives Spanish enology to new heights.
+              {es ? 'Durante décadas, si pedías un "buen vino tinto" en España, te traían una botella de Rioja. Era la referencia indiscutida. Pero en los últimos 40 años, un retador surgió de las altas llanuras de Castilla y León para disputarle el trono. Hoy, la rivalidad entre Rioja y Ribera del Duero lleva la enología española a nuevas alturas.' : 'For decades, if you ordered a "fine red wine" in Spain, you were brought a bottle of Rioja. It was the undisputed benchmark. But in the last 40 years, a challenger has risen from the high plains of Castilla y León to challenge the throne. Today, the rivalry between Rioja and Ribera del Duero drives Spanish enology to new heights.'}
             </p>
 
             <p className="mb-6">
-              Both regions rely on the same grape—Tempranillo—but climate, soil, and tradition have forged two distinct identities. Choosing between them for your next journey depends on what you seek in a glass and in a landscape.
+              {es ? "Ambas regiones se apoyan en la misma uva (el Tempranillo), pero el clima, el suelo y la tradición forjaron dos identidades distintas. Elegir entre ellas para tu próximo viaje depende de lo que busques en la copa y en el paisaje." : "Both regions rely on the same grape—Tempranillo—but climate, soil, and tradition have forged two distinct identities. Choosing between them for your next journey depends on what you seek in a glass and in a landscape."}
             </p>
 
-            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">The Terrain: Valleys vs. Plateaus</h2>
+            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">{es ? "El terreno: valles vs. mesetas" : "The Terrain: Valleys vs. Plateaus"}</h2>
             
-            <h3 className="text-xl font-['Cormorant_Garamond'] text-[#c9a96e] uppercase tracking-widest mt-8 mb-4">Rioja: The Balanced Valley</h3>
+            <h3 className="text-xl font-['Cormorant_Garamond'] text-[#c9a96e] uppercase tracking-widest mt-8 mb-4">{es ? "Rioja: el valle equilibrado" : "Rioja: The Balanced Valley"}</h3>
             <p className="mb-4">
-              Protected by the Cantabrian mountains to the north and the Demanda range to the south, Rioja enjoys a privileged climate. It is a valley region with significant Atlantic influence, bringing moderate rainfall and cooler temperatures.
+              {es ? "Protegida por la cordillera Cantábrica al norte y la sierra de la Demanda al sur, Rioja disfruta de un clima privilegiado. Es una región de valle con una marcada influencia atlántica, que aporta lluvias moderadas y temperaturas más frescas." : "Protected by the Cantabrian mountains to the north and the Demanda range to the south, Rioja enjoys a privileged climate. It is a valley region with significant Atlantic influence, bringing moderate rainfall and cooler temperatures."}
             </p>
             <p className="mb-6">
-              The soils here are varied—clay-limestone (arcillo-calcáreo) in the Alavesa and Alta zones, and ferrous clay in the Baja (Oriental) zone. This diversity allows for wines of great complexity and elegance.
+              {es ? "Los suelos acá son variados: arcillo-calcáreo en las zonas Alavesa y Alta, y arcilla ferrosa en la zona Baja (Oriental). Esta diversidad permite vinos de gran complejidad y elegancia." : "The soils here are varied—clay-limestone (arcillo-calcáreo) in the Alavesa and Alta zones, and ferrous clay in the Baja (Oriental) zone. This diversity allows for wines of great complexity and elegance."}
             </p>
 
-            <h3 className="text-xl font-['Cormorant_Garamond'] text-[#c9a96e] uppercase tracking-widest mt-8 mb-4">Ribera del Duero: The Extreme Plateau</h3>
+            <h3 className="text-xl font-['Cormorant_Garamond'] text-[#c9a96e] uppercase tracking-widest mt-8 mb-4">{es ? "Ribera del Duero: la meseta extrema" : "Ribera del Duero: The Extreme Plateau"}</h3>
             <p className="mb-4">
-              Ribera is not for the faint of heart. Located on the vast central plateau of Spain, vineyards here sit between 750 and 1,000 meters (2,400–3,300 ft) above sea level.
+              {es ? "Ribera no es para los débiles de corazón. Ubicada en la vasta meseta central de España, los viñedos acá se asientan entre 750 y 1.000 metros (2.400 a 3.300 pies) sobre el nivel del mar." : "Ribera is not for the faint of heart. Located on the vast central plateau of Spain, vineyards here sit between 750 and 1,000 meters (2,400–3,300 ft) above sea level."}
             </p>
             <p className="mb-8">
-              The climate is extreme continental: scorching hot summers and freezing winters. Crucially, the diurnal range (temperature difference between day and night) can be 20°C or more during ripening. This thermal shock thickens the grape skins, locking in deep color and tannins while preserving acidity.
+              {es ? "El clima es continental extremo: veranos abrasadores e inviernos heladores. Fundamentalmente, la amplitud térmica (la diferencia de temperatura entre el día y la noche) puede ser de 20°C o más durante la maduración. Este shock térmico engrosa las pieles de las uvas, fijando un color y unos taninos profundos a la vez que preserva la acidez." : "The climate is extreme continental: scorching hot summers and freezing winters. Crucially, the diurnal range (temperature difference between day and night) can be 20°C or more during ripening. This thermal shock thickens the grape skins, locking in deep color and tannins while preserving acidity."}
             </p>
 
-            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">The Grape: Tempranillo Two Ways</h2>
+            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">{es ? "La uva: dos caras del Tempranillo" : "The Grape: Tempranillo Two Ways"}</h2>
             <p className="mb-6">
-              In <strong>Rioja</strong>, Tempranillo is often blended. Traditionally, it is joined by Garnacha (for body), Mazuelo (for acidity), and Graciano (for aroma). The result is a wine that prizes harmony and balance over sheer power. The fruit profile leans towards red cherries, strawberries, and dried herbs.
+              {es ? <>En <strong>Rioja</strong>, el Tempranillo suele ir en corte. Tradicionalmente lo acompañan la Garnacha (para el cuerpo), la Mazuelo (para la acidez) y la Graciano (para el aroma). El resultado es un vino que valora la armonía y el equilibrio por encima de la potencia pura. El perfil frutal se inclina hacia las cerezas rojas, las frutillas y las hierbas secas.</> : <>In <strong>Rioja</strong>, Tempranillo is often blended. Traditionally, it is joined by Garnacha (for body), Mazuelo (for acidity), and Graciano (for aroma). The result is a wine that prizes harmony and balance over sheer power. The fruit profile leans towards red cherries, strawberries, and dried herbs.</>}
             </p>
             <p className="mb-6">
-              In <strong>Ribera del Duero</strong>, the local clone is known as <em>Tinto Fino</em> or <em>Tinta del País</em>. It has adapted to the harsh climate by producing smaller berries and looser bunches. Ribera wines are frequently 100% Tempranillo. The result? Wines of immense concentration, black fruit (blackberry, plum), and firm structure.
+              {es ? <>En <strong>Ribera del Duero</strong>, el clon local se conoce como <em>Tinto Fino</em> o <em>Tinta del País</em>. Se adaptó al clima riguroso produciendo bayas más pequeñas y racimos más sueltos. Los vinos de Ribera son con frecuencia 100% Tempranillo. ¿El resultado? Vinos de inmensa concentración, fruta negra (mora, ciruela) y estructura firme.</> : <>In <strong>Ribera del Duero</strong>, the local clone is known as <em>Tinto Fino</em> or <em>Tinta del País</em>. It has adapted to the harsh climate by producing smaller berries and looser bunches. Ribera wines are frequently 100% Tempranillo. The result? Wines of immense concentration, black fruit (blackberry, plum), and firm structure.</>}
             </p>
 
-            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">Winemaking Philosophy</h2>
+            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">{es ? "Filosofía de elaboración" : "Winemaking Philosophy"}</h2>
             <p className="mb-6">
-              The classic distinction lies in the oak.
+              {es ? "La distinción clásica está en la madera." : "The classic distinction lies in the oak."}
             </p>
             <ul className="list-disc pl-5 space-y-2 mb-8 marker:text-[#c9a96e]">
-              <li><strong>Rioja Tradition:</strong> Long aging in American oak barrels. This imparts those signature notes of vanilla, coconut, dill, and sweet spice. The wines are often released ready to drink, with silky, polished tannins.</li>
-              <li><strong>Ribera Style:</strong> Generally favors French oak, which imparts subtler spice, cedar, and mocha notes, supporting the wine's structure rather than defining it. Ribera wines are "masculine," muscular, and often require time in the bottle to open up.</li>
+              <li>{es ? <><strong>Tradición de Rioja:</strong> Larga crianza en barricas de roble americano. Esto aporta esas notas características de vainilla, coco, eneldo y especias dulces. Los vinos suelen salir listos para beber, con taninos sedosos y pulidos.</> : <><strong>Rioja Tradition:</strong> Long aging in American oak barrels. This imparts those signature notes of vanilla, coconut, dill, and sweet spice. The wines are often released ready to drink, with silky, polished tannins.</>}</li>
+              <li>{es ? <><strong>Estilo de Ribera:</strong> Generalmente prefiere el roble francés, que aporta notas más sutiles de especias, cedro y moca, apoyando la estructura del vino en lugar de definirla. Los vinos de Ribera son "masculinos", musculosos y a menudo requieren tiempo en botella para abrirse.</> : <><strong>Ribera Style:</strong> Generally favors French oak, which imparts subtler spice, cedar, and mocha notes, supporting the wine's structure rather than defining it. Ribera wines are "masculine," muscular, and often require time in the bottle to open up.</>}</li>
             </ul>
 
-            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">Visitor Experience</h2>
+            <h2 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mt-12 mb-6">{es ? "La experiencia del visitante" : "Visitor Experience"}</h2>
             <p className="mb-6">
-              <strong>Visit Rioja if...</strong> You love history, architecture, and tapas. The Haro Station District has the highest concentration of century-old wineries in the world. You can walk from López de Heredia to Muga to La Rioja Alta in five minutes. The architecture ranges from medieval stone cellars to Frank Gehry's titanium wave at Marques de Riscal.
+              {es ? <><strong>Visitá Rioja si...</strong> Amás la historia, la arquitectura y las tapas. El Barrio de la Estación de Haro tiene la mayor concentración de bodegas centenarias del mundo. Podés caminar de López de Heredia a Muga y a La Rioja Alta en cinco minutos. La arquitectura va desde bodegas medievales de piedra hasta la ola de titanio de Frank Gehry en Marqués de Riscal.</> : <><strong>Visit Rioja if...</strong> You love history, architecture, and tapas. The Haro Station District has the highest concentration of century-old wineries in the world. You can walk from López de Heredia to Muga to La Rioja Alta in five minutes. The architecture ranges from medieval stone cellars to Frank Gehry's titanium wave at Marques de Riscal.</>}
             </p>
             <p className="mb-8">
-              <strong>Visit Ribera if...</strong> You seek the "Golden Mile" of Spanish wine. Visit legends like Vega Sicilia and Pingus (appointment only). The landscape is vast, arid, and dramatic, punctuated by castles like Peñafiel that watch over the Duero river. It feels wilder, more elemental.
+              {es ? <><strong>Visitá Ribera si...</strong> Buscás la "Milla de Oro" del vino español. Visitá leyendas como Vega Sicilia y Pingus (solo con cita previa). El paisaje es vasto, árido y dramático, salpicado de castillos como el de Peñafiel que vigilan el río Duero. Se siente más salvaje, más elemental.</> : <><strong>Visit Ribera if...</strong> You seek the "Golden Mile" of Spanish wine. Visit legends like Vega Sicilia and Pingus (appointment only). The landscape is vast, arid, and dramatic, punctuated by castles like Peñafiel that watch over the Duero river. It feels wilder, more elemental.</>}
             </p>
 
             <p className="mt-12 text-lg font-medium italic text-gray-800">
-              Ultimately, the choice is not which is better, but which expression of Spain speaks to you: the elegant, historical complexity of Rioja, or the modern, intense power of Ribera del Duero.
+              {es ? "En definitiva, la elección no es cuál es mejor, sino qué expresión de España te habla: la complejidad elegante e histórica de Rioja, o la potencia moderna e intensa de Ribera del Duero." : "Ultimately, the choice is not which is better, but which expression of Spain speaks to you: the elegant, historical complexity of Rioja, or the modern, intense power of Ribera del Duero."}
             </p>
           </motion.div>
 
@@ -175,9 +178,9 @@ const RiberaRiojaArticle = () => {
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#c9a96e] to-transparent opacity-50"></div>
             
-            <h3 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mb-4">Explore our Ribera del Duero Experience</h3>
+            <h3 className="text-3xl font-['Cormorant_Garamond'] text-[#1a1f2e] mb-4">{es ? "Descubrí nuestra Experiencia Ribera del Duero" : "Explore our Ribera del Duero Experience"}</h3>
             <p className="text-gray-600 mb-8 max-w-lg mx-auto leading-relaxed">
-              Seven days through the Golden Mile of Ribera del Duero. Private bodega access, harvest season visits, and the full breadth of Spanish wine. Limited to 4–8 guests.
+              {es ? "Siete días recorriendo la Milla de Oro de Ribera del Duero. Acceso privado a bodegas, visitas en época de vendimia y toda la amplitud del vino español. Limitado a 4 a 8 huéspedes." : "Seven days through the Golden Mile of Ribera del Duero. Private bodega access, harvest season visits, and the full breadth of Spanish wine. Limited to 4–8 guests."}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -185,20 +188,20 @@ const RiberaRiojaArticle = () => {
                 to="/experiences"
                 className="px-8 py-3 bg-[#1a1f2e] text-white text-xs font-bold tracking-widest uppercase hover:bg-[#c9a96e] transition-colors duration-300"
               >
-                View Itinerary
+                {es ? "Ver el itinerario" : "View Itinerary"}
               </Link>
               <button 
                 onClick={openWaitingList}
                 className="px-8 py-3 border border-[#1a1f2e] text-[#1a1f2e] text-xs font-bold tracking-widest uppercase hover:bg-[#1a1f2e] hover:text-white transition-colors duration-300"
               >
-                Join the Waiting List
+                {es ? "Sumate a la lista de espera" : "Join the Waiting List"}
               </button>
             </div>
           </motion.div>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-3 mb-16 justify-center">
-            {['Ribera del Duero', 'Rioja', 'Spain', 'Tempranillo', 'Spanish Wine', 'Wine Travel', 'Wine Comparison', 'Castile'].map((tag) => (
+            {(es ? ['Ribera del Duero', 'Rioja', 'España', 'Tempranillo', 'Vino Español', 'Viajes de Vino', 'Comparativa de Vinos', 'Castilla'] : ['Ribera del Duero', 'Rioja', 'Spain', 'Tempranillo', 'Spanish Wine', 'Wine Travel', 'Wine Comparison', 'Castile']).map((tag) => (
               <span key={tag} className="flex items-center gap-1 px-3 py-1 bg-gray-100 text-[#c9a96e] text-[10px] font-bold tracking-widest uppercase hover:bg-[#c9a96e] hover:text-white transition-colors cursor-default">
                 <Tag className="w-3 h-3" />
                 {tag}
@@ -212,7 +215,7 @@ const RiberaRiojaArticle = () => {
         <section className="bg-white py-20 px-6 border-t border-gray-100">
           <div className="max-w-5xl mx-auto">
             <h3 className="text-center text-2xl font-['Cormorant_Garamond'] text-[#1a1f2e] mb-12">
-              Related Articles
+              {es ? "Artículos relacionados" : "Related Articles"}
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -226,12 +229,12 @@ const RiberaRiojaArticle = () => {
                     />
                  </div>
                  <div className="p-8 flex-grow flex flex-col">
-                    <span className="text-[10px] text-[#c9a96e] font-bold tracking-widest uppercase mb-3">Region Guide</span>
+                    <span className="text-[10px] text-[#c9a96e] font-bold tracking-widest uppercase mb-3">{es ? "Guía de Región" : "Region Guide"}</span>
                     <h4 className="text-xl font-['Cormorant_Garamond'] text-[#1a1f2e] mb-3 leading-tight group-hover:text-[#c9a96e] transition-colors">
-                      Bordeaux's Left Bank: A Masterclass in Terroir
+                      {es ? "La Orilla Izquierda de Bordeaux: una clase magistral de terroir" : "Bordeaux's Left Bank: A Masterclass in Terroir"}
                     </h4>
                     <span className="mt-auto inline-flex items-center text-xs font-bold text-[#1a1f2e] uppercase tracking-widest group-hover:translate-x-1 transition-transform">
-                      Read More <ArrowRight className="w-3 h-3 ml-1" />
+                      {es ? "Leer más" : "Read More"} <ArrowRight className="w-3 h-3 ml-1" />
                     </span>
                  </div>
               </Link>
@@ -246,12 +249,12 @@ const RiberaRiojaArticle = () => {
                     />
                  </div>
                  <div className="p-8 flex-grow flex flex-col">
-                    <span className="text-[10px] text-[#c9a96e] font-bold tracking-widest uppercase mb-3">Travel Guide</span>
+                    <span className="text-[10px] text-[#c9a96e] font-bold tracking-widest uppercase mb-3">{es ? "Guía de Viaje" : "Travel Guide"}</span>
                     <h4 className="text-xl font-['Cormorant_Garamond'] text-[#1a1f2e] mb-3 leading-tight group-hover:text-[#c9a96e] transition-colors">
-                      Best Time to Visit Wine Regions: A Seasonal Guide
+                      {es ? "La mejor época para visitar las regiones de vino: guía estacional" : "Best Time to Visit Wine Regions: A Seasonal Guide"}
                     </h4>
                     <span className="mt-auto inline-flex items-center text-xs font-bold text-[#1a1f2e] uppercase tracking-widest group-hover:translate-x-1 transition-transform">
-                      Read More <ArrowRight className="w-3 h-3 ml-1" />
+                      {es ? "Leer más" : "Read More"} <ArrowRight className="w-3 h-3 ml-1" />
                     </span>
                  </div>
               </Link>
