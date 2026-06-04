@@ -370,6 +370,7 @@ export const experiences = [
     region: 'Le Langhe',
     country: 'Italia',
     dates: '19–25 Octubre 2026',
+    summaryCities: 'Alba · Barbaresco · Barolo · Le Langhe',
     durationLabel: '7 días · 6 noches',
     groupLabel: '8 huéspedes + 2 staff',
     priceLabel: 'A consultar',
@@ -396,6 +397,11 @@ export const experiences = [
         'Nos instalamos en Villa Bella Vista, una casa privada entre los viñedos de Castiglione Tinella, a un paso de Alba, Barbaresco y Barolo. Desde ahí salimos cada día a una cita distinta —una mesa con estrella, una bodega histórica, una caza de trufas, una clase de cocina en un castillo— y volvemos siempre al mismo lugar al caer la tarde. Grupo reducido, nunca más de ocho, con el equipo de B&A siempre cerca.',
       ],
       image: IMG.tuscanSunset,                        // [PLACEHOLDER] trifolau con perro / viñedos al amanecer
+      // Proper nouns highlighted (bold) inside the intro paragraphs.
+      highlights: [
+        'Villa Bella Vista', 'Fiera Internazionale del Tartufo Bianco d\'Alba',
+        'Nebbiolo', 'tartufo bianco', 'Castiglione Tinella', 'Barbaresco', 'Barolo', 'Alba',
+      ],
     },
 
     pillars: [
@@ -466,7 +472,17 @@ export const experiences = [
     lodging: {
       eyebrow: 'EL ALOJAMIENTO',
       name: 'Villa Bella Vista',
+      location: 'Castiglione Tinella · CN · Italia',
       intro: 'Una casa blanca al borde del viñedo, a media hora de Barolo y Barbaresco. Cinco habitaciones dobles con baño ensuite, una piscina salada climatizada de 14 m asomada a las colinas UNESCO, y el silencio del otoño piemontés. Diseñada para diez personas, reservada en exclusiva para el grupo.',
+      specs: [
+        { label: 'HAB.', value: '5 dobles con baño ensuite privado' },
+        { label: 'EXTRA', value: '1 baño de cortesía' },
+        { label: 'PISCINA', value: '14 m salada climatizada con vista a viñedos' },
+        { label: 'CHEF', value: 'Jacopo Lanfranco, privado en cenas seleccionadas' },
+        { label: 'PAX', value: '10 personas — 8 huéspedes + 2 staff' },
+        { label: 'ENTORNO', value: 'Colinas UNESCO · viñedos privados al borde de Barolo y Barbaresco' },
+        { label: 'SERVICIOS', value: 'Housekeeping diario · Yoga y Pilates · cava de vinos local en consumo libre' },
+      ],
       gallery: [
         { image: IMG.langhe, caption: 'La villa' },          // [PLACEHOLDER]
         { image: IMG.vineyardHills, caption: 'La piscina' },  // [PLACEHOLDER]

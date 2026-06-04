@@ -15,7 +15,8 @@
     "joinTheList": "Join the list",
     "reserve": "Reserve",
     "collaborate": "Collaborate with Us",
-    "viewTrip": "View the trip"
+    "viewTrip": "View the trip",
+    "contactUs": "Contact Us"
   },
   "consent": {
     "text": "We use cookies to improve your experience and measure our traffic. You can accept or decline.",
@@ -27,7 +28,12 @@
     "terms": "Terms of Service",
     "contact": "Contact",
     "rights": "All rights reserved.",
-    "backing": "Trips are operated by Blisniuk & Amanov, a registered travel agency in Argentina (EVyT File No. 20943)."
+    "backing": "Trips are operated by Blisniuk & Amanov, a registered travel agency in Argentina (EVyT File No. 20943).",
+    "ba": {
+      "name": "Blisniuk & Amanov",
+      "tagline": "Small-group and tailor-made travel house. Head office at Manuel Ugarte 2035, Buenos Aires.",
+      "operated": "Operated by Blisniuk & Amanov · RNAV File 20943"
+    }
   },
   "whatsapp": {
     "label": "WhatsApp",
@@ -81,31 +87,63 @@
     "diff": {
       "access": {
         "title": "Insider Access",
-        "description": "Direct access through our local partners and a registered travel operator, opening doors that are hard to reach on your own."
+        "description": "Direct access through our local partners and a registered travel operator, opening doors that are hard to reach on your own.",
+        "short": "Doors opened by local partners and a registered operator."
       },
       "groups": {
         "title": "Small Groups",
-        "description": "Limited to 4-8 guests to ensure genuine immersion, intimate tastings, and no crowds."
+        "description": "Limited to 4-8 guests to ensure genuine immersion, intimate tastings, and no crowds.",
+        "short": "Never more than 8 guests. No crowds."
       },
       "curation": {
         "title": "Thoughtful Curation",
-        "description": "Expertly balanced itineraries featuring legendary appellations alongside hidden local gems."
+        "description": "Expertly balanced itineraries featuring legendary appellations alongside hidden local gems.",
+        "short": "Legendary appellations and hidden local gems."
       },
       "execution": {
         "title": "Seamless Execution",
-        "description": "From boutique luxury hotels to Michelin-starred dining, every detail is handled with precision."
+        "description": "From boutique luxury hotels to Michelin-starred dining, every detail is handled with precision.",
+        "short": "Every detail handled, end to end."
       },
       "culture": {
         "title": "Cultural Integration",
-        "description": "Great wine deserves context. Experience the region's art, history, and gastronomy holistically."
+        "description": "Great wine deserves context. Experience the region's art, history, and gastronomy holistically.",
+        "short": "Art, history and gastronomy, not just wine."
       },
       "guidance": {
         "title": "Founder-Led",
-        "description": "Led by founders alongside trusted local sommeliers and estate insiders who share their knowledge and passion for the terroir."
+        "description": "Led by founders alongside trusted local sommeliers and estate insiders who share their knowledge and passion for the terroir.",
+        "short": "Led by founders and trusted local insiders."
       }
     },
     "process": "Our Signature Process",
     "processSub": "From inquiry to departure",
+    "how": {
+      "title": "How it works",
+      "sub": "From first hello to take-off",
+      "s1": { "title": "Choose Your Destination", "desc": "Explore our experiences and find the trip that calls you." },
+      "s2": { "title": "Let's Talk", "desc": "Reach one of the founders directly on WhatsApp. We advise you and hold your spot." },
+      "s3": { "title": "Book Your Place", "desc": "With a simple, secure process, you confirm your experience. Places are limited." },
+      "s4": { "title": "Live the Experience", "desc": "All that's left is to enjoy. We take care of everything else." }
+    },
+    "testimonial": "Whether you're a collector seeking unique experiences, a sommelier exploring new regions, or simply someone who enjoys the beauty of a glass of wine, we craft experiences worthy of your palate and curiosity. This isn't wine tourism. It's wine immersion.",
+    "trips": {
+      "eyebrow": "Our Departures",
+      "title": "Where we're heading",
+      "tabUpcoming": "Next Adventure",
+      "tabComingSoon": "Coming Soon",
+      "daysGuests": "{{days}} days · up to {{guests}} travellers",
+      "itineraryLabel": "Itinerary",
+      "comingSoonNote": "Join the list and be the first to know when it opens."
+    },
+    "slider": {
+      "explore": "Explore",
+      "bordeaux": "Where Legends Are Bottled",
+      "toscana": "Between Cypress Trees & Ancient Cellars",
+      "mendoza": "Malbec at the Foot of the Andes",
+      "ribera": "The Hidden Soul of Spanish Wine",
+      "piemonte": "The Burgundy of Italy"
+    },
     "beginJourney": "Begin Your Journey",
     "forTravelers": "For Travelers",
     "forPartners": "For Partners",
@@ -145,15 +183,59 @@
     "meetExperts": "Meet Our Experts",
     "meetExpertsSub": "Prefer to speak with someone? Schedule a complimentary consultation to discuss your specific requirements."
   },
+  "about": {
+    "heroQuote": "A wine enthusiast who decided to share the journey",
+    "storyEyebrow": "My Story",
+    "story1": "Like many of the best stories, this one began with a leap of faith. After building a career at Amazon, I found myself increasingly drawn not to the boardroom, but to the vineyard—to the stories bottled in glass, the history rooted in soil, and the people who dedicated their lives to the art of winemaking.",
+    "story2": "I pursued my passion seriously by studying all there is about wine, but knowledge alone wasn't enough. I needed to experience it. I traveled to the world's most revered wine regions, knocking on cellar doors and breaking bread with winemakers. On the right, you can see an image of myself joking with Piero Incisa Della Rocchetta. Crazy right?",
+    "story3": "What I discovered was that true luxury in wine isn't just about the label; it's about access and connection. It's about sitting at the family table, tasting barrels that will never reach the market, and understanding the soul of a place. That is why I founded The Wine Trips—to open those same doors for you.",
+    "instagram": "Follow on Instagram",
+    "manifesto": "The Wine Trips was created to serve a specific purpose: bring people closer to wine through enriching experiences while supporting wine producers.",
+    "valuesEyebrow": "Our Values",
+    "valuesTitle": "What We Stand For",
+    "valueSustainabilityTitle": "Sustainability",
+    "valueSustainabilityText": "Global wine consumption is changing. Markets are shifting, younger generations are drinking less, and both the world's finest estates and small family producers are navigating an industry in transition. We believe wine tourism is one of the most meaningful responses to that challenge: bringing curious, engaged visitors directly to the origin, turning a bottle into a conversation, and a conversation into a lasting connection with a place.",
+    "valueQualityTitle": "Quality",
+    "valueQualityText": "The Wine Trips deliberately keep our groups small and our experiences deep. Not because wine is only for a select few — it isn't — but because genuine understanding of a place cannot be rushed or scaled. Demystifying the idea that wine is only for those “who know about wine” is one of our key principles, as it brings more people together around wine. Quality over volume is our commitment, both to our guests and to the producers who open their doors for us.",
+    "valueRespectTitle": "Respect",
+    "valueRespectText": "Every journey we design is also an act of advocacy for the regions, the producers, and the craft behind every bottle of wine. By doing what we do best, we are building bridges between the people who make wine and the people who love it; or are about to.",
+    "valuePartnershipTitle": "Partnership",
+    "valuePartnershipText": "If you are a producer who shares our vision, The Wine Trips would love to talk to you. Whether you are a boutique producer taking your first steps in wine tourism or an established estate looking for a quality-focused partner, what matters to us is a shared commitment to the experience.",
+    "partnerEyebrow": "Collaboration",
+    "partnerTitle": "Partner With Us",
+    "partnerSub": "Are you a winery or hospitality partner? We'd love to hear from you.",
+    "partnerEmail": "Email Address",
+    "partnerEmailPlaceholder": "partner@winery.com",
+    "partnerMessage": "Message",
+    "partnerMessagePlaceholder": "Tell us about your estate or proposal...",
+    "partnerReply": "We will get back to you shortly",
+    "partnerSubmit": "Send Message",
+    "partnerSending": "Sending...",
+    "partnerMissingTitle": "Missing Information",
+    "partnerMissingBody": "Please fill in both email and message fields.",
+    "partnerSuccessTitle": "Message Sent",
+    "partnerSuccessBody": "We will be in touch shortly.",
+    "partnerErrorTitle": "Error",
+    "partnerErrorBody": "Something went wrong. Please email us at info@thewinetrips.com"
+  },
   "trip": {
     "breadcrumbHome": "Experiences",
     "intro": "The journey",
     "pillars": "Why this trip",
-    "itinerary": "Day by day",
+    "overviewEyebrow": "The trip at a glance",
+    "overviewIndex": "02 · OVERVIEW",
+    "overviewTitle": "Itinerary summary",
+    "overviewIntro": "The whole week, at a glance — where you sleep, what you taste, and where each day takes you.",
+    "villaCardTitle": "The villa",
+    "itinerary": "Itinerary",
+    "itineraryIntro": "Seven days through Le Langhe, returning to the same villa every evening. Scroll the days; the map follows along.",
     "lodging": "Where you'll stay",
     "includesTitle": "What's included",
     "excludesTitle": "What's not included",
     "alsoLike": "You might also like",
+    "alsoLikeTitle": "Other journeys",
+    "smallGroupBadge": "Small group",
+    "daysShort": "days",
     "day": "Day",
     "meals": "Meals",
     "lodgingLabel": "Lodging",

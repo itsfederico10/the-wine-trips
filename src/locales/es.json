@@ -15,7 +15,8 @@
     "joinTheList": "Sumate a la lista",
     "reserve": "Reservar",
     "collaborate": "Colaborá con Nosotros",
-    "viewTrip": "Ver el viaje"
+    "viewTrip": "Ver el viaje",
+    "contactUs": "Contáctanos"
   },
   "consent": {
     "text": "Usamos cookies para mejorar tu experiencia y medir nuestro tráfico. Podés aceptar o rechazar.",
@@ -27,7 +28,12 @@
     "terms": "Términos del Servicio",
     "contact": "Contacto",
     "rights": "Todos los derechos reservados.",
-    "backing": "Los viajes son operados por Blisniuk & Amanov, agencia de viajes registrada en Argentina (Legajo EVyT N.º 20943)."
+    "backing": "Los viajes son operados por Blisniuk & Amanov, agencia de viajes registrada en Argentina (Legajo EVyT N.º 20943).",
+    "ba": {
+      "name": "Blisniuk & Amanov",
+      "tagline": "Casa de viajes en pequeño grupo y a medida. Casa central en Manuel Ugarte 2035, Buenos Aires.",
+      "operated": "Operado por Blisniuk & Amanov · RNAV Legajo 20943"
+    }
   },
   "whatsapp": {
     "label": "WhatsApp",
@@ -81,31 +87,63 @@
     "diff": {
       "access": {
         "title": "Acceso Privilegiado",
-        "description": "Acceso directo a través de nuestros socios locales y un operador de viajes registrado, abriendo puertas difíciles de alcanzar por cuenta propia."
+        "description": "Acceso directo a través de nuestros socios locales y un operador de viajes registrado, abriendo puertas difíciles de alcanzar por cuenta propia.",
+        "short": "Puertas que abren socios locales y un operador registrado."
       },
       "groups": {
         "title": "Grupos Reducidos",
-        "description": "Limitados a 4-8 huéspedes para garantizar una inmersión genuina, catas íntimas y nada de multitudes."
+        "description": "Limitados a 4-8 huéspedes para garantizar una inmersión genuina, catas íntimas y nada de multitudes.",
+        "short": "Nunca más de 8 huéspedes. Sin multitudes."
       },
       "curation": {
         "title": "Curaduría Cuidada",
-        "description": "Itinerarios equilibrados con maestría, con denominaciones legendarias junto a joyas locales escondidas."
+        "description": "Itinerarios equilibrados con maestría, con denominaciones legendarias junto a joyas locales escondidas.",
+        "short": "Denominaciones legendarias y joyas escondidas."
       },
       "execution": {
         "title": "Ejecución Impecable",
-        "description": "Desde hoteles boutique de lujo hasta mesas con estrella Michelin, cada detalle se maneja con precisión."
+        "description": "Desde hoteles boutique de lujo hasta mesas con estrella Michelin, cada detalle se maneja con precisión.",
+        "short": "Cada detalle resuelto, de principio a fin."
       },
       "culture": {
         "title": "Integración Cultural",
-        "description": "El gran vino merece contexto. Viví el arte, la historia y la gastronomía de la región de forma holística."
+        "description": "El gran vino merece contexto. Viví el arte, la historia y la gastronomía de la región de forma holística.",
+        "short": "Arte, historia y gastronomía, no solo vino."
       },
       "guidance": {
         "title": "Liderado por sus Fundadores",
-        "description": "Liderado por sus fundadores junto a sommeliers locales de confianza y conocedores de las bodegas que comparten su saber y su pasión por el terroir."
+        "description": "Liderado por sus fundadores junto a sommeliers locales de confianza y conocedores de las bodegas que comparten su saber y su pasión por el terroir.",
+        "short": "Liderado por sus fundadores y conocedores locales."
       }
     },
     "process": "Nuestro Proceso",
     "processSub": "De la consulta a la partida",
+    "how": {
+      "title": "Cómo funciona",
+      "sub": "Desde el contacto al despegue",
+      "s1": { "title": "Elegí tu Destino", "desc": "Explorá nuestras experiencias y encontrá el viaje que te llama." },
+      "s2": { "title": "Hablemos", "desc": "Contactate directamente con uno de los founders por WhatsApp. Te asesoramos y reservamos tu lugar." },
+      "s3": { "title": "Reservá tu Lugar", "desc": "Con un proceso simple y seguro, confirmás tu experiencia. Las plazas son limitadas." },
+      "s4": { "title": "Viví la Experiencia", "desc": "Solo te queda disfrutar. Nosotros nos encargamos de todo lo demás." }
+    },
+    "testimonial": "Ya seas un coleccionista en busca de experiencias únicas, un sommelier explorando nuevas regiones, o simplemente alguien que disfruta la belleza de una copa de vino, creamos experiencias a la altura de tu paladar y tu curiosidad. Esto no es turismo del vino. Es inmersión en el vino.",
+    "trips": {
+      "eyebrow": "Nuestras Salidas",
+      "title": "Hacia dónde vamos",
+      "tabUpcoming": "Próxima Aventura",
+      "tabComingSoon": "Coming Soon",
+      "daysGuests": "{{days}} días · hasta {{guests}} viajeros",
+      "itineraryLabel": "Itinerario",
+      "comingSoonNote": "Sumate a la lista y sé el primero en enterarte cuando abra."
+    },
+    "slider": {
+      "explore": "Explorar",
+      "bordeaux": "Donde se Embotellan las Leyendas",
+      "toscana": "Entre Cipreses y Bodegas Centenarias",
+      "mendoza": "Malbec al Pie de los Andes",
+      "ribera": "El Alma Oculta del Vino Español",
+      "piemonte": "La Borgoña de Italia"
+    },
     "beginJourney": "Comenzá tu Viaje",
     "forTravelers": "Para Viajeros",
     "forPartners": "Para Socios",
@@ -145,15 +183,59 @@
     "meetExperts": "Conocé a Nuestros Expertos",
     "meetExpertsSub": "¿Preferís hablar con alguien? Agendá una consulta sin cargo para conversar tus requerimientos específicos."
   },
+  "about": {
+    "heroQuote": "Un apasionado del vino que decidió compartir el viaje",
+    "storyEyebrow": "Mi Historia",
+    "story1": "Como muchas de las mejores historias, esta empezó con un acto de fe. Después de construir una carrera en Amazon, me fui sintiendo cada vez más atraído no hacia la sala de reuniones, sino hacia el viñedo —a las historias embotelladas en el vidrio, a la historia enraizada en la tierra, y a las personas que dedicaron su vida al arte de hacer vino.",
+    "story2": "Perseguí mi pasión en serio, estudiando todo lo que hay sobre vino, pero el conocimiento solo no alcanzaba. Necesitaba vivirlo. Viajé a las regiones vitivinícolas más veneradas del mundo, golpeando puertas de bodegas y compartiendo la mesa con productores. A la derecha podés verme bromeando con Piero Incisa Della Rocchetta. Una locura, ¿no?",
+    "story3": "Lo que descubrí es que el verdadero lujo en el vino no está solo en la etiqueta: está en el acceso y la conexión. Está en sentarse a la mesa familiar, probar barricas que nunca llegarán al mercado, y entender el alma de un lugar. Por eso fundé The Wine Trips: para abrirte esas mismas puertas.",
+    "instagram": "Seguí en Instagram",
+    "manifesto": "The Wine Trips fue creado con un propósito específico: acercar a las personas al vino a través de experiencias enriquecedoras, apoyando al mismo tiempo a los productores.",
+    "valuesEyebrow": "Nuestros Valores",
+    "valuesTitle": "Lo Que Defendemos",
+    "valueSustainabilityTitle": "Sustentabilidad",
+    "valueSustainabilityText": "El consumo global de vino está cambiando. Los mercados se mueven, las generaciones más jóvenes beben menos, y tanto los mejores estates del mundo como los pequeños productores familiares navegan una industria en transición. Creemos que el enoturismo es una de las respuestas más significativas a ese desafío: llevar visitantes curiosos y comprometidos directamente al origen, convirtiendo una botella en una conversación, y una conversación en un vínculo duradero con un lugar.",
+    "valueQualityTitle": "Calidad",
+    "valueQualityText": "En The Wine Trips mantenemos deliberadamente grupos chicos y experiencias profundas. No porque el vino sea solo para unos pocos —no lo es— sino porque entender de verdad un lugar no se puede apurar ni escalar. Desmitificar que el vino es solo para quienes “saben de vino” es uno de nuestros principios clave, porque acerca a más personas al vino. Calidad por sobre volumen es nuestro compromiso, tanto con nuestros huéspedes como con los productores que nos abren sus puertas.",
+    "valueRespectTitle": "Respeto",
+    "valueRespectText": "Cada viaje que diseñamos es también un acto de defensa de las regiones, los productores y el oficio detrás de cada botella de vino. Haciendo lo que mejor sabemos hacer, construimos puentes entre quienes hacen el vino y quienes lo aman; o están por hacerlo.",
+    "valuePartnershipTitle": "Alianzas",
+    "valuePartnershipText": "Si sos un productor que comparte nuestra visión, a The Wine Trips le encantaría hablar con vos. Ya seas un productor boutique dando tus primeros pasos en el enoturismo o un estate consolidado buscando un socio enfocado en la calidad, lo que nos importa es un compromiso compartido con la experiencia.",
+    "partnerEyebrow": "Colaboración",
+    "partnerTitle": "Asociate con Nosotros",
+    "partnerSub": "¿Sos una bodega o un partner de hospitalidad? Nos encantaría saber de vos.",
+    "partnerEmail": "Dirección de Email",
+    "partnerEmailPlaceholder": "partner@bodega.com",
+    "partnerMessage": "Mensaje",
+    "partnerMessagePlaceholder": "Contanos sobre tu estate o propuesta...",
+    "partnerReply": "Te responderemos a la brevedad",
+    "partnerSubmit": "Enviar Mensaje",
+    "partnerSending": "Enviando...",
+    "partnerMissingTitle": "Falta Información",
+    "partnerMissingBody": "Por favor completá los campos de email y mensaje.",
+    "partnerSuccessTitle": "Mensaje Enviado",
+    "partnerSuccessBody": "Nos pondremos en contacto a la brevedad.",
+    "partnerErrorTitle": "Error",
+    "partnerErrorBody": "Algo salió mal. Escribinos a info@thewinetrips.com"
+  },
   "trip": {
     "breadcrumbHome": "Experiencias",
     "intro": "El viaje",
     "pillars": "Por qué este viaje",
-    "itinerary": "Día por día",
+    "overviewEyebrow": "El viaje en una mirada",
+    "overviewIndex": "02 · OVERVIEW",
+    "overviewTitle": "Resumen del itinerario",
+    "overviewIntro": "Toda la semana de un vistazo — dónde dormís, qué probás y a dónde te lleva cada día.",
+    "villaCardTitle": "La villa",
+    "itinerary": "Itinerario",
+    "itineraryIntro": "Siete días por Le Langhe, volviendo a la misma villa cada noche. Recorré los días; el mapa te acompaña.",
     "lodging": "Dónde te alojás",
     "includesTitle": "Lo que incluye",
     "excludesTitle": "Lo que no incluye",
     "alsoLike": "También podría interesarte",
+    "alsoLikeTitle": "Otros viajes",
+    "smallGroupBadge": "Pequeño grupo",
+    "daysShort": "días",
     "day": "Día",
     "meals": "Comidas",
     "lodgingLabel": "Alojamiento",

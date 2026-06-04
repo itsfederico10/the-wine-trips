@@ -68,12 +68,20 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Trust backing + Copyright */}
-        <div className="mt-16 pt-8 border-t border-gray-50 text-center md:text-left space-y-3">
-          <p className="text-[11px] text-gray-500 font-light tracking-wide max-w-2xl">
-            {t('footer.backing')}
-          </p>
-          <p className="text-[10px] text-gray-400 font-light tracking-wide">
+        {/* Operated by — Blisniuk & Amanov backing block */}
+        <div className="mt-16 pt-10 border-t border-gray-100">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+            <div className="max-w-xl">
+              <p className="text-sm font-serif text-gray-900 mb-2">{t('footer.ba.name')}</p>
+              <p className="text-[12px] text-gray-500 font-light leading-relaxed">
+                {t('footer.ba.tagline')}
+              </p>
+            </div>
+            <p className="text-[11px] text-gray-400 font-light tracking-wide uppercase md:text-right">
+              {t('footer.ba.operated')}
+            </p>
+          </div>
+          <p className="mt-10 text-[10px] text-gray-400 font-light tracking-wide text-center md:text-left">
             © {new Date().getFullYear()} The Wine Trips. {t('footer.rights')}
           </p>
         </div>

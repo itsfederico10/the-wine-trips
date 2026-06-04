@@ -6,18 +6,12 @@ import { useTranslation } from 'react-i18next';
 import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import {
-  Star, Search, Home, Utensils, ShieldCheck, Sparkles,
-  Check, X as XIcon, ChevronRight, MessageCircle, ArrowRight,
-} from 'lucide-react';
+import { Check, X as XIcon, ChevronRight, MessageCircle, ArrowRight } from 'lucide-react';
 import { experiences } from '@/data/experiences';
 import { waLink, trackWhatsApp } from '@/components/WhatsAppButton';
 
 const GOLD = '#c9a96e';
 const INK = '#1a1a1a';
-
-const ICONS = { star: Star, search: Search, home: Home, utensils: Utensils, shield: ShieldCheck };
-const pillarIcon = (name) => ICONS[name] || Sparkles;
 
 // Numbered marker matching the Wine Trips palette.
 const makeIcon = (n, active) =>
@@ -49,7 +43,7 @@ const ItineraryMap = ({ points, activeIndex }) => {
       center={center}
       zoom={11}
       scrollWheelZoom={false}
-      style={{ height: '100%', width: '100%', minHeight: 420 }}
+      style={{ height: '100%', width: '100%', minHeight: 360 }}
       className="rounded-sm overflow-hidden z-0"
     >
       <TileLayer
@@ -61,6 +55,29 @@ const ItineraryMap = ({ points, activeIndex }) => {
       ))}
       <MapController points={points} activeIndex={activeIndex} />
     </MapContainer>
+  );
+};
+
+// Bold the proper nouns listed in intro.highlights inside a paragraph.
+const Highlighted = ({ text, terms }) => {
+  if (!terms || !terms.length) return text;
+  const escaped = terms.map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const re = new RegExp(`(${escaped.join('|')})`, 'g');
+  return text.split(re).map((part, i) =>
+    terms.includes(part)
+      ? <strong key={i} className="font-semibold text-[#1a1a1a]">{part}</strong>
+      : <React.Fragment key={i}>{part}</React.Fragment>
+  );
+};
+
+// Title with the last word in italic accent, e.g. "Resumen del *itinerario*".
+const AccentTitle = ({ text, className }) => {
+  const words = (text || '').split(' ');
+  const last = words.pop();
+  return (
+    <h2 className={className}>
+      {words.join(' ')}{words.length ? ' ' : ''}<span className="italic text-[#c9a96e]">{last}</span>
+    </h2>
   );
 };
 
@@ -102,19 +119,28 @@ const TripPage = () => {
   const hero = exp.hero || {};
   const stats = exp.stats || [];
   const intro = exp.intro || {};
-  const pillars = exp.pillars || [];
   const lodging = exp.lodging || {};
+  const specs = lodging.specs || [];
   const includes = exp.includes || [];
   const excludes = exp.excludes || [];
   const regionName = hero.title || exp.title;
 
-  const tripMsg = t('whatsapp.tripMessage', {
-    region: regionName,
-    dates: exp.dates || '',
-  });
+  const tripMsg = t('whatsapp.tripMessage', { region: regionName, dates: exp.dates || '' });
   const openWaitlist = () => window.dispatchEvent(new Event('open-waitlist-modal'));
+  const others = experiences.filter((e) => e.id !== exp.id).slice(0, 4);
 
-  const others = experiences.filter((e) => e.id !== exp.id).slice(0, 3);
+  const PrimaryCTA = ({ className = '' }) =>
+    isLive ? (
+      <a href={waLink(tripMsg)} target="_blank" rel="noopener noreferrer" onClick={trackWhatsApp}
+        className={`inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-lg ${className}`}>
+        <MessageCircle className="w-4 h-4" />{t('cta.priceOnRequest')}
+      </a>
+    ) : (
+      <button onClick={openWaitlist}
+        className={`inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-lg ${className}`}>
+        {t('cta.joinTheList')}
+      </button>
+    );
 
   return (
     <>
@@ -131,67 +157,48 @@ const TripPage = () => {
       </Helmet>
 
       <div className="bg-white text-[#1a1a1a]">
-        {/* ===================== HERO ===================== */}
-        <section className="relative h-screen min-h-[600px] flex items-end overflow-hidden">
-          <div className="absolute inset-0">
-            <img src={hero.image || exp.image} alt={regionName} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/80" />
-          </div>
+        {/* ===================== HERO (cinematic band) ===================== */}
+        <section className="relative w-full">
+          <div className="relative w-full aspect-[1.4/1] sm:aspect-[2/1] lg:aspect-[2.6/1] min-h-[460px] max-h-[90vh] overflow-hidden">
+            <img src={hero.image || exp.image} alt={regionName} className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/85" />
+            <div className="absolute inset-x-0 bottom-0">
+              <div className="max-w-7xl mx-auto px-6 pb-14 md:pb-24">
+                <nav className="flex items-center gap-2 text-white/70 text-xs tracking-widest uppercase mb-5 font-sans">
+                  <Link to="/experiences" className="hover:text-white transition-colors">{t('trip.breadcrumbHome')}</Link>
+                  <ChevronRight className="w-3 h-3" />
+                  <span className="text-white">{regionName}</span>
+                </nav>
 
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-24 md:pb-28">
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-white/70 text-xs tracking-widest uppercase mb-6 font-sans">
-              <Link to="/experiences" className="hover:text-white transition-colors">{t('trip.breadcrumbHome')}</Link>
-              <ChevronRight className="w-3 h-3" />
-              <span className="text-white">{regionName}</span>
-            </nav>
+                {!isLive && (
+                  <span className="inline-block mb-4 px-4 py-1.5 bg-[#c9a96e] text-[#1a1a1a] text-[11px] font-bold tracking-[0.2em] uppercase">
+                    {t('experiences.upcoming')}
+                  </span>
+                )}
 
-            {!isLive && (
-              <span className="inline-block mb-5 px-4 py-1.5 bg-[#c9a96e] text-[#1a1a1a] text-[11px] font-bold tracking-[0.2em] uppercase">
-                {t('experiences.upcoming')}
-              </span>
-            )}
-
-            <p className="text-[#e9d9b8] text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4 font-sans">
-              {hero.eyebrow}
-            </p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-none">
-              {regionName}
-            </h1>
-            <p className="text-lg md:text-xl font-light text-white/85 max-w-2xl leading-relaxed font-sans mb-10">
-              {hero.subtitle || exp.description}
-            </p>
-
-            {isLive ? (
-              <a
-                href={waLink(tripMsg)}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={trackWhatsApp}
-                className="inline-flex items-center gap-3 px-9 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-lg"
-              >
-                <MessageCircle className="w-4 h-4" />
-                {t('cta.priceOnRequest')}
-              </a>
-            ) : (
-              <button
-                onClick={openWaitlist}
-                className="inline-flex items-center gap-3 px-9 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-lg"
-              >
-                {t('cta.joinTheList')}
-              </button>
-            )}
+                <p className="text-[#e9d9b8] text-[11px] md:text-sm font-bold tracking-[0.2em] uppercase mb-3 md:mb-4 font-sans">
+                  {hero.eyebrow}
+                </p>
+                <h1 className="text-[40px] sm:text-6xl lg:text-[76px] font-serif text-white mb-4 md:mb-6 leading-[1.04]">
+                  {regionName}
+                </h1>
+                <p className="text-base md:text-xl font-light text-white/85 max-w-2xl leading-relaxed font-sans mb-8">
+                  {hero.subtitle || exp.description}
+                </p>
+                <PrimaryCTA className="w-full sm:w-auto" />
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ===================== STATS BAR ===================== */}
+        {/* ===================== STATS BAR (overlaps hero) ===================== */}
         {stats.length > 0 && (
-          <section className="relative z-20 max-w-6xl mx-auto px-6 -mt-12">
-            <div className="bg-white shadow-xl border border-gray-100 grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+          <section className="relative z-20 max-w-6xl mx-auto px-6 -mt-10 md:-mt-12">
+            <div className="bg-white shadow-xl border border-gray-100 grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-100">
               {stats.map((s, i) => (
-                <div key={i} className="p-6 md:p-8 text-center">
+                <div key={i} className="p-5 md:p-8 text-center">
                   <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 mb-2 font-sans">{s.label}</p>
-                  <p className="text-lg md:text-xl font-serif text-[#1a1a1a]">{s.value}</p>
+                  <p className="text-base md:text-xl font-serif text-[#1a1a1a]">{s.value}</p>
                   {s.sub && <p className="text-xs font-light text-gray-500 mt-1 font-sans">{s.sub}</p>}
                 </div>
               ))}
@@ -199,43 +206,72 @@ const TripPage = () => {
           </section>
         )}
 
-        {/* ===================== INTRO ===================== */}
+        {/* ===================== INTRO (2 columns) ===================== */}
         {(intro.title || intro.body) && (
-          <section className="max-w-6xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <section className="max-w-6xl mx-auto px-6 py-20 md:py-32 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-6 font-sans">{exp.vol || t('trip.intro')}</span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif leading-tight mb-8">{intro.title}</h2>
-              <div className="space-y-5 text-gray-600 font-light leading-relaxed font-sans">
-                {(intro.body || []).map((p, i) => <p key={i}>{p}</p>)}
+              <h2 className="text-[28px] md:text-[38px] font-serif leading-[1.2] mb-8 max-w-[880px]">{intro.title}</h2>
+              <div className="space-y-5 text-[15px] md:text-base text-gray-600 font-light leading-7 font-sans">
+                {(intro.body || []).map((p, i) => (
+                  <p key={i}><Highlighted text={p} terms={intro.highlights} /></p>
+                ))}
               </div>
             </motion.div>
             {intro.image && (
-              <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.9 }} className="h-[400px] md:h-[560px] overflow-hidden rounded-sm shadow-xl">
+              <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.9 }} className="order-first md:order-last h-[280px] sm:h-[400px] md:h-[560px] overflow-hidden rounded-sm shadow-xl">
                 <img src={intro.image} alt={intro.title || regionName} className="w-full h-full object-cover" />
               </motion.div>
             )}
           </section>
         )}
 
-        {/* ===================== PILLARS ===================== */}
-        {pillars.length > 0 && (
-          <section className="bg-[#1a1a1a] text-white py-24 md:py-32 px-6">
+        {/* ===================== ITINERARY OVERVIEW (A1) ===================== */}
+        {itinerary.length > 0 && (
+          <section className="bg-[#fafafa] py-20 md:py-28 px-6">
             <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-serif mb-6">{t('trip.pillars')}</h2>
-                <div className="w-20 h-px bg-[#c9a96e] mx-auto" />
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase font-sans">{t('trip.overviewEyebrow')}</span>
+                <span className="text-gray-400 text-xs font-bold tracking-[0.2em] uppercase font-sans">{t('trip.overviewIndex')}</span>
               </div>
-              <div className="grid md:grid-cols-3 gap-8">
-                {pillars.map((p, i) => {
-                  const Icon = pillarIcon(p.icon);
-                  return (
-                    <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} className="p-10 border border-[#c9a96e]/20 bg-[#222]">
-                      <Icon className="w-10 h-10 text-[#c9a96e] mb-6 stroke-[1.5]" />
-                      <h3 className="text-xl font-serif mb-4">{p.title}</h3>
-                      <p className="text-gray-400 font-light leading-relaxed text-sm">{p.text}</p>
-                    </motion.div>
-                  );
-                })}
+              <AccentTitle text={t('trip.overviewTitle')} className="text-3xl md:text-5xl font-serif leading-tight mb-5" />
+              <p className="text-gray-600 font-light leading-relaxed font-sans max-w-2xl mb-12">{t('trip.overviewIntro')}</p>
+
+              <div className="grid lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-16 items-start">
+                {/* Day list */}
+                <div>
+                  {itinerary.map((d, i) => (
+                    <div key={i} className="flex gap-4 md:gap-6 py-4 border-b border-gray-200 first:border-t">
+                      <span className="text-3xl md:text-4xl font-serif text-[#c9a96e]/40 leading-none w-10 md:w-12 shrink-0">{String(d.n).padStart(2, '0')}</span>
+                      <div className="min-w-0">
+                        <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-gray-400 mb-1 font-sans">{d.date}{d.dayTitle ? ` · ${d.dayTitle}` : ''}</p>
+                        <h4 className="text-base md:text-lg font-serif mb-1 leading-snug">{d.title}</h4>
+                        <p className="text-xs italic text-gray-400 font-sans">{[d.meals, d.lodging].filter((x) => x && x !== '—').join(' · ')}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Villa card */}
+                {lodging.name && (
+                  <div className="border border-gray-300 p-6 md:p-8 bg-white">
+                    <p className="text-[11px] tracking-[0.2em] uppercase text-[#c9a96e] mb-3 font-sans">★ {t('trip.villaCardTitle')}</p>
+                    <h3 className="text-2xl font-serif mb-1">{lodging.name}</h3>
+                    {lodging.location && <p className="text-xs text-gray-500 mb-5 font-sans">{lodging.location}</p>}
+                    {specs.length > 0 ? (
+                      <dl className="divide-y divide-gray-100">
+                        {specs.map((s, i) => (
+                          <div key={i} className="flex gap-4 py-2.5">
+                            <dt className="w-16 md:w-20 shrink-0 text-[10px] font-bold tracking-widest uppercase text-gray-400 pt-1 font-sans">{s.label}</dt>
+                            <dd className="text-sm text-gray-700 font-light font-sans">{s.value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    ) : (
+                      lodging.intro && <p className="text-sm text-gray-600 font-light leading-relaxed font-sans">{lodging.intro}</p>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </section>
@@ -243,21 +279,19 @@ const TripPage = () => {
 
         {/* ===================== ITINERARY (map + days) ===================== */}
         {itinerary.length > 0 && (
-          <section className="max-w-7xl mx-auto px-6 py-24 md:py-32">
-            <div className="text-center mb-16">
-              <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-4 font-sans">{t('trip.itinerary')}</span>
-              <h2 className="text-3xl md:text-4xl font-serif">{intro.title ? regionName : t('trip.itinerary')}</h2>
-            </div>
-
-            <div className="grid lg:grid-cols-[420px_1fr] gap-12">
-              {/* Sticky map */}
-              {points.length > 0 && (
-                <div className="hidden lg:block">
-                  <div className="sticky top-28">
-                    <div className="h-[480px] w-full shadow-lg border border-gray-100">
+          <section className="max-w-7xl mx-auto px-6 py-20 md:py-32">
+            <div className="grid lg:grid-cols-[440px_1fr] gap-10 lg:gap-12">
+              {/* Left: title + intro + sticky map */}
+              <div>
+                <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-3 font-sans">{t('trip.itinerary')}</span>
+                <h2 className="text-3xl md:text-[43px] font-serif leading-tight mb-4">{t('trip.itinerary')}</h2>
+                <p className="text-gray-600 font-light leading-relaxed font-sans mb-8">{t('trip.itineraryIntro')}</p>
+                {points.length > 0 && (
+                  <div className="lg:sticky lg:top-24">
+                    <div className="h-[320px] md:h-[440px] w-full shadow-lg border border-gray-100">
                       <ItineraryMap points={points} activeIndex={activeIndex} />
                     </div>
-                    <div className="mt-5 space-y-2">
+                    <div className="mt-5 hidden lg:block space-y-2">
                       {itinerary.map((d, i) => (
                         <button
                           key={i}
@@ -270,11 +304,11 @@ const TripPage = () => {
                       ))}
                     </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
 
-              {/* Day blocks */}
-              <div className="space-y-20">
+              {/* Right: day blocks */}
+              <div className="space-y-16 md:space-y-20">
                 {itinerary.map((d, i) => (
                   <motion.div
                     key={i}
@@ -284,26 +318,26 @@ const TripPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-80px' }}
                     transition={{ duration: 0.6 }}
-                    className="scroll-mt-28"
+                    className="scroll-mt-24"
                   >
                     <div className="flex items-baseline gap-4 mb-3">
                       <span className="text-5xl md:text-6xl font-serif text-[#c9a96e]/30 leading-none">{String(d.n).padStart(2, '0')}</span>
                       <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-gray-400 font-sans">
-                        {d.date} · {t('trip.day')} {d.n}{d.dayTitle ? ` · ${d.dayTitle}` : ''}
+                        {d.date} · {t('trip.day')} {d.n}
                       </p>
                     </div>
                     <h3 className="text-2xl md:text-3xl font-serif mb-5 leading-snug">{d.title}</h3>
+                    <p className="text-gray-600 font-light leading-relaxed font-sans mb-5">{d.body}</p>
+                    <p className="text-xs uppercase tracking-widest text-gray-400 font-sans border-t border-gray-100 pt-4 mb-6">
+                      {d.meals && <span><span className="text-[#c9a96e]">{t('trip.meals')}:</span> {d.meals}</span>}
+                      {d.meals && d.lodging && d.lodging !== '—' && <span className="mx-2">·</span>}
+                      {d.lodging && d.lodging !== '—' && <span><span className="text-[#c9a96e]">{t('trip.lodgingLabel')}:</span> {d.lodging}</span>}
+                    </p>
                     {d.image && (
-                      <div className="h-[260px] md:h-[380px] overflow-hidden rounded-sm mb-6 shadow-md">
+                      <div className="h-[240px] sm:h-[320px] md:h-[420px] overflow-hidden rounded-sm shadow-md">
                         <img src={d.image} alt={d.title} className="w-full h-full object-cover" />
                       </div>
                     )}
-                    <p className="text-gray-600 font-light leading-relaxed font-sans mb-5">{d.body}</p>
-                    <p className="text-xs uppercase tracking-widest text-gray-400 font-sans border-t border-gray-100 pt-4">
-                      {d.meals && <span><span className="text-[#c9a96e]">{t('trip.meals')}:</span> {d.meals}</span>}
-                      {d.meals && d.lodging && <span className="mx-2">·</span>}
-                      {d.lodging && <span><span className="text-[#c9a96e]">{t('trip.lodgingLabel')}:</span> {d.lodging}</span>}
-                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -313,7 +347,7 @@ const TripPage = () => {
 
         {/* ===================== LODGING GALLERY ===================== */}
         {lodging.name && (
-          <section className="bg-[#fafafa] py-24 md:py-32 px-6">
+          <section className="bg-[#fafafa] py-20 md:py-32 px-6">
             <div className="max-w-7xl mx-auto">
               <div className="mb-12 text-center">
                 <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-4 font-sans">{lodging.eyebrow || t('trip.lodging')}</span>
@@ -340,28 +374,24 @@ const TripPage = () => {
 
         {/* ===================== INCLUDES / EXCLUDES (50/50) ===================== */}
         {(includes.length > 0 || excludes.length > 0) && (
-          <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-              {/* Includes */}
+          <section className="max-w-6xl mx-auto px-6 py-20 md:py-32">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start">
               <div>
                 <h3 className="text-2xl font-serif mb-8">{t('trip.includesTitle')}</h3>
                 <ul className="space-y-4">
                   {includes.map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm font-light text-gray-700 font-sans">
-                      <Check className="w-4 h-4 text-[#c9a96e] mt-0.5 shrink-0" />
-                      <span>{item}</span>
+                      <Check className="w-4 h-4 text-[#c9a96e] mt-0.5 shrink-0" /><span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              {/* Excludes */}
               <div>
                 <h3 className="text-2xl font-serif mb-8">{t('trip.excludesTitle')}</h3>
                 <ul className="space-y-4">
                   {excludes.map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm font-light text-gray-500 font-sans">
-                      <XIcon className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" />
-                      <span>{item}</span>
+                      <XIcon className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" /><span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -376,47 +406,47 @@ const TripPage = () => {
         )}
 
         {/* ===================== FINAL CTA ===================== */}
-        <section className="bg-[#1a1a1a] text-white py-24 px-6 text-center">
+        <section className="bg-[#1a1a1a] text-white py-20 md:py-24 px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-serif mb-6">{t('trip.ctaTitle')}</h2>
           <p className="text-gray-400 font-light max-w-xl mx-auto mb-10 font-sans">{t('trip.ctaBody')}</p>
           {isLive ? (
-            <a
-              href={waLink(tripMsg)}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={trackWhatsApp}
-              className="inline-flex items-center gap-3 px-9 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300"
-            >
-              <MessageCircle className="w-4 h-4" />
-              {t('cta.talkToExpert')}
+            <a href={waLink(tripMsg)} target="_blank" rel="noopener noreferrer" onClick={trackWhatsApp}
+              className="inline-flex items-center gap-3 px-9 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300">
+              <MessageCircle className="w-4 h-4" />{t('cta.talkToExpert')}
             </a>
           ) : (
-            <button
-              onClick={openWaitlist}
-              className="inline-flex items-center gap-3 px-9 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300"
-            >
+            <button onClick={openWaitlist}
+              className="inline-flex items-center gap-3 px-9 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300">
               {t('cta.joinTheList')}
             </button>
           )}
         </section>
 
-        {/* ===================== ALSO LIKE ===================== */}
+        {/* ===================== ALSO LIKE (4 portrait cards) ===================== */}
         {others.length > 0 && (
-          <section className="max-w-7xl mx-auto px-6 py-24">
-            <h2 className="text-2xl md:text-3xl font-serif mb-12 text-center">{t('trip.alsoLike')}</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {others.map((o) => (
-                <Link key={o.id} to={`/experiences/${o.id}`} className="group block">
-                  <div className="aspect-[4/3] overflow-hidden rounded-sm mb-5">
-                    <img src={o.image} alt={o.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  </div>
-                  <h3 className="text-lg font-serif mb-1">{o.title}</h3>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 mb-3 font-sans">{o.country}</p>
-                  <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-[#1a1a1a] group-hover:text-[#c9a96e] transition-colors">
-                    {t('cta.viewTrip')} <ArrowRight className="w-3 h-3" />
-                  </span>
-                </Link>
-              ))}
+          <section className="max-w-7xl mx-auto px-6 py-20 md:py-28">
+            <div className="text-center mb-12">
+              <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-3 font-sans">{t('trip.alsoLike')}</span>
+              <h2 className="text-3xl md:text-[52px] font-serif">{t('trip.alsoLikeTitle')}</h2>
+            </div>
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 -mx-6 px-6 md:mx-0 md:px-0">
+              {others.map((o) => {
+                const days = o.itinerary?.length || 7;
+                return (
+                  <Link key={o.id} to={`/experiences/${o.id}`} className="group block shrink-0 w-[75%] sm:w-[45%] md:w-auto snap-start">
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+                      <img src={o.image} alt={o.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <span className="absolute top-3 left-3 px-2.5 py-1 bg-white/90 text-[#1a1a1a] text-[10px] font-bold tracking-widest uppercase">
+                        {days} {t('trip.daysShort')}
+                      </span>
+                      <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/10 to-transparent p-5">
+                        <p className="text-[#e9d9b8] text-[10px] font-bold tracking-[0.2em] uppercase mb-1 font-sans">{t('trip.smallGroupBadge')}</p>
+                        <h3 className="text-white text-xl font-serif leading-tight">{o.hero?.title || o.title}</h3>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </section>
         )}

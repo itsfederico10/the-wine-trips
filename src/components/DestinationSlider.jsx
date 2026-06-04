@@ -2,46 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const slides = [
-  {
-    id: 'bordeaux',
-    title: 'Where Legends Are Bottled',
-    subtitle: 'Bordeaux, France',
-    image: '/images/6e7ac65143eb04d13fa541251cefc917.webp',
-    to: '/experiences/bordeaux'
-  },
-  {
-    id: 'toscana',
-    title: 'Between Cypress Trees & Ancient Cellars',
-    subtitle: 'Toscana, Italy',
-    image: '/images/7b385dec483db559f6ede32c163e47e7.webp',
-    to: '/experiences/toscana'
-  },
-  {
-    id: 'mendoza',
-    title: 'Malbec at the Foot of the Andes',
-    subtitle: 'Mendoza, Argentina',
-    image: '/images/7dbbafdc335bd67dfbd883f761481c69.webp',
-    to: '/experiences/mendoza'
-  },
-  {
-    id: 'ribera',
-    title: 'The Hidden Soul of Spanish Wine',
-    subtitle: 'Ribera del Duero, Spain',
-    image: '/images/53490d75f77d93ebfd62b50cb3e9ea40.webp',
-    to: '/experiences/ribera-del-duero'
-  },
-  {
-    id: 'piemonte',
-    title: 'The Burgundy of Italy',
-    subtitle: 'Piemonte, Italy',
-    image: '/images/707a534ce9f8c1d70d5274195c58ee36.webp',
-    to: '/experiences/piedmont'
-  }
+  { id: 'bordeaux', subtitle: 'Bordeaux, France', image: '/images/6e7ac65143eb04d13fa541251cefc917.webp', to: '/experiences/bordeaux' },
+  { id: 'toscana', subtitle: 'Toscana, Italy', image: '/images/7b385dec483db559f6ede32c163e47e7.webp', to: '/experiences/toscana' },
+  { id: 'mendoza', subtitle: 'Mendoza, Argentina', image: '/images/7dbbafdc335bd67dfbd883f761481c69.webp', to: '/experiences/mendoza' },
+  { id: 'ribera', subtitle: 'Ribera del Duero, Spain', image: '/images/53490d75f77d93ebfd62b50cb3e9ea40.webp', to: '/experiences/ribera-del-duero' },
+  { id: 'piemonte', subtitle: 'Piemonte, Italy', image: '/images/707a534ce9f8c1d70d5274195c58ee36.webp', to: '/experiences/piedmont' }
 ];
 
 const DestinationSlider = () => {
+  const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -69,7 +41,7 @@ const DestinationSlider = () => {
           <div className="absolute inset-0">
             <img
               src={slides[current].image}
-              alt={slides[current].title}
+              alt={t(`home.slider.${slides[current].id}`)}
               className="w-full h-full object-cover opacity-80"
             />
             <div className="absolute inset-0 bg-black/40" />
@@ -92,7 +64,7 @@ const DestinationSlider = () => {
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="text-white text-4xl md:text-6xl lg:text-7xl font-serif mb-12 leading-tight"
               >
-                {slides[current].title}
+                {t(`home.slider.${slides[current].id}`)}
               </motion.h2>
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
@@ -103,7 +75,7 @@ const DestinationSlider = () => {
                   to={slides[current].to}
                   className="inline-flex items-center gap-2 px-8 py-3 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300"
                 >
-                  Explore <ArrowRight className="w-4 h-4" />
+                  {t('home.slider.explore')} <ArrowRight className="w-4 h-4" />
                 </Link>
               </motion.div>
             </div>
