@@ -56,6 +56,14 @@ export const experiences = [
     dates: null,
     priceLabel: 'A consultar',
     vol: 'VOL. 02 — BORDEAUX',
+    tripHighlights: [
+      { icon: 'home', text: '[PLACEHOLDER] Château en uso exclusivo' },
+      { icon: 'star', text: '[PLACEHOLDER] Cena con estrella Michelin' },
+      { icon: 'wine', text: '[PLACEHOLDER] Cata privada en un Grand Cru clasificado' },
+      { icon: 'sparkles', text: '[PLACEHOLDER] Experiencia destacada de la región' },
+      { icon: 'users', text: 'Grupo reducido de viajeros afines, nunca más de 8' },
+      { icon: 'compass', text: 'Viaje founder-led y sin estrés: B&A coordina cada detalle' },
+    ],
     hero: {
       image: IMG.bordeaux,
       eyebrow: 'PEQUEÑO GRUPO · FRANCIA · PRÓXIMAMENTE',
@@ -133,6 +141,14 @@ export const experiences = [
     dates: null,
     priceLabel: 'A consultar',
     vol: 'VOL. 03 — TOSCANA',
+    tripHighlights: [
+      { icon: 'home', text: '[PLACEHOLDER] Villa toscana en uso exclusivo' },
+      { icon: 'star', text: '[PLACEHOLDER] Cena con estrella Michelin' },
+      { icon: 'wine', text: '[PLACEHOLDER] Cata privada en un estate histórico' },
+      { icon: 'sparkles', text: '[PLACEHOLDER] Experiencia destacada de la región' },
+      { icon: 'users', text: 'Grupo reducido de viajeros afines, nunca más de 8' },
+      { icon: 'compass', text: 'Viaje founder-led y sin estrés: B&A coordina cada detalle' },
+    ],
     hero: {
       image: IMG.tuscanSunset,
       eyebrow: 'PEQUEÑO GRUPO · ITALIA · PRÓXIMAMENTE',
@@ -210,6 +226,14 @@ export const experiences = [
     dates: null,
     priceLabel: 'A consultar',
     vol: 'VOL. 04 — MENDOZA',
+    tripHighlights: [
+      { icon: 'home', text: '[PLACEHOLDER] Lodge de altura en uso exclusivo' },
+      { icon: 'star', text: '[PLACEHOLDER] Asado de autor / alta cocina' },
+      { icon: 'wine', text: '[PLACEHOLDER] Cata privada en una bodega icónica' },
+      { icon: 'sparkles', text: '[PLACEHOLDER] Experiencia destacada de la región' },
+      { icon: 'users', text: 'Grupo reducido de viajeros afines, nunca más de 8' },
+      { icon: 'compass', text: 'Viaje founder-led y sin estrés: B&A coordina cada detalle' },
+    ],
     hero: {
       image: IMG.mendoza,
       eyebrow: 'PEQUEÑO GRUPO · ARGENTINA · PRÓXIMAMENTE',
@@ -287,6 +311,14 @@ export const experiences = [
     dates: null,
     priceLabel: 'A consultar',
     vol: 'VOL. 05 — RIBERA DEL DUERO',
+    tripHighlights: [
+      { icon: 'home', text: '[PLACEHOLDER] Alojamiento con encanto en uso exclusivo' },
+      { icon: 'star', text: '[PLACEHOLDER] Cena de alta cocina / tapas de autor' },
+      { icon: 'wine', text: '[PLACEHOLDER] Cata privada en una bodega histórica' },
+      { icon: 'sparkles', text: '[PLACEHOLDER] Experiencia destacada de la región' },
+      { icon: 'users', text: 'Grupo reducido de viajeros afines, nunca más de 8' },
+      { icon: 'compass', text: 'Viaje founder-led y sin estrés: B&A coordina cada detalle' },
+    ],
     hero: {
       image: IMG.vineyardHills,
       eyebrow: 'PEQUEÑO GRUPO · ESPAÑA · PRÓXIMAMENTE',
@@ -375,12 +407,25 @@ export const experiences = [
     groupLabel: '8 huéspedes + 2 staff',
     priceLabel: 'A consultar',
     vol: 'VOL. 01 — LE LANGHE',
+    highlightImage: '/images/piedmont/highlight.webp',
+    tripHighlights: [
+      { icon: 'home', text: 'Villa privada en exclusiva con vistas Patrimonio UNESCO' },
+      { icon: 'waves', text: 'Piscina salada climatizada asomada a los viñedos' },
+      { icon: 'star', text: 'Almuerzo Michelin en La Ciau del Tornavento ★' },
+      { icon: 'wine', text: 'Visita y degustación en Vietti, en pleno Barolo' },
+      { icon: 'castle', text: 'Cena de lujo en el castillo de Grinzane Cavour ★' },
+      { icon: 'search', text: 'Caza de trufa blanca al amanecer con los trifulau' },
+      { icon: 'utensils', text: 'Cooking class privada en el Castello di Roddi' },
+      { icon: 'sparkles', text: 'Entradas a la Fiera Internazionale del Tartufo de Alba' },
+      { icon: 'users', text: 'Grupo reducido de viajeros afines, nunca más de 8' },
+      { icon: 'compass', text: 'Viaje founder-led y sin estrés: B&A coordina cada detalle' },
+    ],
 
     hero: {
       image: IMG.langhe,                              // [PLACEHOLDER] paisaje Langhe / villa entre viñedos
       eyebrow: 'PEQUEÑO GRUPO · ITALIA · 19–25 OCTUBRE 2026',
       title: 'Piemonte',
-      subtitle: 'Siete días entre viñedos Patrimonio UNESCO, trufa blanca, mesas con estrella y una villa privada que respira Barolo.',
+      subtitle: 'Siete días entre viñedos Patrimonio UNESCO, trufa blanca, mesas con estrella y una villa privada que respira Nebbiolo.',
     },
 
     stats: [
@@ -415,7 +460,7 @@ export const experiences = [
         n: 1, date: 'Lun 19 Oct', dayTitle: 'Llegada',
         title: 'Recibimiento y welcome dinner',
         body: 'Check-in en Villa Bella Vista al caer la tarde, con la luz dorada sobre los viñedos. Acomodación en las suites, recorrido por la villa, la piscina climatizada y los jardines. A las 17:00, aperitivo de bienvenida con Alta Langa y bocados piemonteses; a las 20:00, welcome dinner del chef privado Jacopo Lanfranco —vitello tonnato, agnolotti del plin, brasato al Barolo, bonet— con maridaje y sobremesa larga junto a la chimenea.',
-        image: IMG.lafite,                            // [PLACEHOLDER] villa al atardecer / mesa de bienvenida
+        image: '/images/piedmont/dia1.webp',         // villa · welcome dinner
         meals: 'Cena', lodging: 'Villa Bella Vista',
         coords: [44.748, 8.122], label: 'Castiglione Tinella · Villa base',
       },
@@ -423,7 +468,7 @@ export const experiences = [
         n: 2, date: 'Mar 20 Oct', dayTitle: 'Wellness · Treiso',
         title: 'Wellness al amanecer y una estrella Michelín',
         body: 'Desayuno de mesa larga con producto local, y a las 09:00 clase de yoga y pilates en el jardín, al borde del viñedo. Al mediodía bajamos a Treiso, a La Ciau del Tornavento ★ (chef Maurilio Garola): almuerzo degustación en una de las cocinas históricas de Le Langhe, con cava subterránea de 65.000 botellas y terraza panorámica sobre el Barbaresco. Tarde libre, aperitivo ligero en la villa o paseo por Neive.',
-        image: IMG.cellar,                            // [PLACEHOLDER] cava / terraza Tornavento
+        image: '/images/piedmont/dia2.webp',          // terraza con vista a las Langhe
         meals: 'Pensión completa', lodging: 'Villa Bella Vista',
         coords: [44.683, 8.035], label: 'Treiso · La Ciau del Tornavento ★',
       },
@@ -431,7 +476,7 @@ export const experiences = [
         n: 3, date: 'Mié 21 Oct', dayTitle: 'Caza · Barbaresco',
         title: 'Caza de trufa blanca y cierre en Barbaresco',
         body: 'Salida temprana al bosque de Tenuta Ronzano para el truffle hunt con una familia de trifulau de tres generaciones y sus perros, con cata final en la cantina propia. Almuerzo en Enoclub, bajo la plaza de Alba: tajarin, vitello tonnato, carne cruda all\'albese. Al atardecer subimos a la Torre di Barbaresco y la Enoteca Regionale, y cerramos con cena en la Osteria Tastè, en terraza con vista a las colinas.',
-        image: IMG.team,                              // [PLACEHOLDER] trifolau y perros / Barbaresco
+        image: '/images/piedmont/dia3.webp',          // trifulau y perros en el bosque
         meals: 'Pensión completa', lodging: 'Villa Bella Vista',
         coords: [44.723, 8.087], label: 'Barbaresco · Tenuta Ronzano · Alba',
       },
@@ -439,23 +484,23 @@ export const experiences = [
         n: 4, date: 'Jue 22 Oct', dayTitle: 'Barolo',
         title: 'Cata icónica en Vietti y el casco histórico de Barolo',
         body: 'Por la mañana, cata en Vietti (Castiglione Falletto): recorrido por las cantinas y degustación guiada de los crus emblemáticos —Castiglione, Brunate, Rocche, Lazzarito—. Almuerzo en Le Torri, en terraza panorámica sobre los viñedos. La tarde es para el pueblo de Barolo: terraza Borgogno, copa en la Enoteca Barolo House (Conterno, Gaja, Giacosa). Cena íntima en Locanda In Cannubi, en el corazón del cru.',
-        image: IMG.langhe,                            // [PLACEHOLDER] Vietti / Castello di Barolo
+        image: '/images/piedmont/dia4.webp',          // mirador Vietti sobre las Langhe
         meals: 'Pensión completa', lodging: 'Villa Bella Vista',
         coords: [44.612, 7.943], label: 'Castiglione Falletto · Barolo',
       },
       {
         n: 5, date: 'Vie 23 Oct', dayTitle: 'Ceretto · Roddi',
-        title: 'Arquitectura del vino y cocina en un castillo',
+        title: 'Arquitectura del vino y cocina en el castillo de Roddi',
         body: 'Visita y degustación en Ceretto (Monsordo Bernardina): la finca histórica con The Cube suspendido sobre los viñedos, con opción de la Capilla del Barolo intervenida por Sol LeWitt y David Tremlett. Por la tarde, TasteLab Cooking Class en el Castello di Roddi —siete estaciones profesionales, una por pareja, sommelier AIS e intérprete EN/ES—. Aperitivo junto a la piscina y segunda cena del chef privado en la villa.',
-        image: IMG.tuscanSunset,                      // [PLACEHOLDER] The Cube Ceretto / Castello di Roddi
+        image: '/images/piedmont/dia5.webp',          // Ceretto con los Alpes nevados
         meals: 'Pensión completa', lodging: 'Villa Bella Vista',
         coords: [44.700, 8.020], label: 'Alba · Ceretto · Roddi',
       },
       {
-        n: 6, date: 'Sáb 24 Oct', dayTitle: 'El día',
-        title: 'La Fiera del Tartufo y la cena en el castillo',
+        n: 6, date: 'Sáb 24 Oct', dayTitle: 'El día del tartufo',
+        title: 'La Fiera del Tartufo y la cena en Grinzane Cavour',
         body: 'Desayuno premium en Gusto Madre (Fulvio Marino) en Alba, con llegada anticipada para sortear la cola del sábado. A las 10:45 entramos a la 96ª Fiera Internazionale del Tartufo Bianco: el Mercato Mondiale del Tartufo, los puestos de productores, la trufa blanca del día. Tarde libre por el casco antiguo. Al caer la noche, cena de cierre en Alessandro Mecca al Castello ★, en el castillo UNESCO de Grinzane Cavour, sede de la subasta mundial de la trufa.',
-        image: IMG.chateauTeam,                       // [PLACEHOLDER] Fiera del Tartufo / Castello Grinzane Cavour
+        image: '/images/piedmont/dia6.webp',          // cena en el castillo de Grinzane Cavour
         meals: 'Desayuno + cena', lodging: 'Villa Bella Vista',
         coords: [44.658, 7.998], label: 'Alba · Grinzane Cavour',
       },

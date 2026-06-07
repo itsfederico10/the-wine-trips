@@ -167,7 +167,7 @@ const ItineraryDownloadModal = () => {
               {step === 'form' && (
                 <>
                   <div className="text-center mb-8">
-                    <h2 className="text-3xl font-serif text-gray-900 mb-3">{t('itinerary.title')}</h2>
+                    <h2 className="text-3xl font-serif text-gray-900 mb-3">{trip?.title || t('itinerary.title')}</h2>
                     {region && <p className="text-[#c9a96e] font-sans text-xs font-bold tracking-[0.15em] uppercase mb-4">{region}</p>}
                     <p className="text-gray-600 font-light text-sm leading-relaxed">{t('itinerary.subtitle')}</p>
                   </div>

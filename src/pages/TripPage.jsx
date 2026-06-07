@@ -6,12 +6,15 @@ import { useTranslation } from 'react-i18next';
 import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Check, X as XIcon, ChevronRight, MessageCircle, ArrowRight } from 'lucide-react';
+import { Check, X as XIcon, ChevronRight, MessageCircle, ArrowRight, Download, Home, Waves, Star, Wine, Castle, Search, Utensils, Sparkles, Users, Compass } from 'lucide-react';
 import { experiences } from '@/data/experiences';
 import { waLink, trackWhatsApp } from '@/components/WhatsAppButton';
 
 const GOLD = '#c9a96e';
 const INK = '#1a1a1a';
+
+// Icons available for the "Trip Highlights" hook (data uses the string key).
+const HL_ICONS = { home: Home, waves: Waves, star: Star, wine: Wine, castle: Castle, search: Search, utensils: Utensils, sparkles: Sparkles, users: Users, compass: Compass };
 
 // Numbered marker matching the Wine Trips palette.
 const makeIcon = (n, active) =>
@@ -128,6 +131,11 @@ const TripPage = () => {
   const tripMsg = t('whatsapp.tripMessage', { region: regionName, dates: exp.dates || '' });
   const openWaitlist = () => window.dispatchEvent(new Event('open-waitlist-modal'));
   const others = experiences.filter((e) => e.id !== exp.id).slice(0, 4);
+  const tripHighlights = exp.tripHighlights || [];
+  const openBrochure = () =>
+    window.dispatchEvent(new CustomEvent('open-itinerary-modal', {
+      detail: { id: exp.id, region: regionName, pdfLink: exp.brochure || exp.pdfLink, title: t('trip.downloadBrochure') },
+    }));
 
   const PrimaryCTA = ({ className = '' }) =>
     isLive ? (
@@ -206,23 +214,41 @@ const TripPage = () => {
           </section>
         )}
 
-        {/* ===================== INTRO (2 columns) ===================== */}
-        {(intro.title || intro.body) && (
-          <section className="max-w-6xl mx-auto px-6 pt-14 md:pt-20 pb-20 md:pb-32 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-              <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-6 font-sans">{exp.vol || t('trip.intro')}</span>
-              <h2 className="text-[28px] md:text-[38px] font-serif leading-[1.2] mb-8 max-w-[880px]">{intro.title}</h2>
-              <div className="space-y-5 text-[15px] md:text-base text-gray-600 font-light leading-7 font-sans">
-                {(intro.body || []).map((p, i) => (
-                  <p key={i}><Highlighted text={p} terms={intro.highlights} /></p>
-                ))}
+        {/* ===================== TRIP HIGHLIGHTS (the hook) ===================== */}
+        {tripHighlights.length > 0 && (
+          <section className="bg-[#fafafa] pt-14 md:pt-20 pb-20 md:pb-28 px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+                <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-5 font-sans">{exp.vol || t('trip.intro')}</span>
+                <h2 className="text-3xl md:text-[44px] font-serif leading-tight mb-5">{t('trip.highlightsTitle')}</h2>
+                {intro.title && <p className="font-serif italic text-lg md:text-xl text-gray-600 leading-relaxed">{intro.title}</p>}
               </div>
-            </motion.div>
-            {intro.image && (
-              <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.9 }} className="order-first md:order-last h-[280px] sm:h-[400px] md:h-[560px] overflow-hidden rounded-sm shadow-xl">
-                <img src={intro.image} alt={intro.title || regionName} className="w-full h-full object-cover" />
-              </motion.div>
-            )}
+              {exp.highlightImage && (
+                <div className="mb-10 md:mb-12 h-[240px] sm:h-[340px] md:h-[440px] overflow-hidden rounded-sm shadow-lg">
+                  <img src={exp.highlightImage} alt={t('trip.highlightsTitle')} className="w-full h-full object-cover" />
+                </div>
+              )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+                {tripHighlights.map((h, i) => {
+                  const Icon = HL_ICONS[h.icon] || Sparkles;
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 18 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: (i % 3) * 0.06 }}
+                      className="flex items-center gap-4 p-5 md:p-6 bg-white border border-gray-200 rounded-[6px] hover:border-[#c9a96e]/60 hover:shadow-md transition-all duration-300"
+                    >
+                      <span className="shrink-0 w-11 h-11 rounded-full bg-[#c9a96e]/10 flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-[#c9a96e]" strokeWidth={1.5} />
+                      </span>
+                      <p className="text-sm md:text-[15px] font-medium text-[#1a1a1a] leading-snug font-sans">{h.text}</p>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
           </section>
         )}
 
@@ -372,23 +398,36 @@ const TripPage = () => {
           </section>
         )}
 
-        {/* ===================== INCLUDES / EXCLUDES (50/50) ===================== */}
+        {/* ===================== INCLUDES (cards) / EXCLUDES ===================== */}
         {(includes.length > 0 || excludes.length > 0) && (
           <section className="max-w-6xl mx-auto px-6 py-20 md:py-32">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start">
-              <div>
-                <h3 className="text-2xl font-serif mb-8">{t('trip.includesTitle')}</h3>
-                <ul className="space-y-4">
-                  {includes.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm font-light text-gray-700 font-sans">
-                      <Check className="w-4 h-4 text-[#c9a96e] mt-0.5 shrink-0" /><span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-10">
+              <h3 className="text-2xl md:text-3xl font-serif">{t('trip.includesTitle')}</h3>
+              {(exp.brochure || exp.pdfLink) && (
+                <button
+                  onClick={openBrochure}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] text-white font-medium text-xs uppercase tracking-widest rounded-[6px] hover:bg-[#c9a96e] hover:text-[#1a1a1a] transition-colors duration-300 self-start sm:self-auto shrink-0"
+                >
+                  <Download className="w-4 h-4" />{t('trip.downloadBrochure')}
+                </button>
+              )}
+            </div>
+
+            {includes.length > 0 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {includes.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 p-5 bg-[#fafafa] border border-gray-100 rounded-[6px] hover:border-[#c9a96e]/40 transition-colors duration-300">
+                    <Check className="w-4 h-4 text-[#c9a96e] mt-0.5 shrink-0" />
+                    <span className="text-sm font-light text-gray-700 leading-snug font-sans">{item}</span>
+                  </div>
+                ))}
               </div>
-              <div>
-                <h3 className="text-2xl font-serif mb-8">{t('trip.excludesTitle')}</h3>
-                <ul className="space-y-4">
+            )}
+
+            {excludes.length > 0 && (
+              <div className="mt-14">
+                <h3 className="text-2xl font-serif mb-6">{t('trip.excludesTitle')}</h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3">
                   {excludes.map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm font-light text-gray-500 font-sans">
                       <XIcon className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" /><span>{item}</span>
@@ -396,7 +435,8 @@ const TripPage = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            )}
+
             {exp.disclaimer && (
               <p className="mt-16 text-xs text-gray-400 font-light leading-relaxed font-sans border-t border-gray-100 pt-8 max-w-3xl">
                 {exp.disclaimer}
