@@ -58,6 +58,7 @@ export const experiences = [
     summaryCities: 'Médoc · Pauillac · Graves · Saint-Émilion · Burdeos',
     priceLabel: 'A consultar',
     vol: 'VOL. 02 — BORDEAUX',
+    highlightImage: '/images/bordeaux/highlight.webp',
     tripHighlights: [
       { icon: 'star', text: 'Cena de despedida 2★ Michelin en Le Pressoir d\'Argent (Gordon Ramsay)' },
       { icon: 'wine', text: 'Visita privada y cata en Château Pichon Baron (Pauillac)' },
@@ -134,7 +135,7 @@ export const experiences = [
         n: 6, date: 'Vie · Día 6', dayTitle: 'Despedida',
         title: 'C\'est fini',
         body: 'Desayuno y check-out. Según los horarios de salida, una última mañana relajada: ostras y una copa de blanco en el Marché des Capucins —ritual bordelés— o un paseo final por la Rue Sainte-Catherine. Traslado al aeropuerto Bordeaux-Mérignac (BOD) o a la Gare Saint-Jean. Au revoir, Bordeaux.',
-        image: IMG.bordeaux,
+        image: '/images/bordeaux/dia6.webp', imgPos: 'center 35%',
         meals: 'Desayuno', lodging: '—',
         coords: [44.8303, -0.5678], label: 'Burdeos → BOD',
       },
