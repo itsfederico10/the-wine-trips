@@ -361,7 +361,7 @@ const TripPage = () => {
                     </p>
                     {d.image && (
                       <div className="h-[240px] sm:h-[320px] md:h-[420px] overflow-hidden rounded-sm shadow-md">
-                        <img src={d.image} alt={d.title} className="w-full h-full object-cover" />
+                        <img src={d.image} alt={d.title} className="w-full h-full object-cover" style={{ objectPosition: d.imgPos || 'center' }} />
                       </div>
                     )}
                   </motion.div>

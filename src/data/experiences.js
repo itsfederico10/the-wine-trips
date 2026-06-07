@@ -118,7 +118,7 @@ export const experiences = [
         n: 4, date: 'Mié · Día 4', dayTitle: 'Graves',
         title: 'Graves · el gran highlight (Pessac-Léognan)',
         body: 'Rumbo al sur, a la cuna histórica del vino bordelés. Por la mañana, el gran momento del viaje: visita privada y cata en Château Haut-Brion (Pessac, Premier Cru Classé de 1855), el único premier fuera del Médoc. Almuerzo en La Table du Lavoir, el bistró de Les Sources de Caudalie entre viñedos. Por la tarde, visita y cata en Château Smith Haut Lafitte (Martillac, Cru Classé de Graves). Cena libre en Saint-Pierre, con recomendaciones del equipo.',
-        image: '/images/bordeaux/dia4.webp',
+        image: '/images/bordeaux/dia4.webp', imgPos: 'center 20%',
         meals: 'Pensión completa', lodging: 'Mondrian Bordeaux',
         coords: [44.8167, -0.6086], label: 'Pessac · Martillac',
       },
