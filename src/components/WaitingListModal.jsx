@@ -8,6 +8,7 @@ import { supabase } from '@/lib/customSupabaseClient';
 const WaitingListModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const { t } = useTranslation();
@@ -52,20 +53,13 @@ const WaitingListModal = () => {
     setIsSubmitting(true);
 
     try {
-      // Insert into 'The waiting list' table
-      const { error } = await supabase
-        .from('The waiting list')
-        .insert([
-          { 
-            email: email,
-            full_name: null,
-            country_residence: null,
-            experience_interest: null,
-            instagram: null,
-            source: 'popup'
-          }
-        ]);
-
+      // Insert into 'The waiting list' table. Try with phone; if the column
+      // doesn't exist yet, fall back so the email lead is never lost.
+      const base = { email, full_name: null, country_residence: null, experience_interest: null, instagram: null, source: 'popup' };
+      let { error } = await supabase.from('The waiting list').insert([{ ...base, phone: phone || null }]);
+      if (error) {
+        ({ error } = await supabase.from('The waiting list').insert([base]));
+      }
       if (error) throw error;
 
       // PERSISTENCE: Save to localStorage as backup/analytics
@@ -79,6 +73,7 @@ const WaitingListModal = () => {
       });
 
       setEmail('');
+      setPhone('');
       handleClose();
     } catch (error) {
       console.error('Submission error:', error);
@@ -146,7 +141,17 @@ const WaitingListModal = () => {
                     disabled={isSubmitting}
                   />
                 </div>
-                
+                <div>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder={t('waitlist.phonePlaceholder')}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 focus:border-[#c9a96e] focus:bg-white focus:outline-none transition-all text-gray-900 text-sm font-sans disabled:opacity-50 disabled:bg-gray-100"
+                    disabled={isSubmitting}
+                  />
+                </div>
+
                 <button
                   type="submit"
                   disabled={isSubmitting}

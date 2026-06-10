@@ -42,7 +42,7 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="flex gap-8">
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/its.federico"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-gray-900 transition-colors"

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://thewinetrips.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://thewinetrips.com/experiences</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thewinetrips.com/experiences/piedmont</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thewinetrips.com/experiences/bordeaux</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thewinetrips.com/experiences/toscana</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/experiences/mendoza</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/experiences/ribera-del-duero</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thewinetrips.com/journal</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thewinetrips.com/journal/bordeaux-left-bank-masterclass-terroir</loc><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/journal/barolo-king-italian-wines</loc><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/journal/mendoza-hidden-gems-beyond-malbec</loc><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/journal/saint-emilion-unesco-village-wine-guide</loc><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/journal/rioja-vs-ribera-del-duero-spanish-wine-rivalry</loc><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/journal/how-to-visit-bordeaux-chateaux-insider-guide</loc><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/journal/tuscany-wine-regions-chianti-brunello-supertuscans</loc><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/journal/best-time-visit-europe-wine-regions</loc><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/journal/private-wine-tours-vs-group-tours</loc><priority>0.6</priority></url>
+  <url><loc>https://thewinetrips.com/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thewinetrips.com/privacy-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://thewinetrips.com/terms-of-service</loc><priority>0.3</priority></url>
+</urlset>

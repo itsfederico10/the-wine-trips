@@ -12,6 +12,7 @@ const ContactPage = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
+    phone: '',
     country: '',
     experience: '',
     instagram: ''
@@ -53,19 +54,19 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
-        .from('The waiting list')
-        .insert([
-          { 
-            full_name: formData.fullName,
-            email: formData.email,
-            country_residence: formData.country,
-            experience_interest: formData.experience,
-            instagram: formData.instagram || null,
-            source: 'contact_form'
-          }
-        ]);
-
+      const base = {
+        full_name: formData.fullName,
+        email: formData.email,
+        country_residence: formData.country,
+        experience_interest: formData.experience,
+        instagram: formData.instagram || null,
+        source: 'contact_form'
+      };
+      // Try with phone; fall back if the column doesn't exist yet so the lead is never lost.
+      let { error } = await supabase.from('The waiting list').insert([{ ...base, phone: formData.phone || null }]);
+      if (error) {
+        ({ error } = await supabase.from('The waiting list').insert([base]));
+      }
       if (error) throw error;
       
       // PERSISTENCE: Save to localStorage as backup/analytics
@@ -85,6 +86,7 @@ const ContactPage = () => {
       setFormData({
         fullName: '',
         email: '',
+        phone: '',
         country: '',
         experience: '',
         instagram: ''
@@ -197,6 +199,23 @@ const ContactPage = () => {
                     placeholder={t('contact.emailPlaceholder')}
                   />
                   {errors.email && <p className="mt-2 text-xs text-red-500">{errors.email}</p>}
+                </div>
+
+                {/* Phone / WhatsApp */}
+                <div>
+                  <label htmlFor="phone" className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 font-sans">
+                    {t('contact.phone')}
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    className="w-full px-0 py-2 bg-transparent border-b border-gray-200 focus:border-[#c9a96e] transition-colors text-gray-900 text-lg placeholder-gray-300 focus:outline-none font-sans disabled:opacity-50 disabled:bg-gray-50"
+                    placeholder={t('contact.phonePlaceholder')}
+                  />
                 </div>
 
                 {/* 3. Country */}

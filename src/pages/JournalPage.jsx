@@ -1,14 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Calendar } from 'lucide-react';
+import { ArrowRight, Clock, Calendar, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useToast } from '@/components/ui/use-toast';
+import { supabase } from '@/lib/customSupabaseClient';
 
 const JournalPage = () => {
   const { toast } = useToast();
   const { t } = useTranslation();
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [subscribing, setSubscribing] = useState(false);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!newsletterEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newsletterEmail)) {
+      toast({ title: t('journal.newsletter.invalidTitle'), description: t('journal.newsletter.invalidBody'), variant: 'destructive' });
+      return;
+    }
+    setSubscribing(true);
+    try {
+      const { error } = await supabase.from('The waiting list').insert([
+        { email: newsletterEmail, full_name: null, country_residence: null, experience_interest: null, instagram: null, source: 'newsletter' },
+      ]);
+      if (error) throw error;
+      toast({ title: t('journal.newsletter.subscribedTitle'), description: t('journal.newsletter.subscribedBody') });
+      setNewsletterEmail('');
+    } catch (err) {
+      console.error('newsletter error:', err);
+      toast({ title: t('journal.newsletter.errorTitle'), description: t('journal.newsletter.errorBody'), variant: 'destructive' });
+    } finally {
+      setSubscribing(false);
+    }
+  };
 
   const handleReadMore = (e, article) => {
     // IDs 1-9 are fully implemented
@@ -24,15 +49,15 @@ const JournalPage = () => {
 
   // Static per-article data; title/excerpt/category come from i18n.
   const articles = [
-    { id: 1, categoryKey: 'regionGuide', image: 'https://images.unsplash.com/photo-1657117735687-50cda95e80cc', alt: 'Bordeaux vineyard landscape with historic château', date: 'Oct 12, 2023', readMin: 9, link: '/journal/bordeaux-left-bank-masterclass-terroir' },
-    { id: 2, categoryKey: 'wineEducation', image: 'https://images.unsplash.com/photo-1696636533515-c9f7fda368f2', alt: 'Piedmont Barolo wine region with misty hills and vineyards', date: 'Sep 28, 2023', readMin: 10, link: '/journal/barolo-king-italian-wines' },
-    { id: 3, categoryKey: 'discovery', image: 'https://images.unsplash.com/photo-1636318414118-0b8f285082fc', alt: 'Mendoza Argentina vineyard landscape', date: 'Nov 05, 2023', readMin: 9, link: '/journal/mendoza-hidden-gems-beyond-malbec' },
-    { id: 4, categoryKey: 'regionGuide', image: 'https://images.unsplash.com/photo-1702742911910-7fabd36366a7', alt: 'Saint-Émilion medieval village architecture', date: 'Dec 10, 2023', readMin: 10, link: '/journal/saint-emilion-unesco-village-wine-guide' },
-    { id: 5, categoryKey: 'wineEducation', image: 'https://images.unsplash.com/photo-1603657289479-14ada3bb33a3', alt: 'Spanish vineyard landscape in Rioja', date: 'Jan 15, 2024', readMin: 10, link: '/journal/rioja-vs-ribera-del-duero-spanish-wine-rivalry' },
-    { id: 6, categoryKey: 'travelGuide', image: 'https://images.unsplash.com/photo-1700593739220-a4ed2b998156', alt: 'Bordeaux château architecture and barrel room', date: 'Feb 05, 2024', readMin: 9, link: '/journal/how-to-visit-bordeaux-chateaux-insider-guide' },
-    { id: 7, categoryKey: 'regionGuide', image: 'https://images.unsplash.com/photo-1542217937-eb72f33e1d4e', alt: 'Tuscan hillside vineyard landscape', date: 'Mar 01, 2024', readMin: 11, link: '/journal/tuscany-wine-regions-chianti-brunello-supertuscans' },
-    { id: 8, categoryKey: 'travelGuide', image: 'https://images.unsplash.com/photo-1683548957866-69e6d9694c02', alt: 'Vineyard seasonal landscape with autumn colors', date: 'Mar 20, 2024', readMin: 8, link: '/journal/best-time-visit-europe-wine-regions' },
-    { id: 9, categoryKey: 'wineEducation', image: 'https://images.unsplash.com/photo-1698827016432-465cf8dd5dd8', alt: 'Wine tour group tasting experience', date: 'Apr 05, 2024', readMin: 8, link: '/journal/private-wine-tours-vs-group-tours' },
+    { id: 1, categoryKey: 'regionGuide', image: 'https://images.unsplash.com/photo-1657117735687-50cda95e80cc', alt: 'Bordeaux vineyard landscape with historic château', date: 'Oct 12, 2025', readMin: 9, link: '/journal/bordeaux-left-bank-masterclass-terroir' },
+    { id: 2, categoryKey: 'wineEducation', image: 'https://images.unsplash.com/photo-1696636533515-c9f7fda368f2', alt: 'Piedmont Barolo wine region with misty hills and vineyards', date: 'Sep 28, 2025', readMin: 10, link: '/journal/barolo-king-italian-wines' },
+    { id: 3, categoryKey: 'discovery', image: 'https://images.unsplash.com/photo-1636318414118-0b8f285082fc', alt: 'Mendoza Argentina vineyard landscape', date: 'Nov 05, 2025', readMin: 9, link: '/journal/mendoza-hidden-gems-beyond-malbec' },
+    { id: 4, categoryKey: 'regionGuide', image: 'https://images.unsplash.com/photo-1702742911910-7fabd36366a7', alt: 'Saint-Émilion medieval village architecture', date: 'Dec 10, 2025', readMin: 10, link: '/journal/saint-emilion-unesco-village-wine-guide' },
+    { id: 5, categoryKey: 'wineEducation', image: 'https://images.unsplash.com/photo-1603657289479-14ada3bb33a3', alt: 'Spanish vineyard landscape in Rioja', date: 'Jan 15, 2026', readMin: 10, link: '/journal/rioja-vs-ribera-del-duero-spanish-wine-rivalry' },
+    { id: 6, categoryKey: 'travelGuide', image: 'https://images.unsplash.com/photo-1700593739220-a4ed2b998156', alt: 'Bordeaux château architecture and barrel room', date: 'Feb 05, 2026', readMin: 9, link: '/journal/how-to-visit-bordeaux-chateaux-insider-guide' },
+    { id: 7, categoryKey: 'regionGuide', image: 'https://images.unsplash.com/photo-1542217937-eb72f33e1d4e', alt: 'Tuscan hillside vineyard landscape', date: 'Mar 01, 2026', readMin: 11, link: '/journal/tuscany-wine-regions-chianti-brunello-supertuscans' },
+    { id: 8, categoryKey: 'travelGuide', image: 'https://images.unsplash.com/photo-1683548957866-69e6d9694c02', alt: 'Vineyard seasonal landscape with autumn colors', date: 'Mar 20, 2026', readMin: 8, link: '/journal/best-time-visit-europe-wine-regions' },
+    { id: 9, categoryKey: 'wineEducation', image: 'https://images.unsplash.com/photo-1698827016432-465cf8dd5dd8', alt: 'Wine tour group tasting experience', date: 'Apr 05, 2026', readMin: 8, link: '/journal/private-wine-tours-vs-group-tours' },
   ];
 
   return (
@@ -182,19 +207,24 @@ const JournalPage = () => {
               <p className="text-gray-600 font-light mb-8 max-w-lg mx-auto font-sans">
                 {t('journal.newsletter.body')}
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
                 <input
                   type="email"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  disabled={subscribing}
                   placeholder={t('journal.newsletter.placeholder')}
-                  className="flex-1 px-4 py-3 bg-white border border-gray-200 focus:outline-none focus:border-[#c9a96e] text-gray-900 placeholder-gray-400 font-sans"
+                  className="flex-1 px-4 py-3 bg-white border border-gray-200 focus:outline-none focus:border-[#c9a96e] text-gray-900 placeholder-gray-400 font-sans disabled:opacity-50"
                 />
                 <button
-                  onClick={() => toast({ title: t('journal.newsletter.subscribedTitle'), description: t('journal.newsletter.subscribedBody') })}
-                  className="px-8 py-3 bg-[#1a1a1a] text-white text-xs font-bold tracking-widest uppercase hover:bg-[#c9a96e] transition-colors duration-300"
+                  type="submit"
+                  disabled={subscribing}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#1a1a1a] text-white text-xs font-bold tracking-widest uppercase hover:bg-[#c9a96e] disabled:bg-gray-400 transition-colors duration-300"
                 >
-                  {t('journal.newsletter.subscribe')}
+                  {subscribing ? <Loader2 className="w-3 h-3 animate-spin" /> : null}
+                  {subscribing ? t('journal.newsletter.subscribing') : t('journal.newsletter.subscribe')}
                 </button>
-              </div>
+              </form>
             </motion.div>
           </div>
         </section>
