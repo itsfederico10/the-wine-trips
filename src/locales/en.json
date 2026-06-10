@@ -190,6 +190,53 @@
     "subtitle": "Discover meticulously curated journeys to the world's most celebrated wine regions. Each experience offers exclusive access, expert guidance, and unforgettable moments.",
     "downloadItinerary": "Download itinerary",
     "upcoming": "COMING SOON",
+    "cards": {
+      "piedmont": {
+        "title": "Piemonte: Italy's Most Tannic Hills",
+        "subtitle": "Barolo, Barbaresco & White Truffle Country",
+        "description": "Immerse yourself in the elegant world of Barolo and Barbaresco, where Nebbiolo grapes create Italy's most prestigious wines. Experience the Alba white truffle season, savor traditional Piedmontese cuisine, and explore the intersection of Alpine beauty and viticultural artistry.",
+        "highlights": ["Barolo and Barbaresco estate tours", "White truffle hunting experiences", "Traditional osteria dining", "Langhe hills scenic explorations"],
+        "duration": "7 DAYS",
+        "groupSize": "8 Guests",
+        "season": "Sept–Nov"
+      },
+      "bordeaux": {
+        "title": "Bordeaux: Classified Grands Crus",
+        "subtitle": "From the Left Bank to the Right Bank",
+        "description": "Six days among classified Premiers Crus, from the legendary gravel of the Médoc to the limestone of Saint-Émilion. Guided visits with tastings at historic châteaux, the Cité du Vin, a walking tour of Bordeaux and the great tables of the French Southwest, based at a design 5★ hotel.",
+        "highlights": ["Guided tastings at classified châteaux", "Château Haut-Brion, 1855 Premier Cru Classé", "Saint-Émilion, a UNESCO World Heritage town", "Dinner at Passage Secret Bordeaux (Michelin guide)"],
+        "duration": "6 DAYS",
+        "groupSize": "8 Guests",
+        "season": "May / Sept–Oct"
+      },
+      "toscana": {
+        "title": "La Dolce Vita, Elevated",
+        "subtitle": "Toscana: La Dolce Vita, Elevated",
+        "description": "Discover the rolling hills and medieval villages of Tuscany, where Sangiovese reigns supreme. From the prestigious estates of Chianti Classico to the modern elegance of Bolgheri, experience the perfect harmony of tradition, innovation, and la dolce vita.",
+        "highlights": ["Private access to historic wine estates", "Truffle hunting and olive oil tastings", "Renaissance art and architecture tours", "Farm-to-table culinary experiences"],
+        "duration": "7 DAYS",
+        "groupSize": "4–8 Guests",
+        "season": "April–November"
+      },
+      "mendoza": {
+        "title": "Malbec at the Roof of the World",
+        "subtitle": "Mendoza: Malbec at the Roof of the World",
+        "description": "Venture to the foothills of the Andes, where high-altitude vineyards produce some of the world's finest Malbec. Experience the perfect blend of Argentine hospitality, breathtaking mountain vistas, and wines that capture the essence of terroir at elevation.",
+        "highlights": ["High-altitude vineyard tours", "Traditional Argentine asado experiences", "Andean adventure activities", "Boutique winery private tastings"],
+        "duration": "7-14 DAYS",
+        "groupSize": "4–8 Guests",
+        "season": "Mar–May / Sept–Nov"
+      },
+      "ribera-del-duero": {
+        "title": "Spain's Hidden Treasure",
+        "subtitle": "Ribera del Duero: Spain's Hidden Treasure",
+        "description": "Explore the legendary Tempranillo heartland, where ancient vines and modern innovation create Spain's most celebrated wines. Journey through historic cellars, medieval castles, and discover the soul of Spanish winemaking in this UNESCO-recognized region.",
+        "highlights": ["Historic underground cellar visits", "Medieval castle wine experiences", "Traditional Spanish tapas tours", "Exclusive producer meetings"],
+        "duration": "7 DAYS",
+        "groupSize": "4–8 Guests",
+        "season": "June–October"
+      }
+    },
     "elsewhereTitle": "Want to Travel Elsewhere?",
     "elsewhereSub": "We are available to discuss custom requirements for private groups and corporate retreats."
   },

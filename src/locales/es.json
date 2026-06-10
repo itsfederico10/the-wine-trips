@@ -190,6 +190,53 @@
     "subtitle": "Descubrí viajes meticulosamente curados a las regiones vitivinícolas más célebres del mundo. Cada experiencia ofrece acceso exclusivo, guía experta y momentos inolvidables.",
     "downloadItinerary": "Descargá el itinerario",
     "upcoming": "COMING SOON",
+    "cards": {
+      "piedmont": {
+        "title": "Piemonte: las colinas más tánicas de Italia",
+        "subtitle": "Barolo, Barbaresco y la tierra de la trufa blanca",
+        "description": "Sumergite en el mundo elegante del Barolo y el Barbaresco, donde la uva Nebbiolo da algunos de los vinos más prestigiosos de Italia. Viví la temporada de la trufa blanca de Alba, la cocina piemontesa y el cruce entre belleza alpina y arte del vino.",
+        "highlights": ["Visitas a bodegas de Barolo y Barbaresco", "Caza de trufa blanca", "Mesa en osterías tradicionales", "Paisajes de las colinas de Le Langhe"],
+        "duration": "7 DÍAS",
+        "groupSize": "8 huéspedes",
+        "season": "Sept–Nov"
+      },
+      "bordeaux": {
+        "title": "Bordeaux: Grands Crus Clasificados",
+        "subtitle": "De la Rive Gauche a la Rive Droite",
+        "description": "Seis días entre Premiers Crus clasificados, de la grava legendaria del Médoc a la piedra caliza de Saint-Émilion. Visitas guiadas con cata en châteaux históricos, la Cité du Vin, un walking tour por Bordeaux y la gran mesa del Sudoeste francés, con base en un 5★ de diseño.",
+        "highlights": ["Visitas guiadas con cata en châteaux clasificados", "Château Haut-Brion, Premier Cru Classé de 1855", "Saint-Émilion, pueblo Patrimonio de la Humanidad", "Cena en Passage Secret Bordeaux (en la guía Michelin)"],
+        "duration": "6 DÍAS",
+        "groupSize": "8 huéspedes",
+        "season": "Mayo / Sept–Oct"
+      },
+      "toscana": {
+        "title": "La Dolce Vita, Elevada",
+        "subtitle": "Toscana: la dolce vita, elevada",
+        "description": "Descubrí las colinas onduladas y los pueblos medievales de la Toscana, donde reina el Sangiovese. De los estates prestigiosos del Chianti Classico a la elegancia moderna de Bolgheri, viví la armonía perfecta entre tradición, innovación y la dolce vita.",
+        "highlights": ["Acceso privado a estates históricos", "Caza de trufas y catas de aceite de oliva", "Arte y arquitectura renacentista", "Experiencias culinarias farm-to-table"],
+        "duration": "7 DÍAS",
+        "groupSize": "4–8 huéspedes",
+        "season": "Abril–Noviembre"
+      },
+      "mendoza": {
+        "title": "Malbec en el Techo del Mundo",
+        "subtitle": "Mendoza: Malbec en el techo del mundo",
+        "description": "Aventurate al pie de los Andes, donde los viñedos de altura dan algunos de los mejores Malbec del mundo. Viví la mezcla perfecta de hospitalidad argentina, vistas de montaña imponentes y vinos que capturan la esencia del terroir en altura.",
+        "highlights": ["Visitas a viñedos de altura", "Asados argentinos tradicionales", "Actividades de aventura andina", "Catas privadas en bodegas boutique"],
+        "duration": "7–14 DÍAS",
+        "groupSize": "4–8 huéspedes",
+        "season": "Mar–May / Sept–Nov"
+      },
+      "ribera-del-duero": {
+        "title": "El Tesoro Oculto de España",
+        "subtitle": "Ribera del Duero: el tesoro oculto de España",
+        "description": "Explorá el corazón legendario del Tempranillo, donde las cepas viejas y la innovación moderna crean los vinos más célebres de España. Recorré bodegas históricas, castillos medievales y descubrí el alma del vino español en esta región reconocida.",
+        "highlights": ["Visitas a bodegas subterráneas históricas", "Experiencias de vino en castillos medievales", "Recorridos de tapas tradicionales", "Encuentros exclusivos con productores"],
+        "duration": "7 DÍAS",
+        "groupSize": "4–8 huéspedes",
+        "season": "Junio–Octubre"
+      }
+    },
     "elsewhereTitle": "¿Querés Viajar a Otro Lugar?",
     "elsewhereSub": "Estamos disponibles para conversar requerimientos a medida para grupos privados y retiros corporativos."
   },

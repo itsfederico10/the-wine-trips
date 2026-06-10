@@ -25,12 +25,12 @@ const TermsOfServicePage = () => {
       <Helmet>
         <title>Terms of Service - The Wine Trips</title>
         <meta name="description" content="Terms of Service for The Wine Trips. Understand our policies regarding website use, waiting lists, and sample itineraries." />
-        <link rel="canonical" href="https://thewinetrips.com/terms" />
+        <link rel="canonical" href="https://thewinetrips.com/terms-of-service" />
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://thewinetrips.com/terms" />
+        <meta property="og:url" content="https://thewinetrips.com/terms-of-service" />
         <meta property="og:title" content="Terms of Service - The Wine Trips" />
         <meta property="og:description" content="Terms of Service for The Wine Trips. Understand our policies regarding website use, waiting lists, and sample itineraries." />
         <meta property="og:image" content="https://thewinetrips.com/wine-vineyard-hero.jpg" />
@@ -38,7 +38,7 @@ const TermsOfServicePage = () => {
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://thewinetrips.com/terms" />
+        <meta property="twitter:url" content="https://thewinetrips.com/terms-of-service" />
         <meta property="twitter:title" content="Terms of Service - The Wine Trips" />
         <meta property="twitter:description" content="Terms of Service for The Wine Trips. Understand our policies regarding website use, waiting lists, and sample itineraries." />
         <meta property="twitter:image" content="https://thewinetrips.com/wine-vineyard-hero.jpg" />
@@ -79,7 +79,7 @@ const TermsOfServicePage = () => {
             </h1>
             <div className="w-[60px] h-[1px] bg-[#c9a96e] mx-auto mb-8 opacity-50"></div>
             <p className="text-[#8a8a8a] text-sm font-['Jost'] tracking-wide">
-              Last updated: February 2026 · www.thewinetrips.com
+              Last updated: June 2026 · www.thewinetrips.com
             </p>
           </motion.div>
         </section>
@@ -131,7 +131,7 @@ const TermsOfServicePage = () => {
                 By accessing or using the website at www.thewinetrips.com (the "Website"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Website.
               </p>
               <p className="mt-4">
-                These Terms apply to all visitors, users, and others who access the Website. They form a legally binding agreement between you and The Wine Trips ("we", "us", "our").
+                These Terms apply to all visitors, users, and others who access the Website. They form a legally binding agreement between you and The Wine Trips, a brand operated by Blisniuk &amp; Amanov, a travel agency registered in Argentina (RNAV Legajo N.º 20943) ("we", "us", "our").
               </p>
               <p className="mt-4">
                 Use of the Website also constitutes acceptance of our Privacy Policy, which is incorporated into these Terms by reference.
@@ -140,14 +140,14 @@ const TermsOfServicePage = () => {
 
             {/* 02 Nature of Service */}
             <Section id="nature" number="02" title="Nature of the Service">
-              <p>The Wine Trips is a luxury wine travel service currently in its pre-launch phase. The Website serves as:</p>
+              <p>The Wine Trips is a luxury wine travel service offering curated small-group journeys. The Website serves as:</p>
               <ul className="list-disc pl-5 space-y-2 mt-4 mb-6 marker:text-[#c9a96e]">
-                <li>An informational platform describing our planned wine travel experiences.</li>
-                <li>A waiting list registration tool for prospective guests interested in future departures.</li>
-                <li>A showcase of sample itineraries illustrating the type of experiences we intend to offer.</li>
+                <li>An informational platform describing our wine travel experiences and itineraries.</li>
+                <li>A way to join our Club / waiting list and to enquire about specific departures.</li>
+                <li>A showcase of sample itineraries illustrating the experiences we offer.</li>
               </ul>
               <p className="font-medium text-white p-4 border-l-2 border-[#c9a96e]/50 bg-[#c9a96e]/10">
-                Important: The Website does not currently offer, sell, or accept payment for any travel service. No trip booking, reservation, or contract of any kind is created by visiting this Website or joining the waiting list.
+                Important: The Website does not process payments or complete bookings online. Enquiries are handled directly (for example via WhatsApp or email), and any booking is formalised separately through a Booking Agreement. No trip booking, reservation, or contract is created merely by visiting this Website or joining the Club.
               </p>
             </Section>
 
@@ -290,9 +290,11 @@ const TermsOfServicePage = () => {
               <div className="bg-[#c9a96e]/[0.08] border border-[#c9a96e]/25 p-8 mb-8 rounded-sm">
                 <h4 className="text-[#c9a96e] font-['Cormorant_Garamond'] text-2xl mb-4">The Wine Trips</h4>
                 <div className="space-y-2 text-sm">
+                  <p><span className="text-[#8a8a8a]">Operated by:</span> Blisniuk &amp; Amanov · RNAV Legajo 20943</p>
+                  <p><span className="text-[#8a8a8a]">Address:</span> Manuel Ugarte 2035, Buenos Aires, Argentina</p>
                   <p><span className="text-[#8a8a8a]">Email:</span> info@thewinetrips.com</p>
                   <p><span className="text-[#8a8a8a]">Website:</span> www.thewinetrips.com</p>
-                  <p><span className="text-[#8a8a8a]">Instagram:</span> @thewinetrips</p>
+                  <p><span className="text-[#8a8a8a]">Instagram:</span> @its.federico</p>
                 </div>
               </div>
             </Section>

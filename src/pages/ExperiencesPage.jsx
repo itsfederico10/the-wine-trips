@@ -101,19 +101,19 @@ const ExperiencesPage = () => {
                   <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
                     <Link to={`/experiences/${experience.id}`} className="block group/title">
                       <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-4 leading-tight group-hover/title:text-[#c9a96e] transition-colors">
-                        {experience.title}
+                        {t(`experiences.cards.${experience.id}.title`)}
                       </h3>
                     </Link>
                     <p className="text-lg md:text-xl font-light italic text-[#c9a96e] mb-8 font-sans">
-                      {experience.subtitle}
+                      {t(`experiences.cards.${experience.id}.subtitle`)}
                     </p>
 
                     <p className="text-gray-400 font-light leading-relaxed mb-8 max-w-xl">
-                      {experience.description}
+                      {t(`experiences.cards.${experience.id}.description`)}
                     </p>
 
                     <ul className="mb-10 space-y-3">
-                      {experience.highlights.map((highlight, idx) => (
+                      {(t(`experiences.cards.${experience.id}.highlights`, { returnObjects: true }) || []).map((highlight, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-sm font-light text-gray-300">
                           <span className="text-[#c9a96e] mt-1">✦</span>
                           {highlight}
@@ -123,13 +123,13 @@ const ExperiencesPage = () => {
 
                     <div className="flex flex-wrap gap-3 mb-10">
                       <span className="px-4 py-1 border border-[#c9a96e]/30 rounded-full text-xs uppercase tracking-widest text-[#c9a96e]">
-                        {experience.duration}
+                        {t(`experiences.cards.${experience.id}.duration`)}
                       </span>
                       <span className="px-4 py-1 border border-[#c9a96e]/30 rounded-full text-xs uppercase tracking-widest text-[#c9a96e]">
-                        {experience.groupSize}
+                        {t(`experiences.cards.${experience.id}.groupSize`)}
                       </span>
                       <span className="px-4 py-1 border border-[#c9a96e]/30 rounded-full text-xs uppercase tracking-widest text-[#c9a96e]">
-                        {experience.season}
+                        {t(`experiences.cards.${experience.id}.season`)}
                       </span>
                     </div>
 
