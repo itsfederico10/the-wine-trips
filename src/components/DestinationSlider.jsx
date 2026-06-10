@@ -8,7 +8,7 @@ const slides = [
   { id: 'bordeaux', image: '/images/6e7ac65143eb04d13fa541251cefc917.webp', to: '/experiences/bordeaux' },
   { id: 'toscana', image: '/images/7b385dec483db559f6ede32c163e47e7.webp', to: '/experiences/toscana' },
   { id: 'mendoza', image: '/images/7dbbafdc335bd67dfbd883f761481c69.webp', to: '/experiences/mendoza' },
-  { id: 'ribera', image: '/images/86aaa53d2b11e3925c08185f0a884df3.webp', to: '/experiences/ribera-del-duero' },
+  { id: 'ribera', image: '/images/ribera/hero.webp', to: '/experiences/ribera-del-duero' },
   { id: 'piemonte', image: '/images/707a534ce9f8c1d70d5274195c58ee36.webp', to: '/experiences/piedmont' }
 ];
 
