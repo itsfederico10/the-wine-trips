@@ -252,7 +252,14 @@
     "overviewIntro": "The whole week, at a glance — where you sleep, what you taste, and where each day takes you.",
     "villaCardTitle": "The villa",
     "itinerary": "Itinerary",
-    "itineraryIntro": "Seven days through Le Langhe, returning to the same villa every evening. Scroll the days; the map follows along.",
+    "itineraryIntro": "The journey, day by day. Scroll the route and the map follows along.",
+    "construction": {
+      "eyebrow": "Under construction",
+      "title": "We're building this journey",
+      "body": "We're designing the best {{region}} trip for you. Join the Club and be the first to know the moment it launches.",
+      "brochure": "Want a preview of what's coming? Download our brochure.",
+      "exploreTitle": "In the meantime, explore our ready journeys"
+    },
     "lodging": "Where you'll stay",
     "includesTitle": "What's included",
     "downloadBrochure": "Download Brochure",

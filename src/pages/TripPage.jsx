@@ -132,6 +132,8 @@ const TripPage = () => {
   const openWaitlist = () => window.dispatchEvent(new Event('open-waitlist-modal'));
   const others = experiences.filter((e) => e.id !== exp.id).slice(0, 4);
   const tripHighlights = exp.tripHighlights || [];
+  const underConstruction = exp.underConstruction;
+  const readyTrips = experiences.filter((e) => e.status === 'live' && !e.underConstruction);
   const openBrochure = () =>
     window.dispatchEvent(new CustomEvent('open-itinerary-modal', {
       detail: { id: exp.id, region: regionName, pdfLink: exp.brochure || exp.pdfLink, title: t('trip.downloadBrochure') },
@@ -198,6 +200,49 @@ const TripPage = () => {
             </div>
           </div>
         </section>
+
+        {/* ===================== UNDER CONSTRUCTION (temporary, keeps full page in code) ===================== */}
+        {underConstruction && (
+          <section className="max-w-4xl mx-auto px-6 py-24 md:py-32 text-center">
+            <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-6 font-sans">{exp.vol || t('trip.construction.eyebrow')}</span>
+            <h2 className="text-3xl md:text-5xl font-serif leading-tight mb-6">{t('trip.construction.title')}</h2>
+            <p className="text-gray-600 font-light leading-relaxed font-sans max-w-2xl mx-auto mb-4">{t('trip.construction.body', { region: regionName })}</p>
+            {(exp.brochure || exp.pdfLink) && (
+              <p className="text-gray-500 font-light text-sm font-sans max-w-xl mx-auto mb-10">{t('trip.construction.brochure')}</p>
+            )}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+              <button onClick={openWaitlist}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest rounded-[6px] hover:bg-white transition-colors duration-300 shadow-lg">
+                {t('cta.joinTheList')}
+              </button>
+              {(exp.brochure || exp.pdfLink) && (
+                <button onClick={openBrochure}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[#1a1a1a] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest rounded-[6px] hover:bg-[#1a1a1a] hover:text-white transition-colors duration-300">
+                  <Download className="w-4 h-4" />{t('trip.downloadBrochure')}
+                </button>
+              )}
+            </div>
+            {readyTrips.length > 0 && (
+              <div>
+                <p className="text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-8 font-sans">{t('trip.construction.exploreTitle')}</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+                  {readyTrips.map((o) => (
+                    <Link key={o.id} to={`/experiences/${o.id}`} className="group block relative aspect-[16/10] overflow-hidden rounded-[6px] shadow-md">
+                      <img src={o.hero?.image || o.image} alt={o.hero?.title || o.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/75 via-black/10 to-transparent p-5">
+                        <h3 className="text-white text-2xl font-serif leading-tight">{o.hero?.title || o.title}</h3>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* ===================== FULL TRIP (hidden while under construction) ===================== */}
+        {!underConstruction && (
+          <>
 
         {/* ===================== STATS BAR (overlaps hero) ===================== */}
         {stats.length > 0 && (
@@ -489,6 +534,8 @@ const TripPage = () => {
               })}
             </div>
           </section>
+        )}
+          </>
         )}
       </div>
     </>

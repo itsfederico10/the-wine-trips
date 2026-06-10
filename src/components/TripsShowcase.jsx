@@ -21,7 +21,8 @@ const TripsShowcase = () => {
   const [notifyPhone, setNotifyPhone] = useState('');
   const [notifySubmitting, setNotifySubmitting] = useState(false);
 
-  const featured = experiences.find((e) => e.status === 'live') || experiences[0];
+  // Pin the home banner to Piemonte (the soonest departure); its copy lives in i18n home.trips.featured*.
+  const featured = experiences.find((e) => e.id === 'piedmont') || experiences.find((e) => e.status === 'live') || experiences[0];
   const comingSoon = experiences.filter((e) => e.status === 'coming_soon');
 
   const monthBadge = featured.stats?.find((s) => s.label === 'SALIDA')?.value || featured.dates || '';
