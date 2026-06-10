@@ -19,9 +19,11 @@ const ExperiencesPage = () => {
     return title;
   };
 
-  // Live trips first, then coming_soon (preserves original order within each group).
+  // Live trips first, then coming_soon; within each group, by departure order.
   const orderedExperiences = [...experiences].sort(
-    (a, b) => (a.status === 'live' ? 0 : 1) - (b.status === 'live' ? 0 : 1)
+    (a, b) =>
+      ((a.status === 'live' ? 0 : 1) - (b.status === 'live' ? 0 : 1)) ||
+      ((a.sortOrder || 99) - (b.sortOrder || 99))
   );
 
   const openWaitlist = () => window.dispatchEvent(new Event('open-waitlist-modal'));

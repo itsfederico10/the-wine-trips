@@ -21,15 +21,12 @@ const TripsShowcase = () => {
   const [notifyPhone, setNotifyPhone] = useState('');
   const [notifySubmitting, setNotifySubmitting] = useState(false);
 
-  // Pin the home banner to Piemonte (the soonest departure); its copy lives in i18n home.trips.featured*.
-  const featured = experiences.find((e) => e.id === 'piedmont') || experiences.find((e) => e.status === 'live') || experiences[0];
+  // Live trips for the "Próxima Aventura" tab, soonest departure first.
+  // Card copy lives in i18n under home.trips.featured.<id>.
+  const liveTrips = experiences
+    .filter((e) => e.status === 'live' && !e.underConstruction)
+    .sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
   const comingSoon = experiences.filter((e) => e.status === 'coming_soon');
-
-  const monthBadge = featured.stats?.find((s) => s.label === 'SALIDA')?.value || featured.dates || '';
-  const featuredMsg = t('whatsapp.tripMessage', {
-    region: featured.hero?.title || featured.title,
-    dates: featured.dates || '',
-  });
 
   // Auto-alternate the tabs every 4s; any manual click stops it.
   useEffect(() => {
@@ -124,51 +121,56 @@ const TripsShowcase = () => {
 
         <AnimatePresence mode="wait">
           {tab === 'upcoming' ? (
-            <motion.div key="upcoming" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.4 }}>
-              {/* Featured live trip (currently Piedmont — copy lives in i18n home.trips.featured*) */}
-              <div className="grid md:grid-cols-2 border border-gray-200 overflow-hidden">
-                <Link to={`/experiences/${featured.id}`} className="relative h-64 md:h-auto min-h-[280px] block group/img">
-                  <img src={featured.image} alt={featured.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105" />
-                  {monthBadge && (
-                    <span className="absolute top-4 left-4 px-3 py-1.5 bg-[#c9a96e] text-[#1a1a1a] text-[10px] font-bold tracking-[0.2em] uppercase rounded-[6px]">
-                      {monthBadge}
-                    </span>
-                  )}
-                </Link>
-                <div className="p-8 md:p-12 flex flex-col justify-center">
-                  <Link to={`/experiences/${featured.id}`} className="block group/title">
-                    <h3 className="text-3xl md:text-4xl font-serif text-gray-900 mb-2 group-hover/title:text-[#c9a96e] transition-colors">
-                      {t('home.trips.featuredTitle')}
-                    </h3>
-                  </Link>
-                  <p className="text-xs font-bold tracking-[0.15em] uppercase text-[#c9a96e] mb-5 font-sans">
-                    {t('home.trips.daysGuests', { days: featured.itinerary?.length || 7, guests: 8 })}
-                  </p>
-                  <p className="text-gray-600 font-light leading-relaxed mb-5 font-sans">{t('home.trips.featuredDesc')}</p>
-                  {featured.summaryCities && (
-                    <p className="text-sm text-gray-500 font-light mb-8 font-sans">
-                      <span className="text-[#c9a96e] uppercase tracking-widest text-xs font-bold">{t('home.trips.itineraryLabel')}:</span> {featured.summaryCities} {t('home.trips.andMore')}
-                    </p>
-                  )}
-                  <div className="flex flex-wrap items-center gap-4">
-                    <a
-                      href={waLink(featuredMsg)} target="_blank" rel="noopener noreferrer" onClick={trackWhatsApp}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest rounded-[6px] hover:bg-[#1a1a1a] hover:text-white transition-colors duration-300"
-                    >
-                      <MessageCircle className="w-4 h-4" />{t('cta.priceOnRequest')}
-                    </a>
-                    <Link to={`/experiences/${featured.id}`} className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-gray-900 hover:text-[#c9a96e] transition-colors border-b border-transparent hover:border-[#c9a96e] pb-0.5">
-                      {t('cta.viewTrip')} <ArrowRight className="w-3 h-3" />
+            <motion.div key="upcoming" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.4 }} className="space-y-8">
+              {liveTrips.map((trip) => {
+                const monthBadge = trip.stats?.find((s) => s.label === 'SALIDA')?.value || trip.dates || '';
+                const tripMsg = t('whatsapp.tripMessage', { region: trip.hero?.title || trip.title, dates: trip.dates || '' });
+                return (
+                  <div key={trip.id} className="grid md:grid-cols-2 border border-gray-200 overflow-hidden">
+                    <Link to={`/experiences/${trip.id}`} className="relative h-64 md:h-auto min-h-[280px] block group/img">
+                      <img src={trip.featuredImage || trip.image} alt={trip.hero?.title || trip.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105" />
+                      {monthBadge && (
+                        <span className="absolute top-4 left-4 px-3 py-1.5 bg-[#c9a96e] text-[#1a1a1a] text-[10px] font-bold tracking-[0.2em] uppercase rounded-[6px]">
+                          {monthBadge}
+                        </span>
+                      )}
                     </Link>
+                    <div className="p-8 md:p-12 flex flex-col justify-center">
+                      <Link to={`/experiences/${trip.id}`} className="block group/title">
+                        <h3 className="text-3xl md:text-4xl font-serif text-gray-900 mb-2 group-hover/title:text-[#c9a96e] transition-colors">
+                          {t(`home.trips.featured.${trip.id}.title`)}
+                        </h3>
+                      </Link>
+                      <p className="text-xs font-bold tracking-[0.15em] uppercase text-[#c9a96e] mb-5 font-sans">
+                        {t('home.trips.daysGuests', { days: trip.itinerary?.length || 7, guests: 8 })}
+                      </p>
+                      <p className="text-gray-600 font-light leading-relaxed mb-5 font-sans">{t(`home.trips.featured.${trip.id}.desc`)}</p>
+                      {trip.summaryCities && (
+                        <p className="text-sm text-gray-500 font-light mb-8 font-sans">
+                          <span className="text-[#c9a96e] uppercase tracking-widest text-xs font-bold">{t('home.trips.itineraryLabel')}:</span> {trip.summaryCities} {t('home.trips.andMore')}
+                        </p>
+                      )}
+                      <div className="flex flex-wrap items-center gap-4">
+                        <a
+                          href={waLink(tripMsg)} target="_blank" rel="noopener noreferrer" onClick={trackWhatsApp}
+                          className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#c9a96e] text-[#1a1a1a] font-medium text-xs uppercase tracking-widest rounded-[6px] hover:bg-[#1a1a1a] hover:text-white transition-colors duration-300"
+                        >
+                          <MessageCircle className="w-4 h-4" />{t('cta.priceOnRequest')}
+                        </a>
+                        <Link to={`/experiences/${trip.id}`} className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-gray-900 hover:text-[#c9a96e] transition-colors border-b border-transparent hover:border-[#c9a96e] pb-0.5">
+                          {t('cta.viewTrip')} <ArrowRight className="w-3 h-3" />
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                );
+              })}
             </motion.div>
           ) : (
             <motion.div key="coming" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.4 }}>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              <div className="flex flex-wrap justify-center gap-4 md:gap-6">
                 {comingSoon.map((e) => (
-                  <Link key={e.id} to={`/experiences/${e.id}`} className="group block">
+                  <Link key={e.id} to={`/experiences/${e.id}`} className="group block w-[46%] sm:w-[30%] lg:w-[23%]">
                     <div className="relative aspect-[4/5] overflow-hidden rounded-sm mb-4">
                       <img src={e.image} alt={e.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       <span className="absolute top-3 left-3 px-2.5 py-1 bg-white/90 text-[#1a1a1a] text-[10px] font-bold tracking-widest uppercase rounded-[6px]">

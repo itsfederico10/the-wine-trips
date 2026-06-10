@@ -34,6 +34,7 @@ const IMG = {
 export const experiences = [
   {
     id: 'bordeaux',
+    sortOrder: 2,
     title: 'Bordeaux: Grands Crus Clasificados',
     subtitle: 'De la Rive Gauche a la Rive Droite',
     image: '/images/bordeaux/hero.webp',
@@ -59,6 +60,7 @@ export const experiences = [
     priceLabel: 'A consultar',
     vol: 'VOL. 02 — BORDEAUX',
     highlightImage: '/images/bordeaux/highlight.webp',
+    featuredImage: '/images/bordeaux/dia4.webp',   // home "¿A Dónde Vamos?" card (friends tasting at Haut-Brion)
     tripHighlights: [
       { icon: 'star', text: 'Cena de despedida en Passage Secret Bordeaux, mencionado en la guía Michelin' },
       { icon: 'wine', text: 'Visita guiada y cata en Château Pichon Baron (Pauillac)' },
@@ -119,7 +121,7 @@ export const experiences = [
         n: 4, date: 'Mié · Día 4', dayTitle: 'Graves',
         title: 'Graves · el gran highlight (Pessac-Léognan)',
         body: 'Rumbo al sur, a la cuna histórica del vino bordelés. Por la mañana, el gran momento del viaje: visita guiada y cata en Château Haut-Brion (Pessac, Premier Cru Classé de 1855), el único premier fuera del Médoc. Almuerzo en La Table du Lavoir, el bistró de Les Sources de Caudalie entre viñedos. Por la tarde, visita y cata en Château Smith Haut Lafitte (Martillac, Cru Classé de Graves). Cena libre en Saint-Pierre, con recomendaciones del equipo.',
-        image: '/images/bordeaux/dia4.webp', imgPos: 'center 25%',
+        image: '/images/bordeaux/dia4.webp', imgPos: 'center 42%',
         meals: 'Pensión completa', lodging: 'Mondrian Bordeaux',
         coords: [44.8167, -0.6086], label: 'Pessac · Martillac',
       },
@@ -179,6 +181,7 @@ export const experiences = [
   },
   {
     id: 'toscana',
+    sortOrder: 3,
     title: 'La Dolce Vita, Elevated',
     subtitle: 'Toscana: La Dolce Vita, Elevated',
     image: IMG.toscana,
@@ -213,7 +216,7 @@ export const experiences = [
       image: IMG.tuscanSunset,
       eyebrow: 'PEQUEÑO GRUPO · ITALIA · PRÓXIMAMENTE',
       title: 'Toscana',
-      subtitle: '[PLACEHOLDER] Sangiovese, Chianti Classico y la dolce vita entre cipreses.',
+      subtitle: 'Sangiovese, Chianti Classico y la dolce vita entre cipreses.',
     },
     stats: [
       { label: 'DURACIÓN', value: '7 días', sub: '6 noches' },
@@ -265,6 +268,7 @@ export const experiences = [
   },
   {
     id: 'mendoza',
+    sortOrder: 4,
     title: 'Malbec at the Roof of the World',
     subtitle: 'Mendoza: Malbec at the Roof of the World',
     image: IMG.mendoza,
@@ -299,7 +303,7 @@ export const experiences = [
       image: IMG.mendoza,
       eyebrow: 'PEQUEÑO GRUPO · ARGENTINA · PRÓXIMAMENTE',
       title: 'Mendoza',
-      subtitle: '[PLACEHOLDER] Malbec de altura al pie de los Andes.',
+      subtitle: 'Malbec de altura al pie de los Andes.',
     },
     stats: [
       { label: 'DURACIÓN', value: '7 días', sub: '6 noches' },
@@ -351,6 +355,7 @@ export const experiences = [
   },
   {
     id: 'ribera-del-duero',
+    sortOrder: 5,
     title: 'Spain\'s Hidden Treasure',
     subtitle: 'Ribera del Duero: Spain\'s Hidden Treasure',
     image: '/images/ribera/hero.webp',
@@ -385,7 +390,7 @@ export const experiences = [
       image: '/images/ribera/hero.webp',
       eyebrow: 'PEQUEÑO GRUPO · ESPAÑA · PRÓXIMAMENTE',
       title: 'Ribera del Duero',
-      subtitle: '[PLACEHOLDER] Tempranillo, cepas viejas y bodegas excavadas en piedra.',
+      subtitle: 'Tempranillo, cepas viejas y bodegas excavadas en piedra.',
     },
     stats: [
       { label: 'DURACIÓN', value: '7 días', sub: '6 noches' },
@@ -443,6 +448,7 @@ export const experiences = [
     // placeholders; original intended shot kept in the comments.
     // ===========================================================
     id: 'piedmont',
+    sortOrder: 1,
     title: 'Piemonte: Italy\'s Most Tannic Hills',
     subtitle: 'Barolo, Barbaresco & White Truffle Country',
     image: IMG.langhe,

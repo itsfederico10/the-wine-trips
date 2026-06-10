@@ -25,6 +25,7 @@
     "decline": "Decline"
   },
   "footer": {
+    "tagline": "The taste of the unforgettable",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "contact": "Contact",
@@ -136,8 +137,16 @@
       "daysGuests": "{{days}} days · up to {{guests}} travellers",
       "itineraryLabel": "Itinerary",
       "andMore": "and more",
-      "featuredTitle": "Piedmont: Nebbiolo, Truffle & Michelin Star",
-      "featuredDesc": "Seven days among vineyards, white truffle, Michelin-starred tables and a private villa overlooking UNESCO World Heritage hills.",
+      "featured": {
+        "piedmont": {
+          "title": "Piedmont: Nebbiolo, Truffle & Michelin Star",
+          "desc": "Seven days among vineyards, white truffle, Michelin-starred tables and a private villa overlooking UNESCO World Heritage hills."
+        },
+        "bordeaux": {
+          "title": "Bordeaux: Grands Crus, Left Bank to Right Bank",
+          "desc": "Six days among classified Premiers Crus, the Cité du Vin, Saint-Émilion and the great tables of the French Southwest, based at a design 5★ hotel."
+        }
+      },
       "comingSoonNote": "Join the list and be the first to know when it opens.",
       "notify": {
         "text": "Is the destination you want not on sale yet? Leave us your details and The Wine Trips will let you know before launch.",

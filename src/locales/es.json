@@ -25,6 +25,7 @@
     "decline": "Rechazar"
   },
   "footer": {
+    "tagline": "The taste of the unforgettable",
     "privacy": "Política de Privacidad",
     "terms": "Términos del Servicio",
     "contact": "Contacto",
@@ -136,8 +137,16 @@
       "daysGuests": "{{days}} días · hasta {{guests}} viajeros",
       "itineraryLabel": "Itinerario",
       "andMore": "y más",
-      "featuredTitle": "Piemonte: Nebbiolo, Tartufo y Estrella Michelín",
-      "featuredDesc": "Siete días entre viñedos, trufa blanca, mesas con estrella Michelín y una villa privada con vista Patrimonio UNESCO.",
+      "featured": {
+        "piedmont": {
+          "title": "Piemonte: Nebbiolo, Tartufo y Estrella Michelín",
+          "desc": "Siete días entre viñedos, trufa blanca, mesas con estrella Michelín y una villa privada con vista Patrimonio UNESCO."
+        },
+        "bordeaux": {
+          "title": "Bordeaux: Grands Crus, de la Rive Gauche a la Rive Droite",
+          "desc": "Seis días entre Premiers Crus clasificados, la Cité du Vin, Saint-Émilion y la gran mesa del Sudoeste francés, con base en un 5★ de diseño."
+        }
+      },
       "comingSoonNote": "Sumate a la lista y sé el primero en enterarte cuando abra.",
       "notify": {
         "text": "¿Todavía no está a la venta el destino que querés? Dejanos tus datos y The Wine Trips te avisa antes del lanzamiento.",
@@ -226,7 +235,7 @@
     "valuePartnershipTitle": "Alianzas",
     "valuePartnershipText": "Si sos un productor que comparte nuestra visión, a The Wine Trips le encantaría hablar con vos. Ya seas un productor boutique dando tus primeros pasos en el enoturismo o un estate consolidado buscando un socio enfocado en la calidad, lo que nos importa es un compromiso compartido con la experiencia.",
     "partnerEyebrow": "Colaboración",
-    "partnerTitle": "Asociate con Nosotros",
+    "partnerTitle": "Colaborá con Nosotros",
     "partnerSub": "¿Sos una bodega o un partner de hospitalidad? Nos encantaría saber de vos.",
     "partnerEmail": "Dirección de Email",
     "partnerEmailPlaceholder": "partner@bodega.com",

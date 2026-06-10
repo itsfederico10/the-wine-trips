@@ -32,9 +32,13 @@ const Header = () => {
     { name: t('nav.contact'), path: '/contact' }
   ];
 
-  // Destinations for the "Experiences" dropdown — live trips first.
+  // Destinations for the "Experiences" dropdown — live trips first, then by departure order.
   const expLinks = [...experiences]
-    .sort((a, b) => (a.status === 'live' ? 0 : 1) - (b.status === 'live' ? 0 : 1))
+    .sort(
+      (a, b) =>
+        ((a.status === 'live' ? 0 : 1) - (b.status === 'live' ? 0 : 1)) ||
+        ((a.sortOrder || 99) - (b.sortOrder || 99))
+    )
     .map((e) => ({ id: e.id, name: e.hero?.title || e.title, live: e.status === 'live' }));
 
   const closeMobile = () => setIsMobileMenuOpen(false);

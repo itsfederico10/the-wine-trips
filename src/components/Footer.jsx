@@ -10,8 +10,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
           {/* Logo */}
-          <div className="text-xl font-light tracking-widest text-gray-900 uppercase">
-            The Wine Trips
+          <div>
+            <div className="text-xl font-light tracking-widest text-gray-900 uppercase">
+              The Wine Trips
+            </div>
+            <p className="mt-1 text-sm italic font-serif text-gray-500">{t('footer.tagline')}</p>
           </div>
 
           {/* Links */}
