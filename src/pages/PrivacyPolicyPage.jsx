@@ -36,12 +36,12 @@ const PrivacyPolicyPage = () => {
       <Helmet>
         <title>Privacy Policy - The Wine Trips</title>
         <meta name="description" content="Privacy Policy for The Wine Trips. Learn how we handle and protect your personal data." />
-        <link rel="canonical" href="https://thewinetrips.com/privacy" />
+        <link rel="canonical" href="https://thewinetrips.com/privacy-policy" />
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://thewinetrips.com/privacy" />
+        <meta property="og:url" content="https://thewinetrips.com/privacy-policy" />
         <meta property="og:title" content="Privacy Policy - The Wine Trips" />
         <meta property="og:description" content="Privacy Policy for The Wine Trips. Learn how we handle and protect your personal data." />
         <meta property="og:image" content="https://thewinetrips.com/wine-vineyard-hero.jpg" />
@@ -49,7 +49,7 @@ const PrivacyPolicyPage = () => {
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://thewinetrips.com/privacy" />
+        <meta property="twitter:url" content="https://thewinetrips.com/privacy-policy" />
         <meta property="twitter:title" content="Privacy Policy - The Wine Trips" />
         <meta property="twitter:description" content="Privacy Policy for The Wine Trips. Learn how we handle and protect your personal data." />
         <meta property="twitter:image" content="https://thewinetrips.com/wine-vineyard-hero.jpg" />
@@ -90,7 +90,7 @@ const PrivacyPolicyPage = () => {
             </h1>
             <div className="w-[60px] h-[1px] bg-[#c9a96e] mx-auto mb-8 opacity-50"></div>
             <p className="text-[#8a8a8a] text-sm font-['Jost'] tracking-wide">
-              Last updated: February 2026 · www.thewinetrips.com
+              Last updated: June 2026 · www.thewinetrips.com
             </p>
           </motion.div>
         </section>
@@ -107,7 +107,7 @@ const PrivacyPolicyPage = () => {
           >
             <p className="text-lg">
               <strong className="text-[#c9a96e] font-medium block mb-2">Plain-language summary:</strong>
-              We currently collect only your email address when you join our waiting list. We use it solely to notify you about The Wine Trips experiences. We do not sell your data, and we will never share it with third parties for marketing purposes. You can unsubscribe or request deletion at any time.
+              We collect the contact details you give us when you join our Club / waiting list — your email and, optionally, your name, phone (WhatsApp), country and destination of interest. We use them only to tell you about The Wine Trips experiences and to reply to you. With your consent, we also use Google Analytics and the Meta (Facebook) Pixel to understand how the site is used. We never sell your data, and we will never share it with third parties for their own marketing. You can unsubscribe or request deletion at any time.
             </p>
           </motion.div>
 
@@ -142,7 +142,7 @@ const PrivacyPolicyPage = () => {
                 The Wine Trips ("we", "us", "our") is a luxury wine travel service offering curated small-group experiences to premium wine regions worldwide. The service is currently operated under the brand The Wine Trips, reachable at info@thewinetrips.com.
               </p>
               <p className="mt-4">
-                For the purposes of applicable data protection law, The Wine Trips acts as the data controller of the personal information collected through this website (www.thewinetrips.com).
+                The Wine Trips experiences are operated by <strong className="text-white">Blisniuk &amp; Amanov</strong>, a travel agency registered in Argentina (RNAV Legajo N.º 20943), with head office at Manuel Ugarte 2035, Buenos Aires. For the purposes of applicable data protection law, Blisniuk &amp; Amanov, trading as The Wine Trips, acts as the data controller of the personal information collected through this website (www.thewinetrips.com).
               </p>
             </Section>
 
@@ -150,16 +150,18 @@ const PrivacyPolicyPage = () => {
             <Section id="data-we-collect" number="02" title="Data We Collect">
               <h3 className="text-[#c9a96e] text-sm font-medium tracking-widest uppercase mt-8 mb-4">Information you provide directly</h3>
               <ul className="list-disc pl-5 space-y-2 marker:text-[#c9a96e]">
-                <li><strong>Email address</strong> — collected when you join our waiting list via the "Reserve Your Spot" form on our website.</li>
-                <li>Any other information you voluntarily include when contacting us at info@thewinetrips.com.</li>
+                <li><strong>Email address</strong> — when you join our Club / waiting list or subscribe to our journal.</li>
+                <li><strong>Phone number (WhatsApp)</strong> — optional, so we can contact you about the experiences you're interested in.</li>
+                <li><strong>Name, country of residence, destination of interest and Instagram handle</strong> — optional, when you complete our contact / membership form.</li>
+                <li>Any other information you voluntarily include when contacting us at info@thewinetrips.com or via WhatsApp.</li>
               </ul>
 
               <h3 className="text-[#c9a96e] text-sm font-medium tracking-widest uppercase mt-8 mb-4">Information collected automatically</h3>
               <p>
-                Our hosting provider (Hostinger) may automatically collect standard server log data including your IP address, browser type, and pages visited. This is standard web server behaviour and is used solely for security and uptime purposes.
+                With your consent (see Section 6), we use <strong>Google Analytics 4</strong> and the <strong>Meta (Facebook) Pixel</strong>, which place cookies and collect usage data such as your IP address, device and browser type, pages visited and interactions. Our hosting and content-delivery provider (Vercel) also processes standard server log data for security and uptime.
               </p>
               <p className="mt-4">
-                We do not currently use any tracking pixels, behavioural analytics tools, or advertising cookies. See Section 6 for our full cookie policy.
+                Analytics and advertising cookies are loaded only after you accept them in our cookie banner; by default they are denied (Google Consent Mode). See Section 6 for the full cookie policy.
               </p>
             </Section>
 
@@ -206,30 +208,46 @@ const PrivacyPolicyPage = () => {
               <p>We work with the following third-party service providers who process data on our behalf. These providers are contractually bound to process your data only as instructed by us and in accordance with applicable privacy law:</p>
               <ul className="mt-6 space-y-4">
                 <li className="bg-[#1a1f2e] p-6 rounded-sm border border-white/5">
-                  <strong className="text-white block mb-2">Hostinger International Ltd.</strong>
-                  Our website hosting and website builder platform (Horizons). Your email address submitted via the waiting list form is stored within Hostinger's infrastructure. Hostinger's privacy policy is available at <a href="https://hostinger.com/privacy-policy" target="_blank" rel="noreferrer" className="text-[#c9a96e] hover:underline">hostinger.com/privacy-policy</a>.
+                  <strong className="text-white block mb-2">Supabase Inc.</strong>
+                  Database where the contact details you submit (email, phone, name, country, destination of interest) are securely stored. Privacy policy: <a href="https://supabase.com/privacy" target="_blank" rel="noreferrer" className="text-[#c9a96e] hover:underline">supabase.com/privacy</a>.
+                </li>
+                <li className="bg-[#1a1f2e] p-6 rounded-sm border border-white/5">
+                  <strong className="text-white block mb-2">Vercel Inc.</strong>
+                  Website hosting and content delivery (CDN). Processes standard server logs. Privacy policy: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noreferrer" className="text-[#c9a96e] hover:underline">vercel.com/legal/privacy-policy</a>.
+                </li>
+                <li className="bg-[#1a1f2e] p-6 rounded-sm border border-white/5">
+                  <strong className="text-white block mb-2">Google LLC — Google Analytics 4</strong>
+                  Website analytics, loaded only after consent. Privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer" className="text-[#c9a96e] hover:underline">policies.google.com/privacy</a>.
+                </li>
+                <li className="bg-[#1a1f2e] p-6 rounded-sm border border-white/5">
+                  <strong className="text-white block mb-2">Meta Platforms, Inc. — Meta Pixel</strong>
+                  Measurement of advertising and site interactions, loaded only after consent. Privacy policy: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noreferrer" className="text-[#c9a96e] hover:underline">facebook.com/privacy/policy</a>.
+                </li>
+                <li className="bg-[#1a1f2e] p-6 rounded-sm border border-white/5">
+                  <strong className="text-white block mb-2">Calendly LLC</strong>
+                  Scheduling tool used on our contact page to book consultations. Privacy policy: <a href="https://calendly.com/privacy" target="_blank" rel="noreferrer" className="text-[#c9a96e] hover:underline">calendly.com/privacy</a>.
                 </li>
               </ul>
               <p className="mt-6">
-                We may in the future engage additional processors (such as email marketing platforms or analytics providers). Any such changes will be reflected in an updated version of this policy, and where required by law, we will seek your renewed consent.
+                We also communicate with you via WhatsApp (Meta Platforms) when you choose to contact us through that channel. Any future change of processors will be reflected in an updated version of this policy, and where required by law we will seek your renewed consent.
               </p>
             </Section>
 
             {/* 06 Cookies */}
             <Section id="cookies" number="06" title="Cookies & Analytics">
-              <h3 className="text-[#c9a96e] text-sm font-medium tracking-widest uppercase mt-8 mb-4">Current status</h3>
+              <h3 className="text-[#c9a96e] text-sm font-medium tracking-widest uppercase mt-8 mb-4">Strictly necessary cookies</h3>
               <p>
-                As of the date of this policy, our website uses only strictly necessary cookies — those required for the website to function (e.g., session management by our hosting provider). We do not currently use analytics, advertising, or tracking cookies.
+                These are required for the website to function and for remembering your cookie choice. They do not require consent.
               </p>
 
-              <h3 className="text-[#c9a96e] text-sm font-medium tracking-widest uppercase mt-8 mb-4">Future analytics tools</h3>
+              <h3 className="text-[#c9a96e] text-sm font-medium tracking-widest uppercase mt-8 mb-4">Analytics &amp; advertising cookies</h3>
               <p>
-                We intend to implement analytics tools such as Google Analytics and/or Meta Pixel in the future to better understand how visitors interact with our website. Before doing so, we will update this policy and implement a cookie consent mechanism that allows you to accept or decline non-essential cookies before they are placed on your device, in compliance with GDPR and the ePrivacy Directive.
+                We use <strong>Google Analytics 4</strong> and the <strong>Meta (Facebook) Pixel</strong> to understand site usage and measure our marketing. These are <strong>non-essential</strong> cookies and are governed by consent: we implement <strong>Google Consent Mode</strong> with all analytics and advertising storage set to <em>denied by default</em>, and a cookie banner that lets you accept or decline before any such cookies are activated, in compliance with GDPR and the ePrivacy Directive.
               </p>
 
-              <h3 className="text-[#c9a96e] text-sm font-medium tracking-widest uppercase mt-8 mb-4">Your current cookie choices</h3>
+              <h3 className="text-[#c9a96e] text-sm font-medium tracking-widest uppercase mt-8 mb-4">Your cookie choices</h3>
               <p>
-                Because we currently only use strictly necessary cookies, no consent banner is required. You may disable cookies entirely through your browser settings, though this may affect the functionality of the website.
+                You can accept or decline non-essential cookies via our cookie banner, and you can change your choice at any time by clearing cookies in your browser. You may also disable cookies entirely through your browser settings, though this may affect functionality.
               </p>
             </Section>
 
@@ -308,7 +326,7 @@ const PrivacyPolicyPage = () => {
                 <div className="space-y-2 text-sm">
                   <p><span className="text-[#8a8a8a]">Email:</span> info@thewinetrips.com</p>
                   <p><span className="text-[#8a8a8a]">Website:</span> www.thewinetrips.com</p>
-                  <p><span className="text-[#8a8a8a]">Instagram:</span> @thewinetrips</p>
+                  <p><span className="text-[#8a8a8a]">Instagram:</span> @its.federico</p>
                 </div>
               </div>
 
@@ -326,7 +344,7 @@ const PrivacyPolicyPage = () => {
             </span>
             <div className="flex justify-center gap-8 text-xs font-['Jost'] text-[#8a8a8a]">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
-              <span className="cursor-not-allowed opacity-50">Terms of Service</span>
+              <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
               <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
             </div>
           </div>
