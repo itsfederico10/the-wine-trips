@@ -8,6 +8,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Check, X as XIcon, ChevronRight, MessageCircle, ArrowRight, Download, Home, Waves, Star, Wine, Castle, Search, Utensils, Sparkles, Users, Compass } from 'lucide-react';
 import { experiences } from '@/data/experiences';
+import { tx } from '@/data/tripI18n';
 import { waLink, trackWhatsApp } from '@/components/WhatsAppButton';
 
 const GOLD = '#c9a96e';
@@ -87,6 +88,8 @@ const AccentTitle = ({ text, className }) => {
 const TripPage = () => {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
+  const lang = (i18n.language || 'en').slice(0, 2);
+  const tr = (s) => tx(s, lang);
   const exp = useMemo(() => experiences.find((e) => e.id === id), [id]);
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -157,11 +160,11 @@ const TripPage = () => {
       <Helmet>
         <html lang={i18n.language} />
         <title>{`${regionName} — The Wine Trips`}</title>
-        <meta name="description" content={hero.subtitle || exp.description} />
+        <meta name="description" content={tr(hero.subtitle) || exp.description} />
         <link rel="canonical" href={`https://thewinetrips.com/experiences/${exp.id}`} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={`${regionName} — The Wine Trips`} />
-        <meta property="og:description" content={hero.subtitle || exp.description} />
+        <meta property="og:description" content={tr(hero.subtitle) || exp.description} />
         <meta property="og:image" content={hero.image || exp.image} />
         <meta property="og:site_name" content="THE WINE TRIPS" />
       </Helmet>
@@ -187,13 +190,13 @@ const TripPage = () => {
                 )}
 
                 <p className="text-[#e9d9b8] text-[11px] md:text-sm font-bold tracking-[0.2em] uppercase mb-3 md:mb-4 font-sans">
-                  {hero.eyebrow}
+                  {tr(hero.eyebrow)}
                 </p>
                 <h1 className="text-[40px] sm:text-6xl lg:text-[76px] font-serif text-white mb-4 md:mb-6 leading-[1.04]">
                   {regionName}
                 </h1>
                 <p className="font-serif italic text-xl md:text-[28px] text-white/90 max-w-2xl leading-relaxed mb-8">
-                  {hero.subtitle || exp.description}
+                  {tr(hero.subtitle) || exp.description}
                 </p>
                 <PrimaryCTA className="w-full sm:w-auto" />
               </div>
@@ -250,9 +253,9 @@ const TripPage = () => {
             <div className="bg-white shadow-xl border border-gray-100 grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-100">
               {stats.map((s, i) => (
                 <div key={i} className="p-5 md:p-8 text-center">
-                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 mb-2 font-sans">{s.label}</p>
-                  <p className="text-base md:text-xl font-serif text-[#1a1a1a]">{s.value}</p>
-                  {s.sub && <p className="text-xs font-light text-gray-500 mt-1 font-sans">{s.sub}</p>}
+                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 mb-2 font-sans">{tr(s.label)}</p>
+                  <p className="text-base md:text-xl font-serif text-[#1a1a1a]">{tr(s.value)}</p>
+                  {s.sub && <p className="text-xs font-light text-gray-500 mt-1 font-sans">{tr(s.sub)}</p>}
                 </div>
               ))}
             </div>
@@ -266,7 +269,7 @@ const TripPage = () => {
               <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
                 <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-5 font-sans">{exp.vol || t('trip.intro')}</span>
                 <h2 className="text-3xl md:text-[44px] font-serif leading-tight mb-5">{t('trip.highlightsTitle')}</h2>
-                {intro.title && <p className="font-serif italic text-lg md:text-xl text-gray-600 leading-relaxed">{intro.title}</p>}
+                {intro.title && <p className="font-serif italic text-lg md:text-xl text-gray-600 leading-relaxed">{tr(intro.title)}</p>}
               </div>
               {exp.highlightImage && (
                 <div className="mb-10 md:mb-12 h-[240px] sm:h-[340px] md:h-[440px] overflow-hidden rounded-sm shadow-lg">
@@ -288,7 +291,7 @@ const TripPage = () => {
                       <span className="shrink-0 w-11 h-11 rounded-full bg-[#c9a96e]/10 flex items-center justify-center">
                         <Icon className="w-5 h-5 text-[#c9a96e]" strokeWidth={1.5} />
                       </span>
-                      <p className="text-sm md:text-[15px] font-medium text-[#1a1a1a] leading-snug font-sans">{h.text}</p>
+                      <p className="text-sm md:text-[15px] font-medium text-[#1a1a1a] leading-snug font-sans">{tr(h.text)}</p>
                     </motion.div>
                   );
                 })}
@@ -315,9 +318,9 @@ const TripPage = () => {
                     <div key={i} className="flex gap-4 md:gap-6 py-4 border-b border-gray-200 first:border-t">
                       <span className="text-3xl md:text-4xl font-serif text-[#c9a96e]/40 leading-none w-10 md:w-12 shrink-0">{String(d.n).padStart(2, '0')}</span>
                       <div className="min-w-0">
-                        <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-gray-400 mb-1 font-sans">{d.date}{d.dayTitle ? ` · ${d.dayTitle}` : ''}</p>
-                        <h4 className="text-base md:text-lg font-serif mb-1 leading-snug">{d.title}</h4>
-                        <p className="text-xs italic text-gray-400 font-sans">{[d.meals, d.lodging].filter((x) => x && x !== '—').join(' · ')}</p>
+                        <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-gray-400 mb-1 font-sans">{tr(d.date)}{d.dayTitle ? ` · ${tr(d.dayTitle)}` : ''}</p>
+                        <h4 className="text-base md:text-lg font-serif mb-1 leading-snug">{tr(d.title)}</h4>
+                        <p className="text-xs italic text-gray-400 font-sans">{[tr(d.meals), tr(d.lodging)].filter((x) => x && x !== '—').join(' · ')}</p>
                       </div>
                     </div>
                   ))}
@@ -328,18 +331,18 @@ const TripPage = () => {
                   <div className="border border-gray-300 p-6 md:p-8 bg-white">
                     <p className="text-[11px] tracking-[0.2em] uppercase text-[#c9a96e] mb-3 font-sans">★★★★★ {t('trip.villaCardTitle')}</p>
                     <h3 className="text-2xl font-serif mb-1">{lodging.name}</h3>
-                    {lodging.location && <p className="text-xs text-gray-500 mb-5 font-sans">{lodging.location}</p>}
+                    {lodging.location && <p className="text-xs text-gray-500 mb-5 font-sans">{tr(lodging.location)}</p>}
                     {specs.length > 0 ? (
                       <dl className="divide-y divide-gray-100">
                         {specs.map((s, i) => (
                           <div key={i} className="flex gap-4 py-2.5">
-                            <dt className="w-16 md:w-20 shrink-0 text-[10px] font-bold tracking-widest uppercase text-gray-400 pt-1 font-sans">{s.label}</dt>
-                            <dd className="text-sm text-gray-700 font-light font-sans">{s.value}</dd>
+                            <dt className="w-16 md:w-20 shrink-0 text-[10px] font-bold tracking-widest uppercase text-gray-400 pt-1 font-sans">{tr(s.label)}</dt>
+                            <dd className="text-sm text-gray-700 font-light font-sans">{tr(s.value)}</dd>
                           </div>
                         ))}
                       </dl>
                     ) : (
-                      lodging.intro && <p className="text-sm text-gray-600 font-light leading-relaxed font-sans">{lodging.intro}</p>
+                      lodging.intro && <p className="text-sm text-gray-600 font-light leading-relaxed font-sans">{tr(lodging.intro)}</p>
                     )}
                   </div>
                 )}
@@ -394,19 +397,19 @@ const TripPage = () => {
                     <div className="flex items-baseline gap-4 mb-3">
                       <span className="text-5xl md:text-6xl font-serif text-[#c9a96e]/30 leading-none">{String(d.n).padStart(2, '0')}</span>
                       <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-gray-400 font-sans">
-                        {d.date} · {t('trip.day')} {d.n}
+                        {tr(d.date)} · {t('trip.day')} {d.n}
                       </p>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-serif mb-5 leading-snug">{d.title}</h3>
-                    <p className="text-gray-600 font-light leading-relaxed font-sans mb-5">{d.body}</p>
+                    <h3 className="text-2xl md:text-3xl font-serif mb-5 leading-snug">{tr(d.title)}</h3>
+                    <p className="text-gray-600 font-light leading-relaxed font-sans mb-5">{tr(d.body)}</p>
                     <p className="text-xs uppercase tracking-widest text-gray-400 font-sans border-t border-gray-100 pt-4 mb-6">
-                      {d.meals && <span><span className="text-[#c9a96e]">{t('trip.meals')}:</span> {d.meals}</span>}
+                      {d.meals && <span><span className="text-[#c9a96e]">{t('trip.meals')}:</span> {tr(d.meals)}</span>}
                       {d.meals && d.lodging && d.lodging !== '—' && <span className="mx-2">·</span>}
-                      {d.lodging && d.lodging !== '—' && <span><span className="text-[#c9a96e]">{t('trip.lodgingLabel')}:</span> {d.lodging}</span>}
+                      {d.lodging && d.lodging !== '—' && <span><span className="text-[#c9a96e]">{t('trip.lodgingLabel')}:</span> {tr(d.lodging)}</span>}
                     </p>
                     {d.image && (
                       <div className="h-[240px] sm:h-[320px] md:h-[420px] overflow-hidden rounded-sm shadow-md">
-                        <img src={d.image} alt={d.title} className="w-full h-full object-cover" style={{ objectPosition: d.imgPos || 'center' }} />
+                        <img src={d.image} alt={tr(d.title)} className="w-full h-full object-cover" style={{ objectPosition: d.imgPos || 'center' }} />
                       </div>
                     )}
                   </motion.div>
@@ -421,18 +424,18 @@ const TripPage = () => {
           <section className="bg-[#fafafa] py-20 md:py-32 px-6">
             <div className="max-w-7xl mx-auto">
               <div className="mb-12 text-center">
-                <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-4 font-sans">{lodging.eyebrow || t('trip.lodging')}</span>
+                <span className="block text-[#c9a96e] text-xs font-bold tracking-[0.2em] uppercase mb-4 font-sans">{tr(lodging.eyebrow) || t('trip.lodging')}</span>
                 <h2 className="text-3xl md:text-4xl font-serif mb-6">{lodging.name}</h2>
-                {lodging.intro && <p className="max-w-2xl mx-auto text-gray-600 font-light leading-relaxed font-sans">{lodging.intro}</p>}
+                {lodging.intro && <p className="max-w-2xl mx-auto text-gray-600 font-light leading-relaxed font-sans">{tr(lodging.intro)}</p>}
               </div>
               {Array.isArray(lodging.gallery) && lodging.gallery.length > 0 && (
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                   {lodging.gallery.map((g, i) => (
                     <div key={i} className="group relative aspect-[3/4] overflow-hidden rounded-sm shadow-sm">
-                      <img src={g.image} alt={g.caption || lodging.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <img src={g.image} alt={tr(g.caption) || lodging.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       {g.caption && (
                         <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/50 to-transparent">
-                          <span className="text-white text-xs tracking-widest uppercase p-4 font-sans">{g.caption}</span>
+                          <span className="text-white text-xs tracking-widest uppercase p-4 font-sans">{tr(g.caption)}</span>
                         </div>
                       )}
                     </div>
@@ -463,7 +466,7 @@ const TripPage = () => {
                 {includes.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 p-5 bg-[#fafafa] border border-gray-100 rounded-[6px] hover:border-[#c9a96e]/40 transition-colors duration-300">
                     <Check className="w-4 h-4 text-[#c9a96e] mt-0.5 shrink-0" />
-                    <span className="text-sm font-light text-gray-700 leading-snug font-sans">{item}</span>
+                    <span className="text-sm font-light text-gray-700 leading-snug font-sans">{tr(item)}</span>
                   </div>
                 ))}
               </div>
@@ -475,7 +478,7 @@ const TripPage = () => {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3">
                   {excludes.map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm font-light text-gray-500 font-sans">
-                      <XIcon className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" /><span>{item}</span>
+                      <XIcon className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" /><span>{tr(item)}</span>
                     </li>
                   ))}
                 </ul>
@@ -484,7 +487,7 @@ const TripPage = () => {
 
             {exp.disclaimer && (
               <p className="mt-16 text-xs text-gray-400 font-light leading-relaxed font-sans border-t border-gray-100 pt-8 max-w-3xl">
-                {exp.disclaimer}
+                {tr(exp.disclaimer)}
               </p>
             )}
           </section>

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, MessageCircle, Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { experiences } from '@/data/experiences';
+import { tx } from '@/data/tripI18n';
 import { waLink, trackWhatsApp } from '@/components/WhatsAppButton';
 import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/lib/customSupabaseClient';
@@ -11,7 +12,8 @@ import { supabase } from '@/lib/customSupabaseClient';
 // Home "Where are we going?" banner with two tabs: the next live trip + coming soon.
 // The tabs auto-toggle every 4s until the visitor clicks one (then they stay put).
 const TripsShowcase = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = (i18n.language || 'en').slice(0, 2);
   const { toast } = useToast();
   const [tab, setTab] = useState('upcoming');
   const [autoToggle, setAutoToggle] = useState(true);
@@ -123,7 +125,7 @@ const TripsShowcase = () => {
           {tab === 'upcoming' ? (
             <motion.div key="upcoming" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.4 }} className="space-y-8">
               {liveTrips.map((trip) => {
-                const monthBadge = trip.stats?.find((s) => s.label === 'SALIDA')?.value || trip.dates || '';
+                const monthBadge = tx(trip.stats?.find((s) => s.label === 'SALIDA')?.value || trip.dates || '', lang);
                 const tripMsg = t('whatsapp.tripMessage', { region: trip.hero?.title || trip.title, dates: trip.dates || '' });
                 return (
                   <div key={trip.id} className="grid md:grid-cols-2 border border-gray-200 overflow-hidden">
