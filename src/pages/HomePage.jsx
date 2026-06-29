@@ -80,6 +80,14 @@ const HomePage = () => {
           </motion.div>
         </section>
 
+        {/* ¿A Dónde Vamos? — trips first, so visitors see the bookable journeys immediately */}
+        <TripsShowcase />
+
+        {/* Destination Slider */}
+        <section className="relative">
+          <DestinationSlider />
+        </section>
+
         {/* What Sets Us Apart — compact single row */}
         <section className="py-20 md:py-28 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
@@ -113,14 +121,6 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-
-        {/* Destination Slider */}
-        <section className="relative">
-          <DestinationSlider />
-        </section>
-
-        {/* Trips banner with 2 tabs */}
-        <TripsShowcase />
 
         {/* How it works */}
         <section className="py-20 md:py-32 px-6 bg-[#fafafa]">
